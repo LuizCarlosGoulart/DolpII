@@ -1,0 +1,262 @@
+version: "1.0"
+fields:
+  - internal_name: nfse_number
+    category: note_identification
+    description: Official NFS-e number displayed on the note.
+    type: string
+    required: true
+    expected_format: "Numeric or alphanumeric string as issued by the municipality."
+    aliases: ["numero_nota", "numero_nfse", "nfs-e", "nro nota"]
+    example_values: ["12345", "NF2024-000123"]
+    validation_hints: ["Should be non-empty and stable across outputs.", "Prefer values near verification code and issue date."]
+    context_hints: ["Usually appears in the header area.", "Often preceded by Numero or NFS-e."]
+  - internal_name: verification_code
+    category: note_identification
+    description: Municipal verification or authenticity code for the NFS-e.
+    type: string
+    required: true
+    expected_format: "Short alphanumeric token, often uppercase."
+    aliases: ["codigo_verificacao", "codigo de verificacao", "autenticidade"]
+    example_values: ["AB12CD34", "9F7K2L"]
+    validation_hints: ["Usually unique per note.", "Normalize whitespace and punctuation before comparison."]
+    context_hints: ["Often printed close to the NFS-e number.", "May appear near authenticity instructions."]
+  - internal_name: issue_date
+    category: note_identification
+    description: Date when the NFS-e was issued.
+    type: date
+    required: true
+    expected_format: "DD/MM/YYYY or normalized ISO date."
+    aliases: ["data_emissao", "emissao", "issued_at"]
+    example_values: ["15/04/2026", "2026-04-15"]
+    validation_hints: ["Should parse as a valid calendar date.", "Should not be later than processing date in normal scenarios."]
+    context_hints: ["Often appears near note number.", "May share a line with issuance time."]
+  - internal_name: competence_date
+    category: note_identification
+    description: Competence or service period reference date.
+    type: date
+    required: false
+    expected_format: "DD/MM/YYYY, MM/YYYY, or normalized date string."
+    aliases: ["competencia", "data_competencia", "periodo_competencia"]
+    example_values: ["04/2026", "15/04/2026"]
+    validation_hints: ["May be month-year only.", "Do not infer from issue date unless rules require it."]
+    context_hints: ["Often near issue date.", "May appear under Competencia or Periodo."]
+  - internal_name: provider_name
+    category: provider
+    description: Legal or trade name of the service provider.
+    type: string
+    required: true
+    expected_format: "Free text legal entity or individual name."
+    aliases: ["prestador", "razao_social_prestador", "nome_prestador"]
+    example_values: ["ACME SERVICOS LTDA", "JOAO DA SILVA"]
+    validation_hints: ["Prefer the provider block.", "Should be consistent with provider document."]
+    context_hints: ["Usually in the Prestador section.", "Often near CNPJ/CPF and municipal registration."]
+  - internal_name: provider_document
+    category: provider
+    description: CNPJ or CPF of the service provider.
+    type: document_id
+    required: true
+    expected_format: "Brazilian CPF or CNPJ with or without punctuation."
+    aliases: ["cnpj_prestador", "cpf_prestador", "documento_prestador"]
+    example_values: ["12.345.678/0001-90", "12345678000190"]
+    validation_hints: ["Normalize punctuation before validation.", "Must pass CPF/CNPJ checksum when validation is enabled."]
+    context_hints: ["Usually below provider name.", "Often near CNPJ, CPF, or Documento labels."]
+  - internal_name: provider_municipal_registration
+    category: provider
+    description: Municipal registration of the service provider.
+    type: string
+    required: false
+    expected_format: "Municipality-specific registration identifier."
+    aliases: ["inscricao_municipal_prestador", "im_prestador", "ccm_prestador"]
+    example_values: ["123456", "CCM-00987"]
+    validation_hints: ["Preserve alphanumeric characters when needed.", "Treat as optional."]
+    context_hints: ["Usually in the provider section.", "Can appear near document and address."]
+  - internal_name: recipient_name
+    category: recipient
+    description: Legal or trade name of the service recipient.
+    type: string
+    required: true
+    expected_format: "Free text legal entity or individual name."
+    aliases: ["tomador", "razao_social_tomador", "nome_tomador"]
+    example_values: ["CLIENTE EXEMPLO LTDA", "MARIA OLIVEIRA"]
+    validation_hints: ["Prefer the recipient block.", "Should align with recipient document when both exist."]
+    context_hints: ["Usually in the Tomador section.", "Often grouped with address and document."]
+  - internal_name: recipient_document
+    category: recipient
+    description: CNPJ or CPF of the service recipient.
+    type: document_id
+    required: false
+    expected_format: "Brazilian CPF or CNPJ with or without punctuation."
+    aliases: ["cnpj_tomador", "cpf_tomador", "documento_tomador"]
+    example_values: ["98.765.432/0001-10", "98765432000110"]
+    validation_hints: ["Normalize punctuation before validation.", "Optional because some layouts suppress it."]
+    context_hints: ["Usually below recipient name.", "Commonly near CNPJ, CPF, or Documento labels."]
+  - internal_name: recipient_municipal_registration
+    category: recipient
+    description: Municipal registration of the recipient when present.
+    type: string
+    required: false
+    expected_format: "Municipality-specific registration identifier."
+    aliases: ["inscricao_municipal_tomador", "im_tomador", "ccm_tomador"]
+    example_values: ["554433", "CCM-12345"]
+    validation_hints: ["Keep optional because many notes omit it.", "Do not confuse with provider registration."]
+    context_hints: ["Usually in the recipient block.", "May appear after recipient document."]
+  - internal_name: service_description
+    category: service
+    description: Human-readable description of the provided service.
+    type: string
+    required: true
+    expected_format: "Free text, possibly multi-line."
+    aliases: ["discriminacao", "descricao_servico", "servicos_prestados"]
+    example_values: ["Prestacao de servicos de consultoria.", "Suporte tecnico mensal."]
+    validation_hints: ["Preserve line breaks only if needed downstream.", "Trim boilerplate consultation text if it leaks in."]
+    context_hints: ["Usually in the Discriminacao dos Servicos section.", "Often occupies the largest text block."]
+  - internal_name: service_code
+    category: service
+    description: Municipal or LC116 service code associated with the service.
+    type: string
+    required: false
+    expected_format: "Numeric or dotted classification code."
+    aliases: ["codigo_servico", "item_lista_servico", "cod_servico"]
+    example_values: ["17.01", "1401"]
+    validation_hints: ["Preserve dots when classification format uses them.", "Treat as optional because some notes omit it."]
+    context_hints: ["Usually near the service description.", "May be labeled Item da Lista de Servicos."]
+  - internal_name: service_city
+    category: service
+    description: City associated with service provision or taxation.
+    type: string
+    required: false
+    expected_format: "Brazilian municipality name."
+    aliases: ["municipio_prestacao", "cidade_servico", "municipio_incidente"]
+    example_values: ["Sao Paulo", "Campinas"]
+    validation_hints: ["Keep separate from provider and recipient city references.", "Optional because layouts differ."]
+    context_hints: ["Often in service or taxation section.", "May appear next to municipality code."]
+  - internal_name: gross_amount
+    category: taxation_values
+    description: Gross service amount before discounts and retentions.
+    type: decimal
+    required: true
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_servicos", "valor_bruto", "valor_total_servicos"]
+    example_values: ["1.250,00", "1250.00"]
+    validation_hints: ["Normalize decimal separators.", "Should be greater than or equal to net amount."]
+    context_hints: ["Usually in the tax/value summary table.", "Often labeled Valor dos Servicos."]
+  - internal_name: taxable_amount
+    category: taxation_values
+    description: Tax base used to calculate ISS or related taxes.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["base_calculo", "base_iss", "base_de_calculo"]
+    example_values: ["1.250,00", "1250.00"]
+    validation_hints: ["Optional because some layouts imply it.", "Should be coherent with rate and tax amount."]
+    context_hints: ["Usually near ISS rate and amount.", "May appear in taxation breakdown tables."]
+  - internal_name: iss_rate
+    category: taxation_values
+    description: ISS tax rate applied to the note.
+    type: percentage
+    required: false
+    expected_format: "Percentage value with or without percent sign."
+    aliases: ["aliquota_iss", "aliquota", "taxa_iss"]
+    example_values: ["5%", "2,00"]
+    validation_hints: ["Normalize percent symbols and decimals.", "Optional because some notes only show amount."]
+    context_hints: ["Usually adjacent to ISS amount.", "Often appears in taxation summary tables."]
+  - internal_name: iss_amount
+    category: taxation_values
+    description: ISS amount charged or calculated for the note.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_iss", "iss", "imposto_iss"]
+    example_values: ["62,50", "62.50"]
+    validation_hints: ["Should be coherent with taxable amount and rate.", "Differentiate from ISS retained amount."]
+    context_hints: ["Usually in the taxation summary.", "Often near ISS rate or retention indicators."]
+  - internal_name: unconditional_discount
+    category: discounts_retentions
+    description: Discount applied regardless of payment condition.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["desconto_incondicionado", "desc_incond", "vl_desc_incond"]
+    example_values: ["50,00", "50.00"]
+    validation_hints: ["Default to absent rather than zero when not explicit.", "Must not exceed gross amount."]
+    context_hints: ["Usually in the values table.", "May appear near conditional discount."]
+  - internal_name: conditional_discount
+    category: discounts_retentions
+    description: Discount dependent on payment or contractual conditions.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["desconto_condicionado", "desc_cond", "vl_desc_cond"]
+    example_values: ["10,00", "10.00"]
+    validation_hints: ["Keep separate from unconditional discount.", "Default to absent rather than zero when not explicit."]
+    context_hints: ["Usually appears in the values table.", "Often close to unconditional discount."]
+  - internal_name: pis_withheld_amount
+    category: discounts_retentions
+    description: PIS amount withheld on the note.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_pis", "pis_retido", "retencao_pis"]
+    example_values: ["8,13", "8.13"]
+    validation_hints: ["Optional because many notes omit it.", "Do not merge with non-withheld contribution values."]
+    context_hints: ["Usually in the retention breakdown.", "Often grouped with COFINS, INSS, IR, and CSLL."]
+  - internal_name: cofins_withheld_amount
+    category: discounts_retentions
+    description: COFINS amount withheld on the note.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_cofins", "cofins_retido", "retencao_cofins"]
+    example_values: ["37,50", "37.50"]
+    validation_hints: ["Optional because many notes omit it.", "Keep separate from PIS and CSLL values."]
+    context_hints: ["Usually in the retention breakdown.", "Often adjacent to PIS and CSLL."]
+  - internal_name: inss_withheld_amount
+    category: discounts_retentions
+    description: INSS amount withheld on the note.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_inss", "inss_retido", "retencao_inss"]
+    example_values: ["100,00", "100.00"]
+    validation_hints: ["Optional because not every note has INSS retention.", "Keep separate from ISS retention."]
+    context_hints: ["Usually in the retention breakdown.", "Often appears with other federal retentions."]
+  - internal_name: ir_withheld_amount
+    category: discounts_retentions
+    description: IR amount withheld on the note.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_ir", "ir_retido", "retencao_ir"]
+    example_values: ["25,00", "25.00"]
+    validation_hints: ["Optional because not every note has IR retention.", "Avoid confusing with ISS amount."]
+    context_hints: ["Usually in the retention breakdown.", "May appear as IRRF on some layouts."]
+  - internal_name: csll_withheld_amount
+    category: discounts_retentions
+    description: CSLL amount withheld on the note.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_csll", "csll_retido", "retencao_csll"]
+    example_values: ["12,50", "12.50"]
+    validation_hints: ["Optional because many notes omit it.", "Keep distinct from COFINS and PIS."]
+    context_hints: ["Usually in the retention breakdown.", "Often close to PIS and COFINS."]
+  - internal_name: iss_withheld_amount
+    category: discounts_retentions
+    description: ISS amount withheld at source when retention applies.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["iss_retido", "valor_iss_retido", "retencao_iss"]
+    example_values: ["62,50", "62.50"]
+    validation_hints: ["Differentiate from standard ISS amount.", "Often present only when retention applies."]
+    context_hints: ["Usually near ISS amount or retention summary.", "May be labeled ISS Retido."]
+  - internal_name: net_amount
+    category: net_amount
+    description: Final payable amount after discounts and retentions.
+    type: decimal
+    required: true
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_liquido", "liquido_nfse", "valor_liquido_nota"]
+    example_values: ["1.029,87", "1029.87"]
+    validation_hints: ["Should be coherent with gross amount, discounts, and retentions.", "Prefer explicit field over computed inference."]
+    context_hints: ["Usually at the bottom of the values summary.", "Often labeled Valor Liquido da Nota."]

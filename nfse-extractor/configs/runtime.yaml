@@ -1,0 +1,11 @@
+version: "1.0"
+defaults:
+  locale: "pt-BR"
+  currency: "BRL"
+  decimal_separator: ","
+  thousands_separator: "."
+  date_formats:
+    - "%d/%m/%Y"
+    - "%m/%Y"
+  notebook_mode: true
+  colab_mode: true

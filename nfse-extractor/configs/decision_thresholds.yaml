@@ -1,0 +1,9 @@
+version: "1.0"
+thresholds:
+  minimum_field_confidence: 0.60
+  ambiguity_delta: 0.10
+  minimum_decision_score: 0.70
+  minimum_critical_field_coverage: 0.80
+  minimum_completeness_score: 0.80
+  maximum_error_issues: 0
+  maximum_warning_issues: 3

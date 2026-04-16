@@ -1,0 +1,11 @@
+version: "1.0"
+critical_fields:
+  - nfse_number
+  - verification_code
+  - issue_date
+  - provider_name
+  - provider_document
+  - recipient_name
+  - service_description
+  - gross_amount
+  - net_amount

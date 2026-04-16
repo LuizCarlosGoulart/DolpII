@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nfse-extractor"
+version = "0.1.0"
+description = "Modular project for NFS-e extraction and OCR engine comparison."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pillow>=10,<12",
+    "pydantic>=2.7,<3",
+    "pytesseract>=0.3.10,<0.4",
+    "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<9",
+]
+notebooks = [
+    "ipykernel>=6,<7",
+    "jupyter>=1,<2",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]

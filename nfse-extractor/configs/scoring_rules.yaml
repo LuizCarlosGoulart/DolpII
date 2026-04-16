@@ -1,0 +1,53 @@
+version: "1.0"
+evidence_weights:
+  alias_match: 0.35
+  regex_pattern_match: 0.25
+  positional_context_match: 0.20
+  section_context_match: 0.20
+heuristics:
+  same_block_boost: 0.75
+  section_keywords:
+    provider:
+      - prestador
+      - emitente
+      - fornecedor
+    recipient:
+      - tomador
+      - destinatario
+      - cliente
+      - sacado
+    service:
+      - servico
+      - discriminacao
+      - descricao
+    taxation_values:
+      - valor
+      - tribut
+      - imposto
+      - iss
+      - retenc
+    discounts_retentions:
+      - desconto
+      - retenc
+      - pis
+      - cofins
+      - inss
+      - ir
+      - csll
+    note_identification:
+      - nota
+      - nfse
+      - verificacao
+      - emissao
+      - competencia
+    net_amount:
+      - liquido
+      - valor liquido
+confidence_weights:
+  engine_confidence: 0.50
+  cross_signal_agreement: 0.30
+  validation_bonus: 0.20
+penalties:
+  missing_critical_field: 0.40
+  validation_error: 0.25
+  section_conflict: 0.15
