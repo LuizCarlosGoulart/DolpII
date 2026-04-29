@@ -87,7 +87,7 @@ def test_preprocess_document_can_infer_media_type_from_path(tmp_path: Path) -> N
     assert result.metadata["source_kind"] == "image"
 
 
-def test_preprocess_document_requires_converter_for_pdf(tmp_path: Path) -> None:
+def test_preprocess_document_uses_default_pdf_converter(tmp_path: Path) -> None:
     pdf_path = tmp_path / "note.pdf"
     pdf_path.write_bytes(b"%PDF-1.4\n")
     document = Document(
@@ -96,8 +96,16 @@ def test_preprocess_document_requires_converter_for_pdf(tmp_path: Path) -> None:
         media_type="application/pdf",
     )
 
-    with pytest.raises(ValueError, match="PDF converter"):
-        preprocess_document(document)
+    with patch(
+        "src.preprocessing.pdf.PyMuPdfPdfToImageConverter.convert",
+        return_value=[FakeImage("page-1")],
+    ) as convert:
+        result = preprocess_document(document)
+
+    convert.assert_called_once_with(pdf_path.resolve())
+    assert result.metadata["page_count"] == 1
+    assert result.metadata["source_kind"] == "pdf"
+    assert result.metadata["used_pdf_converter"] is True
 
 
 def test_preprocess_document_requires_source_uri() -> None:

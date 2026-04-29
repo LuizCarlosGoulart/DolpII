@@ -100,7 +100,9 @@ def preprocess_document(
 
     if media_type == "application/pdf":
         if pdf_converter is None:
-            raise ValueError("A PDF converter is required for PDF preprocessing.")
+            from .pdf import PyMuPdfPdfToImageConverter
+
+            pdf_converter = PyMuPdfPdfToImageConverter()
         raw_images = pdf_converter.convert(path)
         source_kind = "pdf"
     elif media_type and media_type.startswith("image/"):

@@ -7,10 +7,12 @@ from .pipeline import (
     PreprocessedPage,
     preprocess_document,
 )
+from .pdf import PyMuPdfPdfToImageConverter
 
 __all__ = [
     "ImageNormalizationHook",
     "PdfToImageConverter",
+    "PyMuPdfPdfToImageConverter",
     "PreprocessedDocument",
     "PreprocessedPage",
     "preprocess_document",
