@@ -1,6 +1,5 @@
 """Core domain models and shared contracts."""
 
-from .experiment_runner import ExperimentComparisonRunner
 from .field_dictionary import (
     CanonicalFieldDefinition,
     FieldDictionary,
@@ -43,3 +42,11 @@ __all__ = [
     "default_field_dictionary_path",
     "load_field_dictionary",
 ]
+
+
+def __getattr__(name: str):
+    if name == "ExperimentComparisonRunner":
+        from .experiment_runner import ExperimentComparisonRunner
+
+        return ExperimentComparisonRunner
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
