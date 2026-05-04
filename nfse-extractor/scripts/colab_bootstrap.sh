@@ -6,7 +6,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 apt-get update
-apt-get install -y tesseract-ocr
+apt-get install -y tesseract-ocr tesseract-ocr-por
 
 python -m pip install --upgrade pip
 cd "$ROOT_DIR"
