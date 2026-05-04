@@ -1,5 +1,9 @@
 version: "1.0"
 patterns:
+  nfse_number:
+    - "\\b\\d{1,12}\\b"
+  nfse_series:
+    - "\\b[A-Z0-9]{1,6}\\b"
   issue_date:
     - "\\b\\d{2}/\\d{2}/\\d{4}\\b"
   competence_date:
@@ -10,13 +14,28 @@ patterns:
     - "\\b\\d{14}\\b"
     - "\\b\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}\\b"
     - "\\b\\d{11}\\b"
+  provider_email:
+    - "\\b[^@\\s]+@[^@\\s]+\\.[^@\\s]+\\b"
+  provider_uf:
+    - "\\b[A-Z]{2}\\b"
+  provider_phone:
+    - "\\b\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}\\b"
   recipient_document:
     - "\\b\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2}\\b"
     - "\\b\\d{14}\\b"
     - "\\b\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}\\b"
     - "\\b\\d{11}\\b"
+  recipient_email:
+    - "\\b[^@\\s]+@[^@\\s]+\\.[^@\\s]+\\b"
+  recipient_uf:
+    - "\\b[A-Z]{2}\\b"
+  recipient_phone:
+    - "\\b\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}\\b"
   verification_code:
     - "\\b[A-Z0-9]{5,12}\\b"
+  service_code:
+    - "\\b\\d{2}\\.\\d{2}\\.\\d{2}\\b"
+    - "\\b\\d{1,2}\\.\\d{2}\\b"
   gross_amount:
     - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
     - "\\b\\d+(?:\\.\\d{2})\\b"
@@ -26,7 +45,39 @@ patterns:
   iss_amount:
     - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
     - "\\b\\d+(?:\\.\\d{2})\\b"
+  iss_rate:
+    - "\\b\\d{1,2}(?:,\\d{1,4})?%?\\b"
   iss_withheld_amount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  unconditional_discount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  conditional_discount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  pis_withheld_amount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  cofins_withheld_amount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  inss_withheld_amount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  ir_withheld_amount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  csll_withheld_amount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  social_contributions_withheld_amount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  other_retentions_amount:
+    - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
+    - "\\b\\d+(?:\\.\\d{2})\\b"
+  deductions_amount:
     - "\\b\\d{1,3}(?:\\.\\d{3})*,\\d{2}\\b"
     - "\\b\\d+(?:\\.\\d{2})\\b"
   net_amount:

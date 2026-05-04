@@ -6,10 +6,20 @@ fields:
     type: string
     required: true
     expected_format: "Numeric or alphanumeric string as issued by the municipality."
-    aliases: ["numero_nota", "numero_nfse", "nfs-e", "nro nota"]
+    aliases: ["numero_nota", "numero_nfse", "numero da nota fiscal", "numero da nfs-e", "nfs-e", "nro nota"]
     example_values: ["12345", "NF2024-000123"]
     validation_hints: ["Should be non-empty and stable across outputs.", "Prefer values near verification code and issue date."]
     context_hints: ["Usually appears in the header area.", "Often preceded by Numero or NFS-e."]
+  - internal_name: nfse_series
+    category: note_identification
+    description: Official NFS-e series when the layout exposes it separately.
+    type: string
+    required: true
+    expected_format: "Short alphanumeric series code."
+    aliases: ["serie", "serie_nfse", "serie da nfs-e", "serie da nota"]
+    example_values: ["E", "1", "A"]
+    validation_hints: ["Keep separate from NFS-e number.", "Do not infer when no explicit series exists."]
+    context_hints: ["Usually appears near the NFS-e number in the header."]
   - internal_name: verification_code
     category: note_identification
     description: Municipal verification or authenticity code for the NFS-e.
@@ -70,6 +80,46 @@ fields:
     example_values: ["123456", "CCM-00987"]
     validation_hints: ["Preserve alphanumeric characters when needed.", "Treat as optional."]
     context_hints: ["Usually in the provider section.", "Can appear near document and address."]
+  - internal_name: provider_address
+    category: provider
+    description: Address of the service provider.
+    type: string
+    required: true
+    expected_format: "Free text address, possibly split across street, number, neighborhood, city, UF, and CEP."
+    aliases: ["endereco_prestador", "endereco do prestador", "logradouro_prestador"]
+    example_values: ["RUA EXEMPLO, 123 - CENTRO"]
+    validation_hints: ["Preserve explicit street and number when present.", "Do not merge with recipient address."]
+    context_hints: ["Usually in the provider section near municipality, UF, and CEP."]
+  - internal_name: provider_email
+    category: provider
+    description: Email address of the service provider.
+    type: email
+    required: false
+    expected_format: "Email address."
+    aliases: ["email_prestador", "e-mail prestador", "email"]
+    example_values: ["contato@empresa.com.br"]
+    validation_hints: ["Validate basic email format.", "Treat OCR substitutions such as Q for @ as low confidence."]
+    context_hints: ["Usually in the provider section near phone."]
+  - internal_name: provider_uf
+    category: provider
+    description: Brazilian UF of the service provider.
+    type: string
+    required: true
+    expected_format: "Two-letter Brazilian UF code."
+    aliases: ["uf_prestador", "uf do prestador", "estado_prestador"]
+    example_values: ["SC", "SP"]
+    validation_hints: ["Must be a valid Brazilian UF code."]
+    context_hints: ["Usually near provider municipality and CEP."]
+  - internal_name: provider_phone
+    category: provider
+    description: Phone number of the service provider.
+    type: phone
+    required: false
+    expected_format: "Brazilian phone number with or without punctuation."
+    aliases: ["telefone_prestador", "fone_prestador", "telefone"]
+    example_values: ["4730374700", "(47) 3037-4700"]
+    validation_hints: ["Validate as plausible Brazilian phone digits.", "Do not confuse with document numbers."]
+    context_hints: ["Usually in the provider section near email."]
   - internal_name: recipient_name
     category: recipient
     description: Legal or trade name of the service recipient.
@@ -100,6 +150,46 @@ fields:
     example_values: ["554433", "CCM-12345"]
     validation_hints: ["Keep optional because many notes omit it.", "Do not confuse with provider registration."]
     context_hints: ["Usually in the recipient block.", "May appear after recipient document."]
+  - internal_name: recipient_address
+    category: recipient
+    description: Address of the service recipient.
+    type: string
+    required: true
+    expected_format: "Free text address, possibly split across street, number, neighborhood, city, UF, and CEP."
+    aliases: ["endereco_tomador", "endereco do tomador", "logradouro_tomador"]
+    example_values: ["AV CLIENTE, 456 - CENTRO"]
+    validation_hints: ["Preserve explicit street and number when present.", "Do not merge with provider address."]
+    context_hints: ["Usually in the recipient section near municipality, UF, and CEP."]
+  - internal_name: recipient_email
+    category: recipient
+    description: Email address of the service recipient.
+    type: email
+    required: false
+    expected_format: "Email address."
+    aliases: ["email_tomador", "e-mail tomador", "email"]
+    example_values: ["financeiro@cliente.com.br"]
+    validation_hints: ["Validate basic email format.", "Keep optional when omitted by the layout."]
+    context_hints: ["Usually in the recipient section near phone."]
+  - internal_name: recipient_uf
+    category: recipient
+    description: Brazilian UF of the service recipient.
+    type: string
+    required: true
+    expected_format: "Two-letter Brazilian UF code."
+    aliases: ["uf_tomador", "uf do tomador", "estado_tomador"]
+    example_values: ["SC", "SP"]
+    validation_hints: ["Must be a valid Brazilian UF code."]
+    context_hints: ["Usually near recipient municipality and CEP."]
+  - internal_name: recipient_phone
+    category: recipient
+    description: Phone number of the service recipient.
+    type: phone
+    required: false
+    expected_format: "Brazilian phone number with or without punctuation."
+    aliases: ["telefone_tomador", "fone_tomador", "telefone"]
+    example_values: ["1140000000", "(11) 4000-0000"]
+    validation_hints: ["Validate as plausible Brazilian phone digits.", "Do not confuse with document numbers."]
+    context_hints: ["Usually in the recipient section near email."]
   - internal_name: service_description
     category: service
     description: Human-readable description of the provided service.
@@ -122,14 +212,24 @@ fields:
     context_hints: ["Usually near the service description.", "May be labeled Item da Lista de Servicos."]
   - internal_name: service_city
     category: service
-    description: City associated with service provision or taxation.
+    description: City associated with service provision, local service provision, or taxation incidence.
     type: string
     required: false
     expected_format: "Brazilian municipality name."
-    aliases: ["municipio_prestacao", "cidade_servico", "municipio_incidente"]
+    aliases: ["municipio_prestacao", "local_prestacao", "cidade_servico", "municipio_incidente", "municipio de incidencia", "local de prestacao"]
     example_values: ["Sao Paulo", "Campinas"]
     validation_hints: ["Keep separate from provider and recipient city references.", "Optional because layouts differ."]
     context_hints: ["Often in service or taxation section.", "May appear next to municipality code."]
+  - internal_name: operation_nature
+    category: service
+    description: Nature of the NFS-e operation or taxation mode.
+    type: string
+    required: true
+    expected_format: "Free text or municipality-specific operation code."
+    aliases: ["natureza_operacao", "natureza da operacao", "natureza"]
+    example_values: ["Tributacao no municipio", "Exigivel"]
+    validation_hints: ["Preserve the explicit layout value.", "Do not infer from municipality alone."]
+    context_hints: ["Usually near service taxation, ISS, or municipal incidence fields."]
   - internal_name: gross_amount
     category: taxation_values
     description: Gross service amount before discounts and retentions.
@@ -226,7 +326,7 @@ fields:
     type: decimal
     required: false
     expected_format: "Brazilian currency format or normalized decimal string."
-    aliases: ["valor_ir", "ir_retido", "retencao_ir"]
+    aliases: ["valor_ir", "ir_retido", "retencao_ir", "irrf", "prrf"]
     example_values: ["25,00", "25.00"]
     validation_hints: ["Optional because not every note has IR retention.", "Avoid confusing with ISS amount."]
     context_hints: ["Usually in the retention breakdown.", "May appear as IRRF on some layouts."]
@@ -240,6 +340,16 @@ fields:
     example_values: ["12,50", "12.50"]
     validation_hints: ["Optional because many notes omit it.", "Keep distinct from COFINS and PIS."]
     context_hints: ["Usually in the retention breakdown.", "Often close to PIS and COFINS."]
+  - internal_name: social_contributions_withheld_amount
+    category: discounts_retentions
+    description: Total social contributions retained when the layout reports a combined amount.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["contribuicoes_sociais_retidas", "contribuicoes sociais retidas", "csrf", "csrf_retido"]
+    example_values: ["58,13", "58.13"]
+    validation_hints: ["Keep separate from individual PIS, COFINS, and CSLL when both are present.", "Treat as optional."]
+    context_hints: ["Usually in the retention breakdown or values summary."]
   - internal_name: iss_withheld_amount
     category: discounts_retentions
     description: ISS amount withheld at source when retention applies.
@@ -250,6 +360,26 @@ fields:
     example_values: ["62,50", "62.50"]
     validation_hints: ["Differentiate from standard ISS amount.", "Often present only when retention applies."]
     context_hints: ["Usually near ISS amount or retention summary.", "May be labeled ISS Retido."]
+  - internal_name: other_retentions_amount
+    category: discounts_retentions
+    description: Other retained amounts not represented by a specific tax field.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["outras_retencoes", "outras retencoes", "outras_retencoes_amount"]
+    example_values: ["10,00", "10.00"]
+    validation_hints: ["Optional because many notes omit it.", "Do not merge with named retentions."]
+    context_hints: ["Usually in values or retention summary tables."]
+  - internal_name: deductions_amount
+    category: discounts_retentions
+    description: Deduction amount applied to the NFS-e tax base or service value.
+    type: decimal
+    required: false
+    expected_format: "Brazilian currency format or normalized decimal string."
+    aliases: ["valor_deducoes", "valor deducoes", "deducoes", "deducoes_base"]
+    example_values: ["100,00", "100.00"]
+    validation_hints: ["Optional because many notes omit it.", "Do not infer when only discounts are shown."]
+    context_hints: ["Usually near base calculation or value summary."]
   - internal_name: net_amount
     category: net_amount
     description: Final payable amount after discounts and retentions.
