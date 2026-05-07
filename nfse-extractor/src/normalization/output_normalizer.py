@@ -139,6 +139,10 @@ _SERVICE_DESCRIPTION_STOP_TOKENS = {
     "valores",
 }
 
+_NONZERO_TABLE_VALUE_REQUIRES_EXPLICIT_LABEL = {
+    "deductions_amount",
+}
+
 
 @dataclass(frozen=True)
 class _Line:
@@ -540,7 +544,17 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             return None
         if value_index >= len(value_matches):
             return None
-        return value_matches[value_index].group(0).strip()
+        value_match = value_matches[value_index]
+        value = value_match.group(0).strip()
+        if match.field_name == "iss_rate" and "%" not in value:
+            return None
+        if (
+            match.field_name in _NONZERO_TABLE_VALUE_REQUIRES_EXPLICIT_LABEL
+            and not _is_zero_money(value)
+            and _normalize(match.label_text) == "deducoes"
+        ):
+            return None
+        return value
 
     @staticmethod
     def _extract_ocr_corrected_email(value: str) -> str | None:
@@ -755,6 +769,11 @@ def _money_matches(value: str) -> list[re.Match[str]]:
             continue
         matches.append(match)
     return matches
+
+
+def _is_zero_money(value: str) -> bool:
+    digits = re.sub(r"\D", "", value)
+    return bool(digits) and set(digits) == {"0"}
 
 
 def _optional_int(value: object) -> int | None:

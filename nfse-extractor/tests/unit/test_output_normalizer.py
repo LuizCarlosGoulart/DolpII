@@ -293,6 +293,41 @@ def test_output_normalizer_does_not_assign_incomplete_financial_table_values() -
     assert _values_for(candidates, "net_amount") == ["R$ 230,00"]
 
 
+def test_output_normalizer_rejects_generic_nonzero_deductions_from_table_mapping() -> None:
+    document = Document(document_id="doc-generic-deductions")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(
+            document.document_id,
+            1,
+            2,
+            "Valor Total das Deducoes Desconto Incondicionado Base de Calculo Valor ISS",
+            y=26.0,
+        ),
+        *_line(document.document_id, 1, 3, "R$ 230,00 R$ 0,00 R$ 230,00 R$ 0,00", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "deductions_amount") == []
+    assert _values_for(candidates, "unconditional_discount") == ["R$ 0,00"]
+    assert _values_for(candidates, "taxable_amount") == ["R$ 230,00"]
+
+
+def test_output_normalizer_requires_percent_for_table_mapped_iss_rate() -> None:
+    document = Document(document_id="doc-table-rate")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "Base de Calculo Aliquota Valor ISS", y=26.0),
+        *_line(document.document_id, 1, 3, "R$ 230,00 0,00 R$ 0,00", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "taxable_amount") == ["R$ 230,00"]
+    assert _values_for(candidates, "iss_rate") == []
+
+
 def test_output_normalizer_maps_value_table_columns_to_fields() -> None:
     document = Document(document_id="doc-table")
     elements = [
