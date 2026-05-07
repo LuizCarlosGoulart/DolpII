@@ -120,6 +120,25 @@ _SECTION_ONLY_VALUES = {
     "do servicos",
 }
 
+_SERVICE_DESCRIPTION_STOP_TOKENS = {
+    "aliquota",
+    "base",
+    "codigo",
+    "cofins",
+    "deducoes",
+    "desconto",
+    "inss",
+    "iss",
+    "item",
+    "local",
+    "municipio",
+    "natureza",
+    "pis",
+    "retencoes",
+    "valor",
+    "valores",
+}
+
 
 @dataclass(frozen=True)
 class _Line:
@@ -257,6 +276,11 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             raw_value = self._clean_value(" ".join(element.text for element in value_elements))
             value = self._extract_typed_value(match.field_name, raw_value)
 
+            if value is None and match.field_name in _EMAIL_FIELDS:
+                value = self._extract_ocr_corrected_email(raw_value)
+                if value is not None:
+                    value_source = "ocr_corrected_email"
+
             if value is None:
                 value = self._extract_inline_value(match.field_name, line.text)
 
@@ -281,7 +305,13 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             if not value:
                 continue
             if not self._is_acceptable_value(match.field_name, value):
-                continue
+                if match.field_name != "service_description":
+                    continue
+                service_description = self._extract_service_description_after_header(line, line_index, lines)
+                if service_description is None:
+                    continue
+                value, value_elements = service_description
+                value_source = "following_service_lines"
 
             candidates.append(
                 self._build_candidate(
@@ -452,7 +482,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             match = _PATTERN_FIELD_HINTS["percentage"].search(value)
             return match.group(0) if match else None
         if field_name in _MONEY_FIELDS:
-            match = _PATTERN_FIELD_HINTS["money"].search(value)
+            match = next(iter(_money_matches(value)), None)
             return match.group(0).strip() if match else None
         if field_name == "verification_code":
             if "http" in value.lower() or "/" in value:
@@ -485,18 +515,25 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if match.field_name not in _MONEY_FIELDS and match.field_name != "iss_rate":
             return None
 
-        value_matches = list(_PATTERN_FIELD_HINTS["money"].finditer(next_line.text))
-        if match.field_name == "iss_rate":
-            value_matches = list(_PATTERN_FIELD_HINTS["percentage"].finditer(next_line.text))
-        if not value_matches:
-            return None
-
+        value_matches = _money_matches(next_line.text)
         table_matches = [
             item
             for item in matches
-            if item.field_name in _MONEY_FIELDS or item.field_name == "iss_rate"
+            if item.field_name in _MONEY_FIELDS
         ]
+        if match.field_name == "iss_rate":
+            value_matches = list(_PATTERN_FIELD_HINTS["percentage"].finditer(next_line.text))
+            table_matches = [
+                item
+                for item in matches
+                if item.field_name == "iss_rate"
+            ]
+        if not value_matches:
+            return None
+
         table_matches.sort(key=lambda item: item.end_element_index)
+        if len(value_matches) < len(table_matches):
+            return None
         try:
             value_index = table_matches.index(match)
         except ValueError:
@@ -504,6 +541,63 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if value_index >= len(value_matches):
             return None
         return value_matches[value_index].group(0).strip()
+
+    @staticmethod
+    def _extract_ocr_corrected_email(value: str) -> str | None:
+        value = re.sub(r"\s+", " ", value.strip())
+        if not value:
+            return None
+
+        patterns = (
+            r"\b([A-Za-z0-9._%+-]{2,}?)\s+[OQ0]([A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+)\b",
+            r"\b([A-Za-z0-9._%+-]{2,}?)[OQ0][)\]]?([A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+)\b",
+        )
+        for pattern in patterns:
+            match = re.search(pattern, value)
+            if not match:
+                continue
+            local_part, domain = match.groups()
+            if domain.lower().startswith("www."):
+                continue
+            return f"{local_part}@{domain}".lower()
+        return None
+
+    def _extract_service_description_after_header(
+        self,
+        line: _Line,
+        line_index: int,
+        lines: list[_Line],
+    ) -> tuple[str, list[ExtractedElement]] | None:
+        normalized_header = _normalize(line.text)
+        if "discriminacao" not in normalized_header:
+            return None
+
+        description_lines: list[_Line] = []
+        for nearby_line in lines[line_index + 1 : line_index + 7]:
+            normalized = _normalize(nearby_line.text)
+            if nearby_line.section != "service":
+                break
+            if normalized in _SECTION_ONLY_VALUES:
+                continue
+            tokens = _tokens(nearby_line.text)
+            if not tokens or tokens[0] in _SERVICE_DESCRIPTION_STOP_TOKENS:
+                continue
+            if len(tokens) < 3:
+                continue
+            if _PATTERN_FIELD_HINTS["money"].search(nearby_line.text):
+                break
+            description_lines.append(nearby_line)
+            if len(description_lines) >= 3:
+                break
+
+        if not description_lines:
+            return None
+
+        value = self._clean_value(" ".join(item.text for item in description_lines))
+        if not self._is_acceptable_value("service_description", value):
+            return None
+        elements = [element for item in description_lines for element in item.elements]
+        return value, elements
 
     @staticmethod
     def _can_scan_nearby(field_name: str) -> bool:
@@ -579,6 +673,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         confidence_values = [element.confidence for element in source_elements if element.confidence is not None]
         confidence = sum(confidence_values) / len(confidence_values) if confidence_values else 0.5
         confidence = max(0.0, min(confidence + confidence_boost, 1.0))
+        if value_source == "ocr_corrected_email":
+            confidence = min(confidence * 0.75, 0.7)
         value_hash = hashlib.sha1(value.encode("utf-8")).hexdigest()[:12]
         candidate_id = f"{document.document_id}:{self.normalizer_name}:{field_name}:{line_index}:{len(source_elements)}:{value_hash}"
 
@@ -601,6 +697,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                 "block_num": line.block_num,
                 "label_block_num": line.block_num,
                 "bounding_box": line.bounding_box,
+                "ocr_correction_applied": value_source == "ocr_corrected_email",
             },
         )
 
@@ -649,6 +746,15 @@ def _find_subsequence(values: list[str], expected: tuple[str, ...]) -> int | Non
         if tuple(values[index : index + len(expected)]) == expected:
             return index
     return None
+
+
+def _money_matches(value: str) -> list[re.Match[str]]:
+    matches: list[re.Match[str]] = []
+    for match in _PATTERN_FIELD_HINTS["money"].finditer(value):
+        if value[match.end() : match.end() + 1] == "%":
+            continue
+        matches.append(match)
+    return matches
 
 
 def _optional_int(value: object) -> int | None:

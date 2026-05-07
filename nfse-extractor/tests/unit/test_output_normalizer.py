@@ -224,6 +224,38 @@ def test_output_normalizer_rejects_service_description_header_without_content() 
     assert _values_for(candidates, "service_description") == []
 
 
+def test_output_normalizer_extracts_service_description_from_lines_after_header() -> None:
+    document = Document(document_id="doc-service-lines")
+    elements = [
+        *_line(document.document_id, 1, 1, "DISCRIMINACAO DO SERVICO", y=10.0),
+        *_line(document.document_id, 1, 2, "Consulta medica especializada em angiologia vascular", y=26.0),
+        *_line(document.document_id, 1, 3, "VALORES", y=42.0),
+        *_line(document.document_id, 1, 4, "Valor Total dos Servicos 230,00", y=58.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_description") == [
+        "Consulta medica especializada em angiologia vascular"
+    ]
+
+
+def test_output_normalizer_corrects_common_ocr_email_at_symbol_with_low_confidence() -> None:
+    document = Document(document_id="doc-ocr-email")
+    elements = [
+        *_line(document.document_id, 1, 1, "PRESTADOR", y=10.0),
+        *_line(document.document_id, 1, 2, "E-mail: fiscalObarbicontabil.com.br Telefone: 4734050730", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    provider_email = next(candidate for candidate in candidates if candidate.field_name == "provider_email")
+
+    assert provider_email.value == "fiscal@barbicontabil.com.br"
+    assert provider_email.confidence is not None and provider_email.confidence < 0.75
+    assert provider_email.metadata["value_source"] == "ocr_corrected_email"
+    assert provider_email.metadata["ocr_correction_applied"] is True
+
+
 def test_output_normalizer_rejects_implausible_integer_iss_rate_from_noisy_line() -> None:
     document = Document(document_id="doc-noisy-rate")
     elements = [
@@ -236,6 +268,29 @@ def test_output_normalizer_rejects_implausible_integer_iss_rate_from_noisy_line(
 
     assert _values_for(candidates, "taxable_amount") == ["R$230,00"]
     assert _values_for(candidates, "iss_rate") == []
+
+
+def test_output_normalizer_does_not_assign_incomplete_financial_table_values() -> None:
+    document = Document(document_id="doc-incomplete-table")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(
+            document.document_id,
+            1,
+            2,
+            "Valor Total das Deducoes Desconto Incondicionado Base de Calculo Aliquota",
+            y=26.0,
+        ),
+        *_line(document.document_id, 1, 3, "R$ 230,00", y=42.0),
+        *_line(document.document_id, 1, 4, "VALOR LIQUIDO DA NOTA R$ 230,00", y=58.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "deductions_amount") == []
+    assert _values_for(candidates, "unconditional_discount") == []
+    assert _values_for(candidates, "taxable_amount") == []
+    assert _values_for(candidates, "net_amount") == ["R$ 230,00"]
 
 
 def test_output_normalizer_maps_value_table_columns_to_fields() -> None:
