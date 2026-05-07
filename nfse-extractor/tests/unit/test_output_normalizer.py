@@ -68,6 +68,19 @@ def test_output_normalizer_separates_nfse_number_from_rps_and_generic_nfse_text(
     assert all("NFS" not in value.upper() for value in nfse_values)
 
 
+def test_output_normalizer_accepts_short_nfse_number_near_header_label() -> None:
+    document = Document(document_id="doc-short-number")
+    elements = [
+        *_line(document.document_id, 1, 1, "PREFEITURA MUNICIPAL Número da Nota Fiscal", y=10.0),
+        *_line(document.document_id, 1, 2, "16", y=26.0),
+        *_line(document.document_id, 1, 3, "Data Emissao 27/05/2014", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "nfse_number") == ["16"]
+
+
 def test_output_normalizer_finds_issue_date_near_label_without_using_label_tail() -> None:
     document = Document(document_id="doc-date-nearby")
     elements = [
@@ -79,6 +92,33 @@ def test_output_normalizer_finds_issue_date_near_label_without_using_label_tail(
     candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
 
     assert _values_for(candidates, "issue_date") == ["14/11/2021"]
+
+
+def test_output_normalizer_keeps_generation_date_out_of_issue_date_candidates() -> None:
+    document = Document(document_id="doc-dates")
+    elements = [
+        *_line(document.document_id, 1, 1, "Data Emissao 27/05/2014", y=10.0),
+        *_line(document.document_id, 1, 2, "Mes de Competencia 05/2014 Local do Recolhimento BALNEARIO CAMBORIU", y=26.0),
+        *_line(document.document_id, 1, 3, "Data Geracao 28/05/2014 17:11:00", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "issue_date") == ["27/05/2014"]
+    assert _values_for(candidates, "competence_date") == ["05/2014"]
+
+
+def test_output_normalizer_rejects_empty_municipal_registration_before_next_label() -> None:
+    document = Document(document_id="doc-empty-registration")
+    elements = [
+        *_line(document.document_id, 1, 1, "DADOS DO TOMADOR", y=10.0),
+        *_line(document.document_id, 1, 2, "CNPJ/CPF: 290.772.229-87 Insc. Municipal: Insc. Estadual:", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "recipient_document") == ["290.772.229-87"]
+    assert _values_for(candidates, "recipient_municipal_registration") == []
 
 
 def test_output_normalizer_keeps_provider_and_recipient_contexts_separate() -> None:
@@ -170,6 +210,32 @@ def test_output_normalizer_extracts_service_and_tax_fields_from_aliases() -> Non
     assert values["iss_withheld_amount"] == "20,00"
     assert values["ir_withheld_amount"] == "15,00"
     assert values["net_amount"] == "965,00"
+
+
+def test_output_normalizer_rejects_service_description_header_without_content() -> None:
+    document = Document(document_id="doc-service-header")
+    elements = [
+        *_line(document.document_id, 1, 1, "DISCRIMINACAO DO SERVICO", y=10.0),
+        *_line(document.document_id, 1, 2, "Valor Total dos Servicos 230,00", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_description") == []
+
+
+def test_output_normalizer_rejects_implausible_integer_iss_rate_from_noisy_line() -> None:
+    document = Document(document_id="doc-noisy-rate")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "Base de Calculo: R$230,00 Aliquota: AMO [tel do ISS:", y=26.0),
+        *_line(document.document_id, 1, 3, "R$230,00 23", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "taxable_amount") == ["R$230,00"]
+    assert _values_for(candidates, "iss_rate") == []
 
 
 def test_output_normalizer_maps_value_table_columns_to_fields() -> None:

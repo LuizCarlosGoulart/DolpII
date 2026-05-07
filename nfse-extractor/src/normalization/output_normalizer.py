@@ -82,9 +82,10 @@ _PATTERN_FIELD_HINTS = {
     "document_id": re.compile(r"\b(?:\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{14}|\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})\b"),
     "email": re.compile(r"\b[^@\s]+@[^@\s]+\.[^@\s]+\b"),
     "date": re.compile(r"\b\d{2}/\d{2}/\d{4}\b"),
+    "month_year": re.compile(r"\b\d{2}/\d{4}\b"),
     "service_code": re.compile(r"\b\d{2}\.\d{2}\.\d{2}\b"),
     "money": re.compile(r"(?:R\$\s*)?\b\d{1,3}(?:\.\d{3})*,\d{2}\b|\b\d+(?:\.\d{2})\b"),
-    "percentage": re.compile(r"\b\d{1,2}(?:,\d{1,4})?%?"),
+    "percentage": re.compile(r"\b(?:\d{1,2},\d{1,4}%?|\d{1,2}%)"),
 }
 
 _DOCUMENT_FIELDS = {"provider_document", "recipient_document"}
@@ -113,7 +114,10 @@ _SECTION_ONLY_VALUES = {
     "dos servicos",
     "prestador de servicos",
     "tomador de servicos",
+    "discriminacao do servico",
     "discriminacao dos servicos",
+    "do servico",
+    "do servicos",
 }
 
 
@@ -369,6 +373,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             tokens = _tokens(element.text)
             if not ignore_stop_tokens and value_elements and tokens and tokens[0] in _LABEL_STOP_TOKENS:
                 break
+            if not ignore_stop_tokens and not value_elements and tokens and tokens[0] in _LABEL_STOP_TOKENS:
+                break
             if not tokens or tokens[0] in {":", "-"}:
                 continue
             value_elements.append(element)
@@ -401,7 +407,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                 )
             )
 
-        if "emissao" in normalized_line or "data" in normalized_line:
+        if "emissao" in normalized_line:
             candidates.extend(self._regex_candidates(document, line, line_index, "issue_date", "date"))
 
         if line.section in {"provider", "recipient"}:
@@ -433,6 +439,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if field_name == "issue_date":
             match = _PATTERN_FIELD_HINTS["date"].search(value)
             return match.group(0) if match else None
+        if field_name == "competence_date":
+            match = _PATTERN_FIELD_HINTS["month_year"].search(value)
+            if match:
+                return match.group(0)
+            match = _PATTERN_FIELD_HINTS["date"].search(value)
+            return match.group(0) if match else None
         if field_name == "service_code":
             match = _PATTERN_FIELD_HINTS["service_code"].search(value)
             return match.group(0) if match else None
@@ -448,10 +460,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             match = re.search(r"\b[A-Z0-9]{5,12}\b", value.upper())
             return match.group(0) if match else None
         if field_name == "nfse_number":
-            number_matches = re.findall(r"\b\d[\d.]{2,}\b", value)
+            if "/" in value or _PATTERN_FIELD_HINTS["date"].search(value):
+                return None
+            number_matches = re.findall(r"\b\d[\d.]{0,11}\b", value)
             if not number_matches:
                 return None
-            plain_numbers = [number for number in number_matches if "." not in number]
+            plain_numbers = [number for number in number_matches if "." not in number and number.isdigit()]
             return (plain_numbers or number_matches)[-1]
 
         return value
@@ -503,7 +517,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             or field_name in _UF_FIELDS
             or field_name in _PHONE_FIELDS
             or field_name in _MONEY_FIELDS
-            or field_name in {"issue_date", "iss_rate", "nfse_number", "service_code", "verification_code"}
+            or field_name in {"competence_date", "issue_date", "iss_rate", "nfse_number", "service_code", "verification_code"}
         )
 
     @staticmethod
