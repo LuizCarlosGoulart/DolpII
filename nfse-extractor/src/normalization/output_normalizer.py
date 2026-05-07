@@ -83,7 +83,37 @@ _PATTERN_FIELD_HINTS = {
     "email": re.compile(r"\b[^@\s]+@[^@\s]+\.[^@\s]+\b"),
     "date": re.compile(r"\b\d{2}/\d{2}/\d{4}\b"),
     "service_code": re.compile(r"\b\d{2}\.\d{2}\.\d{2}\b"),
-    "money": re.compile(r"\b\d{1,3}(?:\.\d{3})*,\d{2}\b|\b\d+(?:\.\d{2})\b"),
+    "money": re.compile(r"(?:R\$\s*)?\b\d{1,3}(?:\.\d{3})*,\d{2}\b|\b\d+(?:\.\d{2})\b"),
+    "percentage": re.compile(r"\b\d{1,2}(?:,\d{1,4})?%?"),
+}
+
+_DOCUMENT_FIELDS = {"provider_document", "recipient_document"}
+_EMAIL_FIELDS = {"provider_email", "recipient_email"}
+_MONEY_FIELDS = {
+    "gross_amount",
+    "taxable_amount",
+    "iss_amount",
+    "iss_withheld_amount",
+    "unconditional_discount",
+    "conditional_discount",
+    "pis_withheld_amount",
+    "cofins_withheld_amount",
+    "inss_withheld_amount",
+    "ir_withheld_amount",
+    "csll_withheld_amount",
+    "social_contributions_withheld_amount",
+    "other_retentions_amount",
+    "deductions_amount",
+    "net_amount",
+}
+_PHONE_FIELDS = {"provider_phone", "recipient_phone"}
+_UF_FIELDS = {"provider_uf", "recipient_uf"}
+_SECTION_ONLY_VALUES = {
+    "de servicos",
+    "dos servicos",
+    "prestador de servicos",
+    "tomador de servicos",
+    "discriminacao dos servicos",
 }
 
 
@@ -141,6 +171,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             aliases = {field.internal_name.replace("_", " "), *field.aliases, *self.aliases.get(field.internal_name, [])}
             for alias in aliases:
                 tokens = tuple(_tokens(alias))
+                if field.internal_name == "nfse_number" and tokens in {("nfs", "e"), ("nfse",)}:
+                    continue
+                if field.internal_name == "provider_name" and tokens == ("prestador",):
+                    continue
+                if field.internal_name == "recipient_name" and tokens == ("tomador",):
+                    continue
                 if tokens == ("iss",) and field.internal_name == "iss_amount":
                     continue
                 if tokens:
@@ -214,12 +250,33 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             next_match = matches[match_index + 1] if match_index + 1 < len(matches) else None
             value_elements = self._value_elements_after_label(line, match, next_match)
             value_source = "same_line"
-            if not value_elements and line_index + 1 < len(lines):
-                value_elements = lines[line_index + 1].elements
-                value_source = "next_line"
+            raw_value = self._clean_value(" ".join(element.text for element in value_elements))
+            value = self._extract_typed_value(match.field_name, raw_value)
 
-            value = self._clean_value(" ".join(element.text for element in value_elements))
+            if value is None:
+                value = self._extract_inline_value(match.field_name, line.text)
+
+            if value is None and line_index + 1 < len(lines):
+                table_value = self._extract_table_value(match, matches, lines[line_index + 1])
+                if table_value is not None:
+                    value = table_value
+                    value_elements = lines[line_index + 1].elements
+                    value_source = "next_line_table"
+
+            if value is None and self._can_scan_nearby(match.field_name):
+                for nearby_line in lines[line_index + 1 : line_index + 5]:
+                    value = self._extract_typed_value(match.field_name, nearby_line.text)
+                    if value is not None:
+                        value_elements = nearby_line.elements
+                        value_source = "nearby_line"
+                        break
+
+            if value is None and not self._requires_typed_value(match.field_name):
+                value = raw_value
+
             if not value:
+                continue
+            if not self._is_acceptable_value(match.field_name, value):
                 continue
 
             candidates.append(
@@ -327,6 +384,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         normalized_line = _normalize(line.text)
 
         for match in _PATTERN_FIELD_HINTS["document_id"].finditer(line.text):
+            if self._looks_like_phone_not_document(line.text, match):
+                continue
             field_name = "recipient_document" if line.section == "recipient" else "provider_document"
             candidates.append(
                 self._build_candidate(
@@ -353,6 +412,117 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             candidates.extend(self._regex_candidates(document, line, line_index, "service_code", "service_code"))
 
         return candidates
+
+    def _extract_typed_value(self, field_name: str, value: str) -> str | None:
+        value = self._clean_value(value)
+        if not value:
+            return None
+
+        if field_name in _DOCUMENT_FIELDS:
+            match = _PATTERN_FIELD_HINTS["document_id"].search(value)
+            return match.group(0) if match else None
+        if field_name in _EMAIL_FIELDS:
+            match = _PATTERN_FIELD_HINTS["email"].search(value)
+            return match.group(0) if match else None
+        if field_name in _UF_FIELDS:
+            match = re.search(r"\b[A-Z]{2}\b", value.upper())
+            return match.group(0) if match else None
+        if field_name in _PHONE_FIELDS:
+            phones = re.findall(r"\b0?\d{7,11}\b", value.replace("/", " "))
+            return " ".join(phones) if phones else None
+        if field_name == "issue_date":
+            match = _PATTERN_FIELD_HINTS["date"].search(value)
+            return match.group(0) if match else None
+        if field_name == "service_code":
+            match = _PATTERN_FIELD_HINTS["service_code"].search(value)
+            return match.group(0) if match else None
+        if field_name == "iss_rate":
+            match = _PATTERN_FIELD_HINTS["percentage"].search(value)
+            return match.group(0) if match else None
+        if field_name in _MONEY_FIELDS:
+            match = _PATTERN_FIELD_HINTS["money"].search(value)
+            return match.group(0).strip() if match else None
+        if field_name == "verification_code":
+            if "http" in value.lower() or "/" in value:
+                return None
+            match = re.search(r"\b[A-Z0-9]{5,12}\b", value.upper())
+            return match.group(0) if match else None
+        if field_name == "nfse_number":
+            number_matches = re.findall(r"\b\d[\d.]{2,}\b", value)
+            if not number_matches:
+                return None
+            plain_numbers = [number for number in number_matches if "." not in number]
+            return (plain_numbers or number_matches)[-1]
+
+        return value
+
+    def _extract_inline_value(self, field_name: str, line_text: str) -> str | None:
+        if field_name not in _UF_FIELDS:
+            return None
+        match = re.search(r"\bUF\s*:?\s*([A-Z]{2})\b", line_text, flags=re.IGNORECASE)
+        return match.group(1).upper() if match else None
+
+    def _extract_table_value(
+        self,
+        match: _LabelMatch,
+        matches: list[_LabelMatch],
+        next_line: _Line,
+    ) -> str | None:
+        if match.field_name not in _MONEY_FIELDS and match.field_name != "iss_rate":
+            return None
+
+        value_matches = list(_PATTERN_FIELD_HINTS["money"].finditer(next_line.text))
+        if match.field_name == "iss_rate":
+            value_matches = list(_PATTERN_FIELD_HINTS["percentage"].finditer(next_line.text))
+        if not value_matches:
+            return None
+
+        table_matches = [
+            item
+            for item in matches
+            if item.field_name in _MONEY_FIELDS or item.field_name == "iss_rate"
+        ]
+        table_matches.sort(key=lambda item: item.end_element_index)
+        try:
+            value_index = table_matches.index(match)
+        except ValueError:
+            return None
+        if value_index >= len(value_matches):
+            return None
+        return value_matches[value_index].group(0).strip()
+
+    @staticmethod
+    def _can_scan_nearby(field_name: str) -> bool:
+        return field_name in {"issue_date", "verification_code", "nfse_number"}
+
+    @staticmethod
+    def _requires_typed_value(field_name: str) -> bool:
+        return (
+            field_name in _DOCUMENT_FIELDS
+            or field_name in _EMAIL_FIELDS
+            or field_name in _UF_FIELDS
+            or field_name in _PHONE_FIELDS
+            or field_name in _MONEY_FIELDS
+            or field_name in {"issue_date", "iss_rate", "nfse_number", "service_code", "verification_code"}
+        )
+
+    @staticmethod
+    def _is_acceptable_value(field_name: str, value: str) -> bool:
+        normalized = _normalize(value)
+        if normalized in _SECTION_ONLY_VALUES:
+            return False
+        if field_name in {"provider_name", "recipient_name", "service_description"} and normalized in _SECTION_ONLY_VALUES:
+            return False
+        return True
+
+    @staticmethod
+    def _looks_like_phone_not_document(line_text: str, match: re.Match[str]) -> bool:
+        value = match.group(0)
+        digits = re.sub(r"\D", "", value)
+        if len(digits) != 11 or any(separator in value for separator in (".", "-", "/")):
+            return False
+        normalized_prefix = _normalize(line_text[: match.start()])
+        return "telefone" in normalized_prefix or "fone" in normalized_prefix or "celular" in normalized_prefix
 
     def _regex_candidates(
         self,

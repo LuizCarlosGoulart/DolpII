@@ -1,6 +1,6 @@
 version: "1.0"
 aliases:
-  nfse_number: ["numero_nota", "numero_nfse", "numero da nota fiscal", "numero da nfs-e", "nfs-e", "nro nota"]
+  nfse_number: ["numero_nota", "numero_nfse", "numero da nota", "numero da nota fiscal", "numero da nfs-e", "nro nota"]
   nfse_series: ["serie", "serie_nfse", "serie da nfs-e", "serie da nota"]
   verification_code: ["codigo_verificacao", "codigo de verificacao", "autenticidade"]
   issue_date: ["data_emissao", "emissao", "issued_at"]
@@ -27,8 +27,8 @@ aliases:
   taxable_amount: ["base_calculo", "base de calculo", "base_iss", "base_de_calculo"]
   iss_rate: ["aliquota_iss", "aliquota", "taxa_iss"]
   iss_amount: ["valor_iss", "imposto_iss"]
-  unconditional_discount: ["desconto_incondicionado", "desconto incondicionado", "desconto incondicional", "desc_incond", "vl_desc_incond"]
-  conditional_discount: ["desconto_condicionado", "desconto condicionado", "desconto condicional", "desc_cond", "vl_desc_cond"]
+  unconditional_discount: ["desconto_incondicionado", "desconto incondicionado", "desconto incondicional", "desc incondicionado", "desc_incond", "vl_desc_incond"]
+  conditional_discount: ["desconto_condicionado", "desconto condicionado", "desconto condicional", "desc condicionado", "desc_cond", "vl_desc_cond"]
   pis_withheld_amount: ["valor_pis", "pis_retido", "retencao_pis"]
   cofins_withheld_amount: ["valor_cofins", "cofins_retido", "retencao_cofins"]
   inss_withheld_amount: ["valor_inss", "inss_retido", "retencao_inss"]
