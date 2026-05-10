@@ -25,9 +25,9 @@ fields:
     description: Municipal verification or authenticity code for the NFS-e.
     type: string
     required: true
-    expected_format: "Short alphanumeric token, often uppercase."
-    aliases: ["codigo_verificacao", "codigo de verificacao", "autenticidade"]
-    example_values: ["AB12CD34", "9F7K2L"]
+    expected_format: "Short alphanumeric token, often uppercase, sometimes hyphenated."
+    aliases: ["codigo_verificacao", "codigo de verificacao", "autenticidade", "certificacao", "codigo de autenticacao", "chave de autenticidade", "codigo de controle"]
+    example_values: ["AB12CD34", "9F7K2L", "7BBC2-2060F"]
     validation_hints: ["Usually unique per note.", "Normalize whitespace and punctuation before comparison."]
     context_hints: ["Often printed close to the NFS-e number.", "May appear near authenticity instructions."]
   - internal_name: issue_date
@@ -196,7 +196,7 @@ fields:
     type: string
     required: true
     expected_format: "Free text, possibly multi-line."
-    aliases: ["discriminacao", "descricao_servico", "servicos_prestados"]
+    aliases: ["discriminacao", "discriminacao do servico", "discriminacao dos servicos", "descricao_servico", "descricao do servico", "descricao dos servicos", "servicos_prestados"]
     example_values: ["Prestacao de servicos de consultoria.", "Suporte tecnico mensal."]
     validation_hints: ["Preserve line breaks only if needed downstream.", "Trim boilerplate consultation text if it leaks in."]
     context_hints: ["Usually in the Discriminacao dos Servicos section.", "Often occupies the largest text block."]
@@ -236,7 +236,7 @@ fields:
     type: decimal
     required: true
     expected_format: "Brazilian currency format or normalized decimal string."
-    aliases: ["valor_servicos", "valor_bruto", "valor_total_servicos"]
+    aliases: ["valor_servicos", "valor_bruto", "valor_total_servicos", "valor total do servico", "valor total dos servicos", "valor do servico", "valor dos servicos"]
     example_values: ["1.250,00", "1250.00"]
     validation_hints: ["Normalize decimal separators.", "Should be greater than or equal to net amount."]
     context_hints: ["Usually in the tax/value summary table.", "Often labeled Valor dos Servicos."]

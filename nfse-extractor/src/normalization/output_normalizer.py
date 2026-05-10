@@ -54,7 +54,7 @@ _LABEL_STOP_TOKENS = {
 _SECTION_KEYWORDS = {
     "provider": ("prestador",),
     "recipient": ("tomador",),
-    "service": ("servico", "servicos", "discriminacao"),
+    "service": ("servico", "servicos", "discriminacao", "descricao"),
     "values": ("valor", "valores", "retencoes", "imposto", "iss", "base de calculo"),
 }
 
@@ -86,6 +86,7 @@ _PATTERN_FIELD_HINTS = {
     "service_code": re.compile(r"\b\d{2}\.\d{2}\.\d{2}\b"),
     "money": re.compile(r"(?:R\$\s*)?\b\d{1,3}(?:\.\d{3})*,\d{2}\b|\b\d+(?:\.\d{2})\b"),
     "percentage": re.compile(r"\b(?:\d{1,2},\d{1,4}%?|\d{1,2}%)"),
+    "verification_code": re.compile(r"\b[A-Z0-9]{5,12}(?:-[A-Z0-9]{2,12}){0,3}\b"),
 }
 
 _DOCUMENT_FIELDS = {"provider_document", "recipient_document"}
@@ -306,6 +307,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             if value is None and not self._requires_typed_value(match.field_name):
                 value = raw_value
 
+            if not value and match.field_name == "service_description":
+                service_description = self._extract_service_description_after_header(line, line_index, lines)
+                if service_description is not None:
+                    value, value_elements = service_description
+                    value_source = "following_service_lines"
+
             if not value:
                 continue
             if not self._is_acceptable_value(match.field_name, value):
@@ -491,7 +498,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if field_name == "verification_code":
             if "http" in value.lower() or "/" in value:
                 return None
-            match = re.search(r"\b[A-Z0-9]{5,12}\b", value.upper())
+            match = _PATTERN_FIELD_HINTS["verification_code"].search(value.upper())
             return match.group(0) if match else None
         if field_name == "nfse_number":
             if "/" in value or _PATTERN_FIELD_HINTS["date"].search(value):
@@ -583,7 +590,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         lines: list[_Line],
     ) -> tuple[str, list[ExtractedElement]] | None:
         normalized_header = _normalize(line.text)
-        if "discriminacao" not in normalized_header:
+        if not any(keyword in normalized_header for keyword in ("descricao", "discriminacao", "servicos prestados")):
             return None
 
         description_lines: list[_Line] = []

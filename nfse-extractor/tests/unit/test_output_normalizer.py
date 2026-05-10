@@ -94,6 +94,19 @@ def test_output_normalizer_finds_issue_date_near_label_without_using_label_tail(
     assert _values_for(candidates, "issue_date") == ["14/11/2021"]
 
 
+def test_output_normalizer_extracts_hyphenated_verification_code_from_generic_alias() -> None:
+    document = Document(document_id="doc-verification-code")
+    elements = [
+        *_line(document.document_id, 1, 1, "Certificacao: 7BBC2-2060F", y=10.0),
+        *_line(document.document_id, 1, 2, "Numero da Nota Fiscal", y=26.0),
+        *_line(document.document_id, 1, 3, "16", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "verification_code") == ["7BBC2-2060F"]
+
+
 def test_output_normalizer_keeps_generation_date_out_of_issue_date_candidates() -> None:
     document = Document(document_id="doc-dates")
     elements = [
@@ -240,6 +253,22 @@ def test_output_normalizer_extracts_service_description_from_lines_after_header(
     ]
 
 
+def test_output_normalizer_extracts_description_after_full_description_header_alias() -> None:
+    document = Document(document_id="doc-description-header")
+    elements = [
+        *_line(document.document_id, 1, 1, "DESCRICAO DOS SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "Manutencao preventiva mensal de equipamentos", y=26.0),
+        *_line(document.document_id, 1, 3, "VALORES", y=42.0),
+        *_line(document.document_id, 1, 4, "Valor Total dos Servicos R$ 500,00", y=58.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_description") == [
+        "Manutencao preventiva mensal de equipamentos"
+    ]
+
+
 def test_output_normalizer_corrects_common_ocr_email_at_symbol_with_low_confidence() -> None:
     document = Document(document_id="doc-ocr-email")
     elements = [
@@ -268,6 +297,18 @@ def test_output_normalizer_rejects_implausible_integer_iss_rate_from_noisy_line(
 
     assert _values_for(candidates, "taxable_amount") == ["R$230,00"]
     assert _values_for(candidates, "iss_rate") == []
+
+
+def test_output_normalizer_extracts_gross_amount_from_common_total_services_aliases() -> None:
+    document = Document(document_id="doc-gross-alias")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "Valor Total dos Servicos R$ 230,00", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "gross_amount") == ["R$ 230,00"]
 
 
 def test_output_normalizer_does_not_assign_incomplete_financial_table_values() -> None:
