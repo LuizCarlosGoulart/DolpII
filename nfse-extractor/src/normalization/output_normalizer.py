@@ -144,6 +144,24 @@ _NONZERO_TABLE_VALUE_REQUIRES_EXPLICIT_LABEL = {
     "deductions_amount",
 }
 
+_VERIFICATION_CODE_STOP_VALUES = {
+    "ASSINATURA",
+    "AUTENTICACAO",
+    "AUTENTICIDADE",
+    "CERTIFICACAO",
+    "CODIGO",
+    "CONTROLE",
+    "DIGITAL",
+    "DOCUMENTO",
+    "ELETRONICA",
+    "ELETRONICO",
+    "NOTA",
+    "SERVICO",
+    "SERVICOS",
+    "VALIDACAO",
+    "VERIFICACAO",
+}
+
 
 @dataclass(frozen=True)
 class _Line:
@@ -499,7 +517,10 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             if "http" in value.lower() or "/" in value:
                 return None
             match = _PATTERN_FIELD_HINTS["verification_code"].search(value.upper())
-            return match.group(0) if match else None
+            if not match:
+                return None
+            code = match.group(0)
+            return None if code in _VERIFICATION_CODE_STOP_VALUES else code
         if field_name == "nfse_number":
             if "/" in value or _PATTERN_FIELD_HINTS["date"].search(value):
                 return None

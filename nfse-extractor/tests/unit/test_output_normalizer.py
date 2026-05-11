@@ -107,6 +107,18 @@ def test_output_normalizer_extracts_hyphenated_verification_code_from_generic_al
     assert _values_for(candidates, "verification_code") == ["7BBC2-2060F"]
 
 
+def test_output_normalizer_rejects_boilerplate_words_as_verification_code() -> None:
+    document = Document(document_id="doc-verification-boilerplate")
+    elements = [
+        *_line(document.document_id, 1, 1, "Certificacao", y=10.0),
+        *_line(document.document_id, 1, 2, "ASSINATURA DIGITAL", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "verification_code") == []
+
+
 def test_output_normalizer_keeps_generation_date_out_of_issue_date_candidates() -> None:
     document = Document(document_id="doc-dates")
     elements = [
