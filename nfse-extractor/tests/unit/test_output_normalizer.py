@@ -174,6 +174,69 @@ def test_output_normalizer_keeps_provider_and_recipient_contexts_separate() -> N
     assert values["recipient_uf"] == "PR"
 
 
+def test_output_normalizer_infers_provider_block_before_recipient() -> None:
+    document = Document(document_id="doc-implicit-provider")
+    elements = [
+        *_line(document.document_id, 1, 1, "NOTA FISCAL ELETRONICA DE SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "Nome/Razao Social: EMPRESA PRESTADORA LTDA", y=26.0),
+        *_line(document.document_id, 1, 3, "CNPJ/CPF: 11.111.111/0001-11", y=42.0),
+        *_line(document.document_id, 1, 4, "Endereco: Rua Um 100", y=58.0),
+        *_line(document.document_id, 1, 5, "TOMADOR DO SERVICO", y=74.0),
+        *_line(document.document_id, 1, 6, "Nome/Razao Social: CLIENTE LTDA", y=90.0),
+        *_line(document.document_id, 1, 7, "CNPJ/CPF: 22.222.222/0001-22", y=106.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["provider_name"] == "EMPRESA PRESTADORA LTDA"
+    assert values["provider_document"] == "11.111.111/0001-11"
+    assert values["provider_address"] == "Rua Um 100"
+    assert values["recipient_name"] == "CLIENTE LTDA"
+    assert values["recipient_document"] == "22.222.222/0001-22"
+
+
+def test_output_normalizer_ignores_billing_identifiers_before_fiscal_header() -> None:
+    document = Document(document_id="doc-billing-noise")
+    elements = [
+        *_line(document.document_id, 1, 1, "Local de Pagamento Vencimento Valor do Documento", y=10.0),
+        *_line(document.document_id, 1, 2, "CNPJ/CPF: 99.999.999/0001-99 Nosso Numero 123456", y=26.0),
+        *_line(document.document_id, 1, 3, "Autenticacao Mecanica", y=42.0),
+        *_line(document.document_id, 1, 4, "NOTA FISCAL ELETRONICA DE SERVICOS", y=58.0),
+        *_line(document.document_id, 1, 5, "Nome/Razao Social: PRESTADOR REAL LTDA", y=74.0),
+        *_line(document.document_id, 1, 6, "CNPJ/CPF: 11.111.111/0001-11", y=90.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "provider_document") == ["11.111.111/0001-11"]
+
+
+def test_output_normalizer_requires_document_label_for_document_pattern_fallback() -> None:
+    document = Document(document_id="doc-unlabeled-document-like-number")
+    elements = [
+        *_line(document.document_id, 1, 1, "NOTA FISCAL ELETRONICA DE SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "75590.00323 82355.850098 75092.790338 8 92560000018678", y=26.0),
+        *_line(document.document_id, 1, 3, "CNPJ/CPF: 11.111.111/0001-11", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "provider_document") == ["11.111.111/0001-11"]
+
+
+def test_output_normalizer_accepts_formatted_document_inside_party_block_when_label_is_lost() -> None:
+    document = Document(document_id="doc-lost-document-label")
+    elements = [
+        *_line(document.document_id, 1, 1, "PRESTADOR DE SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "e 06.040.270/0001-02 Inscricao Municipal: 282575", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "provider_document") == ["06.040.270/0001-02"]
+
+
 def test_output_normalizer_avoids_section_headings_as_party_names() -> None:
     document = Document(document_id="doc-section-heading")
     elements = [
@@ -242,6 +305,17 @@ def test_output_normalizer_rejects_service_description_header_without_content() 
     elements = [
         *_line(document.document_id, 1, 1, "DISCRIMINACAO DO SERVICO", y=10.0),
         *_line(document.document_id, 1, 2, "Valor Total dos Servicos 230,00", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_description") == []
+
+
+def test_output_normalizer_rejects_value_table_as_service_description() -> None:
+    document = Document(document_id="doc-description-value-table")
+    elements = [
+        *_line(document.document_id, 1, 1, "DISCRIMINACAO DOS SERVICOS E INFORMACOES RELEVANTES VALOR TOTAL DA NOTA R$ 221,43", y=10.0),
     ]
 
     candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
@@ -412,4 +486,6 @@ def test_output_normalizer_preserves_candidate_traceability_metadata() -> None:
     assert provider_document.source_element_ids
     assert provider_document.source_name == "config-driven-output-normalizer"
     assert provider_document.metadata["section_name"] == "provider"
+    assert provider_document.metadata["section_confidence"] > 0
+    assert provider_document.metadata["section_reasons"]
     assert provider_document.metadata["label_text"] in {"cnpj cpf", "document pattern"}

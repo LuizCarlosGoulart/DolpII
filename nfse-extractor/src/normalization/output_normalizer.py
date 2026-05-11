@@ -12,6 +12,7 @@ from typing import Any
 import yaml
 
 from src.core import Document, ExtractedElement, FieldCandidate, OutputNormalizer, load_field_dictionary
+from src.normalization.line_classifier import IGNORED_SECTION, classify_line_sections
 
 
 _LABEL_STOP_TOKENS = {
@@ -49,13 +50,6 @@ _LABEL_STOP_TOKENS = {
     "tomador",
     "uf",
     "valor",
-}
-
-_SECTION_KEYWORDS = {
-    "provider": ("prestador",),
-    "recipient": ("tomador",),
-    "service": ("servico", "servicos", "discriminacao", "descricao"),
-    "values": ("valor", "valores", "retencoes", "imposto", "iss", "base de calculo"),
 }
 
 _SECTION_SCOPED_LABELS = {
@@ -172,6 +166,8 @@ class _Line:
     elements: list[ExtractedElement]
     bounding_box: tuple[float, float, float, float] | None
     section: str
+    section_confidence: float
+    section_reasons: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -206,6 +202,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         candidates: list[FieldCandidate] = []
 
         for line_index, line in enumerate(lines):
+            if line.section == IGNORED_SECTION:
+                continue
             candidates.extend(self._candidates_from_labels(document, line, line_index, lines))
             candidates.extend(self._candidates_from_patterns(document, line, line_index))
 
@@ -248,11 +246,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
 
         raw_lines.sort(key=lambda item: (item[0], item[1], item[2]))
 
+        line_texts = [" ".join(element.text for element in item[3]).strip() for item in raw_lines]
+        classifications = classify_line_sections(line_texts)
+
         lines: list[_Line] = []
-        current_section = "header"
-        for page_number, _top, _left, line_elements in raw_lines:
+        for (page_number, _top, _left, line_elements), classification in zip(raw_lines, classifications):
             line_text = " ".join(element.text for element in line_elements).strip()
-            current_section = self._next_section(current_section, line_text)
             first = line_elements[0]
             lines.append(
                 _Line(
@@ -262,7 +261,9 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     text=line_text,
                     elements=line_elements,
                     bounding_box=_merge_bounding_boxes([element.bounding_box for element in line_elements]),
-                    section=current_section,
+                    section=classification.section,
+                    section_confidence=classification.confidence,
+                    section_reasons=classification.reasons,
                 )
             )
         return lines
@@ -275,13 +276,6 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if block_num is not None and line_num is not None:
             return (page_number, block_num, line_num)
         return (page_number, round(_bbox_y(element.bounding_box) / 12))
-
-    def _next_section(self, current_section: str, text: str) -> str:
-        normalized = _normalize(text)
-        for section, keywords in _SECTION_KEYWORDS.items():
-            if any(keyword in normalized for keyword in keywords):
-                return section
-        return current_section
 
     def _candidates_from_labels(
         self,
@@ -449,6 +443,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         normalized_line = _normalize(line.text)
 
         for match in _PATTERN_FIELD_HINTS["document_id"].finditer(line.text):
+            if not _has_document_context(normalized_line, line.section, match.group(0)):
+                continue
             if self._looks_like_phone_not_document(line.text, match):
                 continue
             field_name = "recipient_document" if line.section == "recipient" else "provider_document"
@@ -663,6 +659,21 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             return False
         if field_name in {"provider_name", "recipient_name", "service_description"} and normalized in _SECTION_ONLY_VALUES:
             return False
+        if field_name == "service_description":
+            if _PATTERN_FIELD_HINTS["money"].search(value):
+                return False
+            if any(
+                phrase in normalized
+                for phrase in (
+                    "aliquota",
+                    "base de calculo",
+                    "valor total",
+                    "valor iss",
+                    "valor liquido",
+                    "vencimento",
+                )
+            ):
+                return False
         return True
 
     @staticmethod
@@ -731,6 +742,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                 "label_text": label_text,
                 "context_text": line.text,
                 "section_name": line.section,
+                "section_confidence": line.section_confidence,
+                "section_reasons": line.section_reasons,
                 "page_number": line.page_number,
                 "line_text": line.text,
                 "line_index": line_index,
@@ -802,6 +815,12 @@ def _money_matches(value: str) -> list[re.Match[str]]:
 def _is_zero_money(value: str) -> bool:
     digits = re.sub(r"\D", "", value)
     return bool(digits) and set(digits) == {"0"}
+
+
+def _has_document_context(normalized_line: str, section: str, value: str) -> bool:
+    if "cnpj" in normalized_line or "cpf" in normalized_line:
+        return True
+    return section in {"provider", "recipient"} and not value.isdigit()
 
 
 def _optional_int(value: object) -> int | None:
