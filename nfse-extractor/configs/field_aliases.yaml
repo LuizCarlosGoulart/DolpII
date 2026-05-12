@@ -1,8 +1,8 @@
 version: "1.0"
 aliases:
-  nfse_number: ["numero_nota", "numero_nfse", "numero da nota", "numero da nota fiscal", "numero da nfs-e", "nro nota"]
+  nfse_number: ["numero_nota", "numero_nfse", "numero da nota", "numero da nota fiscal", "numero da nfs-e", "numero da nf-e", "nota no", "nota n", "nota numero", "nro nota"]
   nfse_series: ["serie", "serie_nfse", "serie da nfs-e", "serie da nota"]
-  verification_code: ["codigo_verificacao", "codigo de verificacao", "autenticidade", "certificacao", "codigo de autenticacao", "chave de autenticidade", "codigo de controle"]
+  verification_code: ["codigo_verificacao", "codigo de verificacao", "codigo verificador", "autenticidade", "certificacao", "codigo de autenticacao", "chave de autenticidade", "codigo de controle"]
   issue_date: ["data_emissao", "emissao", "issued_at"]
   competence_date: ["competencia", "data_competencia", "periodo_competencia"]
   provider_name: ["prestador", "razao_social_prestador", "nome_prestador"]

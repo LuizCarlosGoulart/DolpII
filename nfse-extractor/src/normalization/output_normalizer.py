@@ -73,18 +73,19 @@ _SECTION_SCOPED_LABELS = {
 }
 
 _PATTERN_FIELD_HINTS = {
-    "document_id": re.compile(r"\b(?:\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}|\d{14}|\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})\b"),
+    "document_id": re.compile(r"\b(?:\d{2}[\.,]\d{3}\.\d{3}/\d{4}-\d{2}|\d{14}|\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})\b"),
     "email": re.compile(r"\b[^@\s]+@[^@\s]+\.[^@\s]+\b"),
     "date": re.compile(r"\b\d{2}/\d{2}/\d{4}\b"),
     "month_year": re.compile(r"\b\d{2}/\d{4}\b"),
     "service_code": re.compile(r"\b(?:\d{2}\.\d{2}\.\d{2}|\d{1,2}\.\d{2}|\d{3,4})\b"),
     "money": re.compile(r"(?:R\$\s*)?\b\d{1,3}(?:\.\d{3})*,\d{2}\b|\b\d+(?:\.\d{2})\b"),
     "percentage": re.compile(r"\b(?:\d{1,2},\d{1,4}%?|\d{1,2}%)"),
-    "verification_code": re.compile(r"\b[A-Z0-9]{5,12}(?:-[A-Z0-9]{2,12}){0,3}\b"),
+    "verification_code": re.compile(r"\b(?:[A-Z0-9]{4,12}-[A-Z0-9]{2,12}(?:-[A-Z0-9]{2,12}){0,4}|[A-Z0-9]{5,12})\b"),
 }
 
 _DOCUMENT_FIELDS = {"provider_document", "recipient_document"}
 _EMAIL_FIELDS = {"provider_email", "recipient_email"}
+_MUNICIPAL_REGISTRATION_FIELDS = {"provider_municipal_registration", "recipient_municipal_registration"}
 _MONEY_FIELDS = {
     "gross_amount",
     "taxable_amount",
@@ -152,7 +153,14 @@ _VERIFICATION_CODE_STOP_VALUES = {
     "DOCUMENTO",
     "ELETRONICA",
     "ELETRONICO",
+    "ELETRONICANFSE",
+    "FISCAL",
+    "MODELO",
+    "NFSE",
+    "NFS",
     "NOTA",
+    "PRESTADOR",
+    "RPS",
     "SERVICO",
     "SERVICOS",
     "VALIDACAO",
@@ -304,6 +312,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
 
             if value is None:
                 value = self._extract_inline_value(match.field_name, line.text)
+
+            if value is None and match.field_name == "verification_code":
+                nearby_code = self._extract_verification_code_from_nearby(line_index, lines)
+                if nearby_code is not None:
+                    value, value_elements = nearby_code
+                    value_source = "nearby_lines"
 
             if value is None and line_index + 1 < len(lines):
                 table_value = self._extract_table_value(match, matches, lines[line_index + 1])
@@ -462,12 +476,13 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                 continue
             if self._looks_like_phone_not_document(line.text, match):
                 continue
+            value = _normalize_document_id(match.group(0))
             field_name = "recipient_document" if line.section == "recipient" else "provider_document"
             candidates.append(
                 self._build_candidate(
                     document=document,
                     field_name=field_name,
-                    value=match.group(0),
+                    value=value,
                     source_elements=line.elements,
                     label_text="document pattern",
                     line=line,
@@ -495,8 +510,9 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             return None
 
         if field_name in _DOCUMENT_FIELDS:
-            match = _PATTERN_FIELD_HINTS["document_id"].search(value)
-            return match.group(0) if match else None
+            return _extract_document_id(value)
+        if field_name in _MUNICIPAL_REGISTRATION_FIELDS:
+            return _extract_municipal_registration(value)
         if field_name in _EMAIL_FIELDS:
             match = _PATTERN_FIELD_HINTS["email"].search(value)
             return match.group(0) if match else None
@@ -509,6 +525,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if field_name == "issue_date":
             match = _PATTERN_FIELD_HINTS["date"].search(value)
             return match.group(0) if match else None
+        if field_name == "nfse_series":
+            return _extract_nfse_series(value)
         if field_name == "competence_date":
             match = _PATTERN_FIELD_HINTS["month_year"].search(value)
             if match:
@@ -526,13 +544,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             match = next(iter(_money_matches(value)), None)
             return match.group(0).strip() if match else None
         if field_name == "verification_code":
-            if "http" in value.lower() or "/" in value:
-                return None
-            match = _PATTERN_FIELD_HINTS["verification_code"].search(value.upper())
-            if not match:
-                return None
-            code = match.group(0)
-            return None if code in _VERIFICATION_CODE_STOP_VALUES else code
+            return _extract_verification_code(value)
         if field_name == "nfse_number":
             if "/" in value or _PATTERN_FIELD_HINTS["date"].search(value):
                 return None
@@ -647,11 +659,27 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if not description_lines:
             return None
 
-        value = self._clean_value(" ".join(item.text for item in description_lines))
-        if not self._is_acceptable_value("service_description", value):
+        value = _clean_service_text_value("service_description", self._clean_value(" ".join(item.text for item in description_lines)))
+        if value is None or not self._is_acceptable_value("service_description", value):
             return None
         elements = [element for item in description_lines for element in item.elements]
         return value, elements
+
+    @staticmethod
+    def _extract_verification_code_from_nearby(
+        line_index: int,
+        lines: list[_Line],
+    ) -> tuple[str, list[ExtractedElement]] | None:
+        nearby_lines = lines[line_index + 1 : line_index + 4]
+        for window_size in range(min(3, len(nearby_lines)), 0, -1):
+            selected = nearby_lines[:window_size]
+            text = " ".join(item.text for item in selected)
+            code = _extract_verification_code(text)
+            if code is None:
+                continue
+            elements = [element for item in selected for element in item.elements]
+            return code, elements
+        return None
 
     @staticmethod
     def _can_scan_nearby(field_name: str) -> bool:
@@ -670,6 +698,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             if field_name == "service_code":
                 return _looks_like_nearby_service_code_line(line.text)
             return _clean_service_text_value(field_name, line.text) is not None
+        if field_name == "verification_code":
+            return _extract_verification_code(line.text) is not None
         return True
 
     @staticmethod
@@ -677,11 +707,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         return (
             field_name in _DOCUMENT_FIELDS
             or field_name in _EMAIL_FIELDS
+            or field_name in _MUNICIPAL_REGISTRATION_FIELDS
             or field_name in _UF_FIELDS
             or field_name in _PHONE_FIELDS
             or field_name in _MONEY_FIELDS
             or field_name in _SERVICE_TEXT_FIELDS
-            or field_name in {"competence_date", "issue_date", "iss_rate", "nfse_number", "service_code", "verification_code"}
+            or field_name in {"competence_date", "issue_date", "iss_rate", "nfse_number", "nfse_series", "service_code", "verification_code"}
         )
 
     @staticmethod
@@ -822,11 +853,61 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             current = deduped.get(key)
             if current is None or (candidate.confidence or 0.0) > (current.confidence or 0.0):
                 deduped[key] = candidate
-        return sorted(deduped.values(), key=lambda item: (item.field_name, str(item.metadata.get("line_index", ""))))
+
+        singleton_fields = {"issue_date", "nfse_number", "nfse_series", "verification_code"}
+        best_singletons: dict[str, FieldCandidate] = {}
+        results: list[FieldCandidate] = []
+        for candidate in deduped.values():
+            if candidate.field_name not in singleton_fields:
+                results.append(candidate)
+                continue
+            current = best_singletons.get(candidate.field_name)
+            if current is None or _candidate_rank(candidate) > _candidate_rank(current):
+                best_singletons[candidate.field_name] = candidate
+        results.extend(best_singletons.values())
+        return sorted(results, key=lambda item: (item.field_name, str(item.metadata.get("line_index", ""))))
 
     def _load_yaml(self, filename: str) -> dict[str, Any]:
         with (self.config_dir / filename).open("r", encoding="utf-8") as handle:
             return yaml.safe_load(handle) or {}
+
+
+def _candidate_rank(candidate: FieldCandidate) -> tuple[float, float, float]:
+    confidence = candidate.confidence or 0.0
+    field_name = candidate.field_name
+    value = str(candidate.value)
+    normalized_value = _normalize(value)
+    context = _normalize(candidate.metadata.get("line_text", ""))
+    label = _normalize(candidate.metadata.get("label_text", ""))
+    score = confidence
+
+    if field_name == "issue_date":
+        if "emissao" in label or "emissao" in context or "data hora" in context:
+            score += 0.45
+        if any(term in context for term in ("autorizacao", "fato gerador", "rps", "vencimento")):
+            score -= 0.65
+    elif field_name == "nfse_number":
+        if any(term in context for term in ("numero da nota", "numero da nfs", "nota no")):
+            score += 0.45
+        if any(term in context for term in ("rps", "recibo provisorio")):
+            score -= 0.55
+        score -= min(len(re.sub(r"\D", "", value)), 12) * 0.005
+    elif field_name == "nfse_series":
+        score += max(0.0, 0.35 - len(value) * 0.02)
+        if label == "serie" or "serie" in context:
+            score += 0.25
+        if any(term in context for term in ("codigo de verificacao", "rps", "emitid")):
+            score -= 0.15
+    elif field_name == "verification_code":
+        if any(term in context for term in ("codigo de verificacao", "codigo verificador", "certificacao")):
+            score += 0.5
+        if "-" in value:
+            score += 0.2
+        if normalized_value.upper() in _VERIFICATION_CODE_STOP_VALUES:
+            score -= 1.0
+
+    line_index = float(candidate.metadata.get("line_index", 0) or 0)
+    return (score, confidence, -line_index)
 
 
 def _tokens(value: str) -> list[str]:
@@ -864,6 +945,78 @@ def _money_matches(value: str) -> list[re.Match[str]]:
 def _is_zero_money(value: str) -> bool:
     digits = re.sub(r"\D", "", value)
     return bool(digits) and set(digits) == {"0"}
+
+
+def _extract_document_id(value: str) -> str | None:
+    match = _PATTERN_FIELD_HINTS["document_id"].search(value)
+    return _normalize_document_id(match.group(0)) if match else None
+
+
+def _normalize_document_id(value: str) -> str:
+    value = value.replace(",", ".")
+    digits = re.sub(r"\D", "", value)
+    if len(digits) == 14:
+        return f"{digits[:2]}.{digits[2:5]}.{digits[5:8]}/{digits[8:12]}-{digits[12:]}"
+    if len(digits) == 11:
+        return f"{digits[:3]}.{digits[3:6]}.{digits[6:9]}-{digits[9:]}"
+    return value
+
+
+def _extract_municipal_registration(value: str) -> str | None:
+    value = re.split(
+        r"\b(?:estadual|insc\.?\s*estadual|inscricao\s+estadual)\b",
+        value,
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0]
+    match = re.search(r"\b(?:isento|[A-Z0-9][A-Z0-9\.\-\/]{1,20})\b", value.strip(), flags=re.IGNORECASE)
+    if not match:
+        return None
+    return match.group(0).strip(" .:-").upper() if match.group(0).lower() == "isento" else match.group(0).strip(" .:-")
+
+
+def _extract_nfse_series(value: str) -> str | None:
+    value = re.split(
+        r"\b(?:codigo|c[oó]digo|data|emissao|emiss[aã]o|emitid[ao]|nota|rps)\b",
+        value,
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0]
+    value = value.strip(" :-,.\t\r\n()")
+    if not value:
+        return None
+    candidates = re.findall(r"\b[A-Z]{1,4}\d{0,4}\b|\b\d{1,4}\b", value.upper())
+    if not candidates:
+        return None
+    return candidates[-1].strip(" :-,.()")
+
+
+def _extract_verification_code(value: str) -> str | None:
+    if "http" in value.lower() or "/" in value:
+        return None
+    compact_value = re.sub(r"-\s+", "-", value.upper())
+    compact_value = re.sub(r"\s+-", "-", compact_value)
+    for match in _PATTERN_FIELD_HINTS["verification_code"].finditer(compact_value):
+        code = match.group(0).strip("-")
+        if _is_valid_verification_code(code):
+            return code
+    return None
+
+
+def _is_valid_verification_code(code: str) -> bool:
+    normalized_code = _normalize(code).replace(" ", "").upper()
+    if not normalized_code or normalized_code in _VERIFICATION_CODE_STOP_VALUES:
+        return False
+    segments = [_normalize(segment).replace(" ", "").upper() for segment in code.split("-")]
+    if any(segment in _VERIFICATION_CODE_STOP_VALUES for segment in segments):
+        return False
+    if normalized_code.isdigit():
+        return False
+    if len(normalized_code) < 5:
+        return False
+    if "-" in code:
+        return True
+    return any(character.isdigit() for character in normalized_code) and any(character.isalpha() for character in normalized_code)
 
 
 def _extract_service_code(value: str) -> str | None:
@@ -904,6 +1057,8 @@ def _clean_service_text_value(field_name: str, value: str) -> str | None:
     if not value:
         return None
 
+    if field_name == "service_description":
+        value = re.sub(r"^(?:descri[cç][aã]o|discriminacao|discrimina[cç][aã]o)\s*:?\s*", "", value, flags=re.IGNORECASE)
     value = _truncate_service_text(field_name, value)
     if field_name == "service_city":
         value = re.sub(r"^\d{3,5}\s+", "", value).strip(" :-\t\r\n")
@@ -998,7 +1153,9 @@ def _has_service_code_context(normalized_line: str) -> bool:
 def _has_document_context(normalized_line: str, section: str, value: str) -> bool:
     if "cnpj" in normalized_line or "cpf" in normalized_line:
         return True
-    return section in {"provider", "recipient"} and not value.isdigit()
+    if section not in {"provider", "recipient"} or value.isdigit():
+        return False
+    return any(term in normalized_line for term in ("insc", "inscricao", "municipal", "razao", "social"))
 
 
 def _optional_int(value: object) -> int | None:

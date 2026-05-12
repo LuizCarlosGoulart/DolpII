@@ -191,9 +191,11 @@ def _score_line(text: str) -> _ScoredLine:
             "local do recolhimento": 4,
             "municipio de incidencia": 4,
             "natureza da operacao": 5,
+            "recolhimento": 2,
             "servicos prestados": 5,
             "subitem": 3,
             "subitens": 3,
+            "tributacao": 4,
         },
     )
     _add_phrase_scores(

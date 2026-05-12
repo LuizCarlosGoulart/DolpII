@@ -52,6 +52,31 @@ def test_output_normalizer_extracts_header_fields_from_labels_and_next_line() ->
     assert values["issue_date"] == "25/08/2023"
 
 
+def test_output_normalizer_splits_series_number_and_issue_date_from_same_header_line() -> None:
+    document = Document(document_id="doc-header-composite")
+    elements = [
+        *_line(document.document_id, 1, 1, "Serie: E Nota No.: 5852528 Emissao: 05/09/2021", y=10.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["nfse_series"] == "E"
+    assert values["nfse_number"] == "5852528"
+    assert values["issue_date"] == "05/09/2021"
+
+
+def test_output_normalizer_sanitizes_long_rps_series_context() -> None:
+    document = Document(document_id="doc-series-rps")
+    elements = [
+        *_line(document.document_id, 1, 1, "RPS No 16822 Serie 100 emitida em 10/08/2021 JWIP-PGQB", y=10.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "nfse_series") == ["100"]
+
+
 def test_output_normalizer_separates_nfse_number_from_rps_and_generic_nfse_text() -> None:
     document = Document(document_id="doc-header-realistic")
     elements = [
@@ -107,6 +132,30 @@ def test_output_normalizer_extracts_hyphenated_verification_code_from_generic_al
     assert _values_for(candidates, "verification_code") == ["7BBC2-2060F"]
 
 
+def test_output_normalizer_joins_split_verification_code_lines() -> None:
+    document = Document(document_id="doc-verification-split")
+    elements = [
+        *_line(document.document_id, 1, 1, "Codigo de Verificacao", y=10.0),
+        *_line(document.document_id, 1, 2, "60614BB7-2144-0FA7-", y=26.0),
+        *_line(document.document_id, 1, 3, "5D1E-BC858573B392", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "verification_code") == ["60614BB7-2144-0FA7-5D1E-BC858573B392"]
+
+
+def test_output_normalizer_accepts_short_alpha_hyphen_verification_code() -> None:
+    document = Document(document_id="doc-verification-alpha-hyphen")
+    elements = [
+        *_line(document.document_id, 1, 1, "Codigo de Verificacao JWIP-PGQB", y=10.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "verification_code") == ["JWIP-PGQB"]
+
+
 def test_output_normalizer_rejects_boilerplate_words_as_verification_code() -> None:
     document = Document(document_id="doc-verification-boilerplate")
     elements = [
@@ -117,6 +166,34 @@ def test_output_normalizer_rejects_boilerplate_words_as_verification_code() -> N
     candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
 
     assert _values_for(candidates, "verification_code") == []
+
+
+def test_output_normalizer_rejects_administrative_words_as_verification_code() -> None:
+    document = Document(document_id="doc-verification-admin-words")
+    elements = [
+        *_line(document.document_id, 1, 1, "Codigo de Verificacao", y=10.0),
+        *_line(document.document_id, 1, 2, "PRESTADOR DE SERVICOS", y=26.0),
+        *_line(document.document_id, 1, 3, "Autenticidade", y=42.0),
+        *_line(document.document_id, 1, 4, "MODELO FISCAL", y=58.0),
+        *_line(document.document_id, 1, 5, "ELETRONICA-NFSE", y=74.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "verification_code") == []
+
+
+def test_output_normalizer_prefers_issue_date_over_authorization_date() -> None:
+    document = Document(document_id="doc-date-ranking")
+    elements = [
+        *_line(document.document_id, 1, 1, "Data/Hora Emissao", y=10.0),
+        *_line(document.document_id, 1, 2, "05/08/2021", y=26.0),
+        *_line(document.document_id, 1, 3, "Autorizacao para emissao de Nota Fiscal de Servico Eletronica 334/2020 de 27/07/2020", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "issue_date") == ["05/08/2021"]
 
 
 def test_output_normalizer_keeps_generation_date_out_of_issue_date_candidates() -> None:
@@ -144,6 +221,18 @@ def test_output_normalizer_rejects_empty_municipal_registration_before_next_labe
 
     assert _values_for(candidates, "recipient_document") == ["290.772.229-87"]
     assert _values_for(candidates, "recipient_municipal_registration") == []
+
+
+def test_output_normalizer_trims_state_registration_from_municipal_registration() -> None:
+    document = Document(document_id="doc-registration-trim")
+    elements = [
+        *_line(document.document_id, 1, 1, "PRESTADOR", y=10.0),
+        *_line(document.document_id, 1, 2, "CPF/CNPJ: 36.426.996/0001-49 Inscricao Municipal: 192.699 Estadual:", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "provider_municipal_registration") == ["192.699"]
 
 
 def test_output_normalizer_keeps_provider_and_recipient_contexts_separate() -> None:
@@ -237,6 +326,19 @@ def test_output_normalizer_accepts_formatted_document_inside_party_block_when_la
     assert _values_for(candidates, "provider_document") == ["06.040.270/0001-02"]
 
 
+def test_output_normalizer_normalizes_ocr_document_separator_and_avoids_unlabeled_party_leakage() -> None:
+    document = Document(document_id="doc-ocr-document")
+    elements = [
+        *_line(document.document_id, 1, 1, "PRESTADOR DE SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "CNPJ/CPF 00,536.772/0021-96 Inscricao Municipal 5471747", y=26.0),
+        *_line(document.document_id, 1, 3, "HAGI PIZZAS E SUPERMERCADO LTDA 02.876.218/0006-44", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "provider_document") == ["00.536.772/0021-96"]
+
+
 def test_output_normalizer_avoids_section_headings_as_party_names() -> None:
     document = Document(document_id="doc-section-heading")
     elements = [
@@ -321,6 +423,18 @@ def test_output_normalizer_extracts_service_fields_from_following_lines() -> Non
     assert values["service_code"] == "10.02"
     assert values["operation_nature"] == "501 - ISS devido para Itajai Simples Nacional"
     assert values["service_city"] == "ITAJAI/SC"
+
+
+def test_output_normalizer_removes_inline_description_prefix() -> None:
+    document = Document(document_id="doc-description-prefix")
+    elements = [
+        *_line(document.document_id, 1, 1, "DISCRIMINACAO DOS SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "Descricao: LICENCIAMENTO DE USO DE SOFTWARE", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_description") == ["LICENCIAMENTO DE USO DE SOFTWARE"]
 
 
 def test_output_normalizer_extracts_lc116_numeric_service_code_with_context() -> None:
