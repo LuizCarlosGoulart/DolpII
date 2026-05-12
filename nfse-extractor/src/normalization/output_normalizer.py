@@ -77,7 +77,7 @@ _PATTERN_FIELD_HINTS = {
     "email": re.compile(r"\b[^@\s]+@[^@\s]+\.[^@\s]+\b"),
     "date": re.compile(r"\b\d{2}/\d{2}/\d{4}\b"),
     "month_year": re.compile(r"\b\d{2}/\d{4}\b"),
-    "service_code": re.compile(r"\b\d{2}\.\d{2}\.\d{2}\b"),
+    "service_code": re.compile(r"\b(?:\d{2}\.\d{2}\.\d{2}|\d{1,2}\.\d{2}|\d{3,4})\b"),
     "money": re.compile(r"(?:R\$\s*)?\b\d{1,3}(?:\.\d{3})*,\d{2}\b|\b\d+(?:\.\d{2})\b"),
     "percentage": re.compile(r"\b(?:\d{1,2},\d{1,4}%?|\d{1,2}%)"),
     "verification_code": re.compile(r"\b[A-Z0-9]{5,12}(?:-[A-Z0-9]{2,12}){0,3}\b"),
@@ -138,6 +138,9 @@ _NONZERO_TABLE_VALUE_REQUIRES_EXPLICIT_LABEL = {
     "deductions_amount",
 }
 
+_SERVICE_NEARBY_FIELDS = {"operation_nature", "service_city", "service_code"}
+_SERVICE_TEXT_FIELDS = {"operation_nature", "service_city", "service_description"}
+
 _VERIFICATION_CODE_STOP_VALUES = {
     "ASSINATURA",
     "AUTENTICACAO",
@@ -175,6 +178,7 @@ class _LabelMatch:
     field_name: str
     label_text: str
     end_element_index: int
+    token_count: int
 
 
 class ConfigDrivenOutputNormalizer(OutputNormalizer):
@@ -310,6 +314,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
 
             if value is None and self._can_scan_nearby(match.field_name):
                 for nearby_line in lines[line_index + 1 : line_index + 5]:
+                    if not self._can_use_nearby_line(match.field_name, nearby_line):
+                        continue
                     value = self._extract_typed_value(match.field_name, nearby_line.text)
                     if value is not None:
                         value_elements = nearby_line.elements
@@ -367,6 +373,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     field_name=self._scope_field(field_name, label_tokens, line.section),
                     label_text=label_text,
                     end_element_index=end_element_index,
+                    token_count=len(label_tokens),
                 )
             )
 
@@ -383,13 +390,21 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     field_name=scoped_field,
                     label_text=" ".join(label_tokens),
                     end_element_index=flattened[end_token_index][1],
+                    token_count=len(label_tokens),
                 )
             )
 
         deduped: dict[str, _LabelMatch] = {}
         for match in matches:
             current = deduped.get(match.field_name)
-            if current is None or match.end_element_index > current.end_element_index:
+            if current is None:
+                deduped[match.field_name] = match
+            elif match.field_name in _SERVICE_TEXT_FIELDS and (
+                match.token_count > current.token_count
+                or (match.token_count == current.token_count and match.end_element_index < current.end_element_index)
+            ):
+                deduped[match.field_name] = match
+            elif match.field_name not in _SERVICE_TEXT_FIELDS and match.end_element_index > current.end_element_index:
                 deduped[match.field_name] = match
         return sorted(deduped.values(), key=lambda item: item.end_element_index)
 
@@ -469,7 +484,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             field_name = "recipient_email" if line.section == "recipient" else "provider_email"
             candidates.extend(self._regex_candidates(document, line, line_index, field_name, "email"))
 
-        if line.section == "service":
+        if line.section == "service" and _has_service_code_context(normalized_line):
             candidates.extend(self._regex_candidates(document, line, line_index, "service_code", "service_code"))
 
         return candidates
@@ -501,8 +516,9 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             match = _PATTERN_FIELD_HINTS["date"].search(value)
             return match.group(0) if match else None
         if field_name == "service_code":
-            match = _PATTERN_FIELD_HINTS["service_code"].search(value)
-            return match.group(0) if match else None
+            return _extract_service_code(value)
+        if field_name in _SERVICE_TEXT_FIELDS:
+            return _clean_service_text_value(field_name, value)
         if field_name == "iss_rate":
             match = _PATTERN_FIELD_HINTS["percentage"].search(value)
             return match.group(0) if match else None
@@ -639,7 +655,22 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
 
     @staticmethod
     def _can_scan_nearby(field_name: str) -> bool:
-        return field_name in {"issue_date", "verification_code", "nfse_number"}
+        return field_name in {"issue_date", "verification_code", "nfse_number"} | _SERVICE_NEARBY_FIELDS
+
+    @staticmethod
+    def _can_use_nearby_line(field_name: str, line: _Line) -> bool:
+        if line.section == IGNORED_SECTION:
+            return False
+        if field_name in _SERVICE_NEARBY_FIELDS:
+            normalized = _normalize(line.text)
+            if line.section not in {"service", "values"}:
+                return False
+            if normalized in _SECTION_ONLY_VALUES:
+                return False
+            if field_name == "service_code":
+                return _looks_like_nearby_service_code_line(line.text)
+            return _clean_service_text_value(field_name, line.text) is not None
+        return True
 
     @staticmethod
     def _requires_typed_value(field_name: str) -> bool:
@@ -649,6 +680,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             or field_name in _UF_FIELDS
             or field_name in _PHONE_FIELDS
             or field_name in _MONEY_FIELDS
+            or field_name in _SERVICE_TEXT_FIELDS
             or field_name in {"competence_date", "issue_date", "iss_rate", "nfse_number", "service_code", "verification_code"}
         )
 
@@ -694,6 +726,23 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         pattern_name: str,
     ) -> list[FieldCandidate]:
         candidates: list[FieldCandidate] = []
+        if field_name == "service_code":
+            value = _extract_service_code(line.text)
+            if value is None:
+                return []
+            return [
+                self._build_candidate(
+                    document=document,
+                    field_name=field_name,
+                    value=value,
+                    source_elements=line.elements,
+                    label_text=f"{pattern_name} pattern",
+                    line=line,
+                    line_index=line_index,
+                    value_source="regex",
+                    confidence_boost=0.03,
+                )
+            ]
         for match in _PATTERN_FIELD_HINTS[pattern_name].finditer(line.text):
             candidates.append(
                 self._build_candidate(
@@ -815,6 +864,135 @@ def _money_matches(value: str) -> list[re.Match[str]]:
 def _is_zero_money(value: str) -> bool:
     digits = re.sub(r"\D", "", value)
     return bool(digits) and set(digits) == {"0"}
+
+
+def _extract_service_code(value: str) -> str | None:
+    for pattern in (r"\b\d{2}\.\d{2}\.\d{2}\b", r"\b\d{1,2}\.\d{2}\b", r"\b\d{4}\b", r"\b\d{3}\b"):
+        match = re.search(pattern, value)
+        if not match:
+            continue
+        if value[match.end() : match.end() + 1] in {",", "/", "."}:
+            continue
+        code = match.group(0)
+        if code == "116" and "lei complementar" in _normalize(value):
+            continue
+        if code.isdigit() and 1900 <= int(code) <= 2099:
+            continue
+        return code
+    return None
+
+
+def _looks_like_nearby_service_code_line(value: str) -> bool:
+    code = _extract_service_code(value)
+    if code is None:
+        return False
+    normalized = _normalize(value)
+    if _has_service_code_context(normalized):
+        return True
+    stripped_value = value.lstrip(" (")
+    if not stripped_value.startswith(code):
+        return False
+    if "." in code:
+        return True
+    if _PATTERN_FIELD_HINTS["money"].search(value):
+        return False
+    return len(code) == 4 and len(_tokens(value)) >= 4
+
+
+def _clean_service_text_value(field_name: str, value: str) -> str | None:
+    value = re.sub(r"\s+", " ", value.strip(" :-\t\r\n"))
+    if not value:
+        return None
+
+    value = _truncate_service_text(field_name, value)
+    if field_name == "service_city":
+        value = re.sub(r"^\d{3,5}\s+", "", value).strip(" :-\t\r\n")
+    normalized = _normalize(value)
+    if not normalized or normalized in _SECTION_ONLY_VALUES:
+        return None
+    if _looks_like_service_text_noise(field_name, normalized, value):
+        return None
+    if field_name == "service_city":
+        value = re.sub(r"\s*!\s*", "/", value)
+        value = value.replace(" - ", "/")
+    return value
+
+
+def _truncate_service_text(field_name: str, value: str) -> str:
+    if field_name == "operation_nature":
+        stop_pattern = r"\b(?:codigo|c[óo]digo|local\s+d[aeo]|valor|base\s+de\s+c[aá]lculo)\b"
+    elif field_name == "service_city":
+        stop_pattern = r"\b(?:data|codigo|c[óo]digo|natureza|valor|base\s+de\s+c[aá]lculo|iss)\b"
+    else:
+        stop_pattern = (
+            r"\b(?:atividade|base\s+de\s+c[aá]lculo|c[óo]digo\s+do\s+servi[çc]o|"
+            r"informacoes\s+adicionais|informa[çc][õo]es\s+adicionais|local\s+d[aeo]|"
+            r"natureza|outras\s+informacoes|outras\s+informa[çc][õo]es|valor|vencimento)\b"
+        )
+    parts = re.split(stop_pattern, value, maxsplit=1, flags=re.IGNORECASE)
+    return parts[0].strip(" :-\t\r\n")
+
+
+def _looks_like_service_text_noise(field_name: str, normalized: str, value: str) -> bool:
+    tokens = _tokens(value)
+    if field_name == "service_description":
+        if len(tokens) < 3:
+            return True
+        return any(
+            phrase in normalized
+            for phrase in (
+                "aliquota",
+                "base de calculo",
+                "informacoes relevantes",
+                "servico local prestacao",
+                "valor iss",
+                "valor liquido",
+                "valor total",
+            )
+        )
+    if field_name == "service_city":
+        if normalized in {"da prestacao do servico", "de prestacao", "do servico"}:
+            return True
+        if "descricao do servico" in normalized or "descricao dos servicos" in normalized:
+            return True
+        if "outras informacoes" in normalized:
+            return True
+        if "servico local prestacao" in normalized:
+            return True
+        if "aliquota" in normalized or "situacao trib" in normalized or "tributad" in normalized:
+            return True
+        if "local de prestacao" in normalized or "prestacao do servico" in normalized:
+            return True
+        if "servicos prestados" in normalized or "ervicos prestados" in normalized:
+            return True
+        if len("".join(tokens)) < 3:
+            return True
+        return _PATTERN_FIELD_HINTS["money"].search(value) is not None
+    if field_name == "operation_nature":
+        if normalized in {"da operacao", "de operacao"}:
+            return True
+        if len("".join(tokens)) < 3:
+            return True
+        return _PATTERN_FIELD_HINTS["money"].search(value) is not None
+    return False
+
+
+def _has_service_code_context(normalized_line: str) -> bool:
+    return any(
+        phrase in normalized_line
+        for phrase in (
+            "atividade",
+            "cnae",
+            "cod servico",
+            "codigo atividade",
+            "codigo do servico",
+            "codigo servico",
+            "item da lista",
+            "lista de servico",
+            "subitem",
+            "subitens",
+        )
+    )
 
 
 def _has_document_context(normalized_line: str, section: str, value: str) -> bool:

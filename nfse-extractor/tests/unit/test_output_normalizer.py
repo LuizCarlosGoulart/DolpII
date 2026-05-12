@@ -300,6 +300,107 @@ def test_output_normalizer_extracts_service_and_tax_fields_from_aliases() -> Non
     assert values["net_amount"] == "965,00"
 
 
+def test_output_normalizer_extracts_service_fields_from_following_lines() -> None:
+    document = Document(document_id="doc-service-following-lines")
+    elements = [
+        *_line(document.document_id, 1, 1, "DISCRIMINACAO DOS SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "SERVICO DE MANUTENCAO EM EQUIPAMENTOS DE INFORMATICA", y=26.0),
+        *_line(document.document_id, 1, 3, "Codigo do Servico:", y=42.0),
+        *_line(document.document_id, 1, 4, "10.02", y=58.0),
+        *_line(document.document_id, 1, 5, "Natureza de Operacao:", y=74.0),
+        *_line(document.document_id, 1, 6, "501 - ISS devido para Itajai Simples Nacional", y=90.0),
+        *_line(document.document_id, 1, 7, "Local da prestacao do servico", y=106.0),
+        *_line(document.document_id, 1, 8, "ITAJAI - SC", y=122.0),
+        *_line(document.document_id, 1, 9, "VALORES", y=138.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["service_description"] == "SERVICO DE MANUTENCAO EM EQUIPAMENTOS DE INFORMATICA"
+    assert values["service_code"] == "10.02"
+    assert values["operation_nature"] == "501 - ISS devido para Itajai Simples Nacional"
+    assert values["service_city"] == "ITAJAI/SC"
+
+
+def test_output_normalizer_extracts_lc116_numeric_service_code_with_context() -> None:
+    document = Document(document_id="doc-service-code-numeric")
+    elements = [
+        *_line(document.document_id, 1, 1, "DESCRICAO DOS SUBITENS DA LISTA DE SERVICO", y=10.0),
+        *_line(document.document_id, 1, 2, "2601 Servicos de coleta remessa ou entrega de documentos", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_code") == ["2601"]
+
+
+def test_output_normalizer_does_not_extract_unlabeled_year_as_service_code() -> None:
+    document = Document(document_id="doc-service-code-year")
+    elements = [
+        *_line(document.document_id, 1, 1, "DISCRIMINACAO DOS SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "Contrato mensal referente a agosto de 2021", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_code") == []
+
+
+def test_output_normalizer_does_not_extract_law_number_or_money_prefix_as_service_code() -> None:
+    document = Document(document_id="doc-service-code-false-positive")
+    elements = [
+        *_line(document.document_id, 1, 1, "DESCRICAO DOS SUBITENS DA LISTA DE SERVICO EM ACORDO COM A LEI COMPLEMENTAR 116/03", y=10.0),
+        *_line(document.document_id, 1, 2, "VALORES", y=26.0),
+        *_line(document.document_id, 1, 3, "Codigo do Servico", y=42.0),
+        *_line(document.document_id, 1, 4, "R$ 479,90", y=58.0),
+        *_line(document.document_id, 1, 5, "542 Documento interno sem contexto de servico", y=74.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_code") == []
+
+
+def test_output_normalizer_extracts_service_city_from_collection_location_alias() -> None:
+    document = Document(document_id="doc-service-city-collection")
+    elements = [
+        *_line(document.document_id, 1, 1, "ENQUADRAMENTO DO SERVICO", y=10.0),
+        *_line(document.document_id, 1, 2, "Mes de Competencia: 08/2021 Local do Recolhimento: BLUMENAU/SC Data Geracao: 03/08/2021", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_city") == ["BLUMENAU/SC"]
+
+
+def test_output_normalizer_normalizes_ocr_separator_in_service_city() -> None:
+    document = Document(document_id="doc-service-city-separator")
+    elements = [
+        *_line(document.document_id, 1, 1, "Local do Recolhimento: ITAJAI! SC/BRASIL", y=10.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_city") == ["ITAJAI/SC/BRASIL"]
+
+
+def test_output_normalizer_extracts_coded_service_city_and_rejects_legend_noise() -> None:
+    document = Document(document_id="doc-service-city-coded")
+    elements = [
+        *_line(document.document_id, 1, 1, "DESCRICAO DOS SERVICOS PRESTADOS", y=10.0),
+        *_line(document.document_id, 1, 2, "Servico Local Prestacao i Aliquota Situacao Trib. Valor Servico", y=26.0),
+        *_line(document.document_id, 1, 3, "Descricao do Servico", y=42.0),
+        *_line(document.document_id, 1, 4, "8039 Balneario Camboriu", y=58.0),
+        *_line(document.document_id, 1, 5, "Outras Informacoes", y=74.0),
+        *_line(document.document_id, 1, 6, "TI- Tributada Integralmente", y=90.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_city") == ["Balneario Camboriu"]
+
+
 def test_output_normalizer_rejects_service_description_header_without_content() -> None:
     document = Document(document_id="doc-service-header")
     elements = [

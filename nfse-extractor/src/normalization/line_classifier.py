@@ -188,8 +188,12 @@ def _score_line(text: str) -> _ScoredLine:
             "discriminacao do servico": 7,
             "discriminacao dos servicos": 7,
             "local da prestacao": 4,
+            "local do recolhimento": 4,
+            "municipio de incidencia": 4,
             "natureza da operacao": 5,
             "servicos prestados": 5,
+            "subitem": 3,
+            "subitens": 3,
         },
     )
     _add_phrase_scores(
@@ -267,6 +271,7 @@ def _looks_like_service_detail(normalized: str) -> bool:
             "codigo do servico",
             "item da lista",
             "local da prestacao",
+            "local do recolhimento",
             "municipio de incidencia",
             "natureza",
             "servico",
