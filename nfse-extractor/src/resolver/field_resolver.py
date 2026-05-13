@@ -68,7 +68,13 @@ class ConfigDrivenFieldResolver(FieldResolver):
                 for item in ordered
             ]
 
-            ambiguous = second is not None and abs(top.confidence - second.confidence) <= self.ambiguity_delta
+            ambiguous = False
+            if second is not None:
+                score_delta = abs(top.confidence - second.confidence)
+                raw_confidence_delta = abs(
+                    (top.candidate.confidence or 0.0) - (second.candidate.confidence or 0.0)
+                )
+                ambiguous = score_delta <= self.ambiguity_delta and raw_confidence_delta <= self.ambiguity_delta
             low_confidence = top.confidence < threshold
 
             resolved_fields.append(

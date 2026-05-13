@@ -277,6 +277,56 @@ def test_output_normalizer_keeps_provider_and_recipient_contexts_separate() -> N
     assert values["recipient_uf"] == "PR"
 
 
+def test_output_normalizer_scopes_labels_before_tomador_marker_as_provider_leakage() -> None:
+    document = Document(document_id="doc-provider-label-before-tomador")
+    elements = [
+        *_line(document.document_id, 1, 1, "PRESTADOR DE SERVICOS", y=10.0),
+        *_line(
+            document.document_id,
+            1,
+            2,
+            "Nome/Razao Social: BRB SERVICOS DE TECNOLOGIA LTDA CNPJ/CPF: 10.468.075/0001-55 DADOS DO TOMADOR",
+            y=26.0,
+        ),
+        *_line(document.document_id, 1, 3, "CNPJ/CPF: 02.876.218/0006-44", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+    provider_document = next(candidate for candidate in candidates if candidate.field_name == "provider_document")
+
+    assert values["provider_name"] == "BRB SERVICOS DE TECNOLOGIA LTDA"
+    assert values["provider_document"] == "10.468.075/0001-55"
+    assert values["recipient_document"] == "02.876.218/0006-44"
+    assert provider_document.metadata["section_name"] == "provider"
+    assert provider_document.metadata["raw_section_name"] == "recipient"
+    assert provider_document.metadata["section_override_applied"] is True
+
+
+def test_output_normalizer_keeps_document_pattern_before_tomador_marker_with_provider_fragment() -> None:
+    document = Document(document_id="doc-provider-document-before-tomador")
+    elements = [
+        *_line(document.document_id, 1, 1, "PRESTADOR DE SERVICOS", y=10.0),
+        *_line(
+            document.document_id,
+            1,
+            2,
+            (
+                "CNPJ/CPF: Nome/Razao Nome Endereco: Bairro: Municipio: E-mail: Pais: Fantasia: "
+                "VELHA BRASIL bloemerrodolfo BLUMENAU DR. Social: 10.468.075/0001-55 "
+                "ARTUR BRB SERVICOS BRB BALSINI gmail.com SERVICOS DE TECNOLOGIA DADOS DO TOMADOR"
+            ),
+            y=26.0,
+        ),
+        *_line(document.document_id, 1, 3, "CNPJ/CPF: 02.876.218/0006-44", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "provider_document") == ["10.468.075/0001-55"]
+    assert _values_for(candidates, "recipient_document") == ["02.876.218/0006-44"]
+
+
 def test_output_normalizer_extracts_party_names_from_razao_social_label() -> None:
     document = Document(document_id="doc-razao-social")
     elements = [

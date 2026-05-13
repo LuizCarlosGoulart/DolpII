@@ -370,6 +370,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     line_index=line_index,
                     value_source=value_source,
                     confidence_boost=0.08,
+                    section_override=_party_section_from_field(match.field_name),
                 )
             )
         return candidates
@@ -383,11 +384,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             position = _find_subsequence(token_values, label_tokens)
             if position is None:
                 continue
+            label_section = _party_section_for_label_position(line.section, token_values, position, label_tokens)
             end_token_index = position + len(label_tokens) - 1
             end_element_index = flattened[end_token_index][1]
             matches.append(
                 _LabelMatch(
-                    field_name=self._scope_field(field_name, label_tokens, line.section),
+                    field_name=self._scope_field(field_name, label_tokens, label_section),
                     label_text=label_text,
                     end_element_index=end_element_index,
                     token_count=len(label_tokens),
@@ -398,7 +400,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             position = _find_subsequence(token_values, label_tokens)
             if position is None:
                 continue
-            scoped_field = scoped_fields.get(line.section)
+            label_section = _party_section_for_label_position(line.section, token_values, position, label_tokens)
+            scoped_field = scoped_fields.get(label_section)
             if scoped_field is None:
                 continue
             end_token_index = position + len(label_tokens) - 1
@@ -480,7 +483,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             if self._looks_like_phone_not_document(line.text, match):
                 continue
             value = _normalize_document_id(match.group(0))
-            field_name = "recipient_document" if line.section == "recipient" else "provider_document"
+            document_section = _party_section_for_document_match(line.text, line.section, match)
+            field_name = "recipient_document" if document_section == "recipient" else "provider_document"
             candidates.append(
                 self._build_candidate(
                     document=document,
@@ -492,6 +496,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     line_index=line_index,
                     value_source="regex",
                     confidence_boost=0.03,
+                    section_override=_party_section_from_field(field_name),
                 )
             )
 
@@ -778,6 +783,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     line_index=line_index,
                     value_source="regex",
                     confidence_boost=0.03,
+                    section_override=_party_section_from_field(field_name),
                 )
             ]
         for match in _PATTERN_FIELD_HINTS[pattern_name].finditer(line.text):
@@ -792,6 +798,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     line_index=line_index,
                     value_source="regex",
                     confidence_boost=0.03,
+                    section_override=_party_section_from_field(field_name),
                 )
             )
         return candidates
@@ -808,6 +815,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         line_index: int,
         value_source: str,
         confidence_boost: float,
+        section_override: str | None = None,
     ) -> FieldCandidate:
         confidence_values = [element.confidence for element in source_elements if element.confidence is not None]
         confidence = sum(confidence_values) / len(confidence_values) if confidence_values else 0.5
@@ -816,6 +824,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             confidence = min(confidence * 0.75, 0.7)
         value_hash = hashlib.sha1(value.encode("utf-8")).hexdigest()[:12]
         candidate_id = f"{document.document_id}:{self.normalizer_name}:{field_name}:{line_index}:{len(source_elements)}:{value_hash}"
+        effective_section = section_override or line.section
 
         return FieldCandidate(
             candidate_id=candidate_id,
@@ -827,7 +836,9 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             metadata={
                 "label_text": label_text,
                 "context_text": line.text,
-                "section_name": line.section,
+                "section_name": effective_section,
+                "raw_section_name": line.section,
+                "section_override_applied": effective_section != line.section,
                 "section_confidence": line.section_confidence,
                 "section_reasons": line.section_reasons,
                 "page_number": line.page_number,
@@ -918,6 +929,93 @@ def _candidate_rank(candidate: FieldCandidate) -> tuple[float, float, float]:
 
 def _tokens(value: str) -> list[str]:
     return re.findall(r"[a-z0-9]+", _normalize(value))
+
+
+def _party_section_for_label_position(
+    fallback_section: str,
+    token_values: list[str],
+    label_position: int,
+    label_tokens: tuple[str, ...],
+) -> str:
+    if fallback_section not in {"provider", "recipient"}:
+        return fallback_section
+
+    provider_positions = [index for index, token in enumerate(token_values) if token == "prestador"]
+    recipient_positions = [index for index, token in enumerate(token_values) if token == "tomador"]
+    last_provider = max((index for index in provider_positions if index <= label_position), default=-1)
+    last_recipient = max((index for index in recipient_positions if index <= label_position), default=-1)
+    if last_provider > last_recipient:
+        return "provider"
+    if last_recipient > last_provider:
+        return "recipient"
+
+    first_recipient = min(recipient_positions, default=None)
+    if (
+        fallback_section == "recipient"
+        and first_recipient is not None
+        and label_position < first_recipient
+        and label_tokens in _SECTION_SCOPED_LABELS
+    ):
+        return "provider"
+
+    return fallback_section
+
+
+def _party_section_from_field(field_name: str) -> str | None:
+    if field_name.startswith("provider_"):
+        return "provider"
+    if field_name.startswith("recipient_"):
+        return "recipient"
+    return None
+
+
+def _party_section_for_document_match(
+    line_text: str,
+    fallback_section: str,
+    match: re.Match[str],
+) -> str:
+    if fallback_section not in {"provider", "recipient"}:
+        return fallback_section
+
+    prefix = _normalize(line_text[: match.start()])
+    suffix = _normalize(line_text[match.end() :])
+    if _contains_phrase(prefix, "tomador"):
+        return "recipient"
+    if _contains_phrase(prefix, "prestador"):
+        return "provider"
+    if (
+        fallback_section == "recipient"
+        and _contains_phrase(suffix, "tomador")
+        and _looks_like_party_fragment_before_boundary(prefix)
+    ):
+        return "provider"
+    return fallback_section
+
+
+def _looks_like_party_fragment_before_boundary(normalized_prefix: str) -> bool:
+    has_document_cue = "cnpj" in normalized_prefix or "cpf" in normalized_prefix
+    has_party_detail = any(
+        phrase in normalized_prefix
+        for phrase in (
+            "bairro",
+            "e mail",
+            "email",
+            "endereco",
+            "fantasia",
+            "municipio",
+            "nome razao",
+            "pais",
+            "razao social",
+            "social",
+            "telefone",
+        )
+    )
+    return has_document_cue and has_party_detail
+
+
+def _contains_phrase(normalized: str, phrase: str) -> bool:
+    pattern = r"(?:^|\s)" + re.escape(phrase) + r"(?:\s|$)"
+    return re.search(pattern, normalized) is not None
 
 
 def _normalize(value: object) -> str:
