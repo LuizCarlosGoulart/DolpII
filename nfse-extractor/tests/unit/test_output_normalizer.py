@@ -106,6 +106,20 @@ def test_output_normalizer_accepts_short_nfse_number_near_header_label() -> None
     assert _values_for(candidates, "nfse_number") == ["16"]
 
 
+def test_output_normalizer_extracts_nfem_number_from_next_line() -> None:
+    document = Document(document_id="doc-nfem-number")
+    elements = [
+        *_line(document.document_id, 1, 1, "Numero da NF-em", y=10.0),
+        *_line(document.document_id, 1, 2, "14792", y=26.0),
+        *_line(document.document_id, 1, 3, "Data e Hora de Emissao", y=42.0),
+        *_line(document.document_id, 1, 4, "02/07/2021 09:43", y=58.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "nfse_number") == ["14792"]
+
+
 def test_output_normalizer_finds_issue_date_near_label_without_using_label_tail() -> None:
     document = Document(document_id="doc-date-nearby")
     elements = [
@@ -261,6 +275,34 @@ def test_output_normalizer_keeps_provider_and_recipient_contexts_separate() -> N
     assert values["recipient_name"] == "HAGI PIZZAS E SUPERMERCADO LTDA"
     assert values["recipient_document"] == "02.876.218/0006-44"
     assert values["recipient_uf"] == "PR"
+
+
+def test_output_normalizer_extracts_party_names_from_razao_social_label() -> None:
+    document = Document(document_id="doc-razao-social")
+    elements = [
+        *_line(document.document_id, 1, 1, "PRESTADOR DE SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "Razao Social: ENGETERME TECNOLOGIA EM CLIMATIZACAO LTDA ME", y=26.0),
+        *_line(document.document_id, 1, 3, "TOMADOR DO SERVICO", y=42.0),
+        *_line(document.document_id, 1, 4, "Razao Social/Nome: HAGI PIZZAS E SUPERMERCADO LTDA", y=58.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["provider_name"] == "ENGETERME TECNOLOGIA EM CLIMATIZACAO LTDA ME"
+    assert values["recipient_name"] == "HAGI PIZZAS E SUPERMERCADO LTDA"
+
+
+def test_output_normalizer_removes_document_suffix_from_party_name() -> None:
+    document = Document(document_id="doc-party-name-document-suffix")
+    elements = [
+        *_line(document.document_id, 1, 1, "PRESTADOR DE SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "Razao Social: DANIEL CESAR BALDO 05021232908", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "provider_name") == ["DANIEL CESAR BALDO"]
 
 
 def test_output_normalizer_infers_provider_block_before_recipient() -> None:

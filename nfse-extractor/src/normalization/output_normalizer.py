@@ -56,6 +56,8 @@ _SECTION_SCOPED_LABELS = {
     ("cnpj", "cpf"): {"provider": "provider_document", "recipient": "recipient_document"},
     ("cpf", "cnpj"): {"provider": "provider_document", "recipient": "recipient_document"},
     ("nome", "razao", "social"): {"provider": "provider_name", "recipient": "recipient_name"},
+    ("razao", "social"): {"provider": "provider_name", "recipient": "recipient_name"},
+    ("razao", "social", "nome"): {"provider": "provider_name", "recipient": "recipient_name"},
     ("insc", "municipal"): {
         "provider": "provider_municipal_registration",
         "recipient": "recipient_municipal_registration",
@@ -86,6 +88,7 @@ _PATTERN_FIELD_HINTS = {
 _DOCUMENT_FIELDS = {"provider_document", "recipient_document"}
 _EMAIL_FIELDS = {"provider_email", "recipient_email"}
 _MUNICIPAL_REGISTRATION_FIELDS = {"provider_municipal_registration", "recipient_municipal_registration"}
+_PARTY_NAME_FIELDS = {"provider_name", "recipient_name"}
 _MONEY_FIELDS = {
     "gross_amount",
     "taxable_amount",
@@ -513,6 +516,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             return _extract_document_id(value)
         if field_name in _MUNICIPAL_REGISTRATION_FIELDS:
             return _extract_municipal_registration(value)
+        if field_name in _PARTY_NAME_FIELDS:
+            return _clean_party_name_value(value)
         if field_name in _EMAIL_FIELDS:
             match = _PATTERN_FIELD_HINTS["email"].search(value)
             return match.group(0) if match else None
@@ -708,6 +713,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             field_name in _DOCUMENT_FIELDS
             or field_name in _EMAIL_FIELDS
             or field_name in _MUNICIPAL_REGISTRATION_FIELDS
+            or field_name in _PARTY_NAME_FIELDS
             or field_name in _UF_FIELDS
             or field_name in _PHONE_FIELDS
             or field_name in _MONEY_FIELDS
@@ -887,7 +893,7 @@ def _candidate_rank(candidate: FieldCandidate) -> tuple[float, float, float]:
         if any(term in context for term in ("autorizacao", "fato gerador", "rps", "vencimento")):
             score -= 0.65
     elif field_name == "nfse_number":
-        if any(term in context for term in ("numero da nota", "numero da nfs", "nota no")):
+        if any(term in context for term in ("numero da nota", "numero da nfs", "numero da nf", "nota no")):
             score += 0.45
         if any(term in context for term in ("rps", "recibo provisorio")):
             score -= 0.55
@@ -989,6 +995,21 @@ def _extract_nfse_series(value: str) -> str | None:
     if not candidates:
         return None
     return candidates[-1].strip(" :-,.()")
+
+
+def _clean_party_name_value(value: str) -> str | None:
+    value = re.split(
+        r"\b(?:cnpj|cpf|endereco|e\s*mail|email|fone|insc\.?|inscricao|municipio|telefone|uf)\b",
+        value,
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0]
+    value = _PATTERN_FIELD_HINTS["document_id"].sub("", value)
+    value = re.sub(r"\b\d{11,14}\b$", "", value)
+    value = re.sub(r"\s+", " ", value).strip(" :-,\t\r\n")
+    if len(_tokens(value)) < 2:
+        return None
+    return value
 
 
 def _extract_verification_code(value: str) -> str | None:
