@@ -780,6 +780,134 @@ def test_output_normalizer_maps_value_table_columns_to_fields() -> None:
     assert values["iss_amount"] == "4,83"
 
 
+def test_output_normalizer_uses_rate_column_as_financial_table_anchor() -> None:
+    document = Document(document_id="doc-financial-rate-anchor")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(
+            document.document_id,
+            1,
+            2,
+            "Valor Serviço | | Base de Cálculo | Alíg. (4%): | Valor ISS | Ref.:",
+            y=26.0,
+        ),
+        *_line(document.document_id, 1, 3, "7.249,46 | | | 7.249,46 | | 2,00 | 144,99 | 08/2021", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["gross_amount"] == "7.249,46"
+    assert values["taxable_amount"] == "7.249,46"
+    assert values["iss_rate"] == "2,00"
+    assert values["iss_amount"] == "144,99"
+
+
+def test_output_normalizer_maps_financial_table_with_split_iss_value() -> None:
+    document = Document(document_id="doc-split-iss")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "Valor Retencoes Base Calculo ISS Aliquota ISS Valor do ISS", y=26.0),
+        *_line(document.document_id, 1, 3, "0,00 120,00 5,00% 0", y=42.0),
+        *_line(document.document_id, 1, 4, ",00", y=58.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["taxable_amount"] == "120,00"
+    assert values["iss_rate"] == "5,00%"
+    assert values["iss_amount"] == "0,00"
+
+
+def test_output_normalizer_maps_net_amount_after_total_tax_placeholder() -> None:
+    document = Document(document_id="doc-net-after-tax-placeholder")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "PIS Outras Retencoes Total Trib. Federais Valor Liquido", y=26.0),
+        *_line(document.document_id, 1, 3, "0,00 0,00 0,00 12.044,00", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["pis_withheld_amount"] == "0,00"
+    assert values["other_retentions_amount"] == "0,00"
+    assert values["net_amount"] == "12.044,00"
+
+
+def test_output_normalizer_maps_unmarked_rate_when_table_shape_is_clear() -> None:
+    document = Document(document_id="doc-unmarked-rate")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "Descricao Servico Prestado Valor Base Calculo Aliquota ISSQN", y=26.0),
+        *_line(document.document_id, 1, 3, "SUPERVISAO DE LOJAS 6.000,00 6.000,00 3,00 180,00", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["gross_amount"] == "6.000,00"
+    assert values["taxable_amount"] == "6.000,00"
+    assert values["iss_rate"] == "3,00"
+    assert values["iss_amount"] == "180,00"
+
+
+def test_output_normalizer_maps_summary_table_with_discount_placeholder() -> None:
+    document = Document(document_id="doc-summary-discount")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "Valor Total Desconto Dedução Base de Cálculo ISSQN", y=26.0),
+        *_line(document.document_id, 1, 3, "12.044,00 0,00 0,00 12.044,00 602,20", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["gross_amount"] == "12.044,00"
+    assert values["deductions_amount"] == "0,00"
+    assert values["taxable_amount"] == "12.044,00"
+    assert values["iss_amount"] == "602,20"
+
+
+def test_output_normalizer_maps_single_base_value_without_inventing_rate_or_iss() -> None:
+    document = Document(document_id="doc-single-base-value")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "Base de Cálculo do ISSQN ALÍQUOTA DO ISSQN", y=26.0),
+        *_line(document.document_id, 1, 3, "Deduções do ISSQN ISSQN DEVIDO", y=42.0),
+        *_line(document.document_id, 1, 4, "R$ 61,29", y=58.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["taxable_amount"] == "R$ 61,29"
+    assert "iss_rate" not in values
+    assert "iss_amount" not in values
+
+
+def test_output_normalizer_ignores_informational_retention_law_lines() -> None:
+    document = Document(document_id="doc-financial-noise")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(
+            document.document_id,
+            1,
+            2,
+            "E DISP.RET.PIS/COFINS/CSSL/ PGTO VLR IGUAL OU MENOR R$215,05 CONF-.LEI 13.137/15.",
+            y=26.0,
+        ),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert "pis_withheld_amount" not in values
+    assert "cofins_withheld_amount" not in values
+    assert "csll_withheld_amount" not in values
+
+
 def test_output_normalizer_preserves_candidate_traceability_metadata() -> None:
     document = Document(document_id="doc-trace")
     elements = [

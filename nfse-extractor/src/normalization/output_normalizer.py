@@ -192,6 +192,30 @@ class _LabelMatch:
     token_count: int
 
 
+@dataclass(frozen=True)
+class _FinancialColumn:
+    field_name: str | None
+    label_text: str
+    kind: str
+    start: int
+    end: int
+
+
+@dataclass(frozen=True)
+class _FinancialValue:
+    value: str
+    kind: str
+    start: int
+    end: int
+
+
+@dataclass(frozen=True)
+class _FinancialMapping:
+    value: str
+    column: _FinancialColumn
+    value_lines: tuple[_Line, ...]
+
+
 class ConfigDrivenOutputNormalizer(OutputNormalizer):
     """Create field candidates from OCR elements using labels, patterns, and layout context."""
 
@@ -222,6 +246,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             candidates.extend(self._candidates_from_labels(document, line, line_index, lines))
             candidates.extend(self._candidates_from_patterns(document, line, line_index))
 
+        candidates.extend(self._candidates_from_financial_tables(document, lines))
         return self._deduplicate_candidates(candidates)
 
     def _build_label_aliases(self) -> list[tuple[tuple[str, ...], str, str]]:
@@ -323,7 +348,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     value_source = "nearby_lines"
 
             if value is None and line_index + 1 < len(lines):
-                table_value = self._extract_table_value(match, matches, lines[line_index + 1])
+                table_value = self._extract_table_value(match, line, line_index, lines)
                 if table_value is not None:
                     value = table_value
                     value_elements = lines[line_index + 1].elements
@@ -575,12 +600,22 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
     def _extract_table_value(
         self,
         match: _LabelMatch,
-        matches: list[_LabelMatch],
-        next_line: _Line,
+        line: _Line,
+        line_index: int,
+        lines: list[_Line],
     ) -> str | None:
         if match.field_name not in _MONEY_FIELDS and match.field_name != "iss_rate":
             return None
 
+        table_mapping = _map_financial_table(line, line_index, lines)
+        if table_mapping:
+            mapped = table_mapping.get(match.field_name)
+            return mapped.value if mapped is not None else None
+
+        if line_index + 1 >= len(lines):
+            return None
+        next_line = lines[line_index + 1]
+        matches = self._find_label_matches(line)
         value_matches = _money_matches(next_line.text)
         table_matches = [
             item
@@ -617,6 +652,35 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         ):
             return None
         return value
+
+    def _candidates_from_financial_tables(
+        self,
+        document: Document,
+        lines: list[_Line],
+    ) -> list[FieldCandidate]:
+        candidates: list[FieldCandidate] = []
+        for line_index, line in enumerate(lines):
+            mapping = _map_financial_table(line, line_index, lines)
+            for field_name, mapped in mapping.items():
+                if field_name not in _MONEY_FIELDS and field_name != "iss_rate":
+                    continue
+                value_elements = [element for value_line in mapped.value_lines for element in value_line.elements]
+                if not value_elements:
+                    continue
+                candidates.append(
+                    self._build_candidate(
+                        document=document,
+                        field_name=field_name,
+                        value=mapped.value,
+                        source_elements=value_elements,
+                        label_text=mapped.column.label_text,
+                        line=line,
+                        line_index=line_index,
+                        value_source="financial_table",
+                        confidence_boost=0.10,
+                    )
+                )
+        return candidates
 
     @staticmethod
     def _extract_ocr_corrected_email(value: str) -> str | None:
@@ -925,6 +989,304 @@ def _candidate_rank(candidate: FieldCandidate) -> tuple[float, float, float]:
 
     line_index = float(candidate.metadata.get("line_index", 0) or 0)
     return (score, confidence, -line_index)
+
+
+_FINANCIAL_LABEL_SPECS: tuple[tuple[str | None, str, str], ...] = (
+    ("gross_amount", "valor total dos servicos", "money"),
+    ("gross_amount", "valor total do servico", "money"),
+    ("gross_amount", "valor total da nota", "money"),
+    ("gross_amount", "valor bruto da nota", "money"),
+    ("gross_amount", "valor total", "money"),
+    ("gross_amount", "prestado valor", "money"),
+    ("deductions_amount", "valor total das deducoes", "money"),
+    ("unconditional_discount", "desconto incondicionado", "money"),
+    ("unconditional_discount", "desconto incondicional", "money"),
+    ("unconditional_discount", "desc incondicionado", "money"),
+    ("unconditional_discount", "desc incondic", "money"),
+    ("conditional_discount", "desconto condicionado", "money"),
+    ("conditional_discount", "desconto condicional", "money"),
+    ("conditional_discount", "desc condicionado", "money"),
+    ("other_retentions_amount", "outras retencoes", "money"),
+    (None, "valor retencoes", "money"),
+    (None, "total trib federais", "money"),
+    (None, "total trib", "money"),
+    (None, "valor do credito", "money"),
+    (None, "desconto", "money"),
+    ("taxable_amount", "base de calculo do issqn", "money"),
+    ("taxable_amount", "base de calculo issqn", "money"),
+    ("taxable_amount", "base calculo iss", "money"),
+    ("taxable_amount", "base de calculo", "money"),
+    ("taxable_amount", "base calculo", "money"),
+    ("iss_rate", "aliquota do issqn", "rate"),
+    ("iss_rate", "aliquota issqn", "rate"),
+    ("iss_rate", "aliquota iss", "rate"),
+    ("iss_rate", "aliquota", "rate"),
+    ("iss_rate", "alig", "rate"),
+    ("iss_amount", "issqn devido", "money"),
+    ("iss_amount", "valor do iss", "money"),
+    ("iss_amount", "valor iss", "money"),
+    ("net_amount", "valor liquido da nota", "money"),
+    ("net_amount", "valor liquido", "money"),
+    ("pis_withheld_amount", "pis pasep", "money"),
+    ("pis_withheld_amount", "pis", "money"),
+    ("cofins_withheld_amount", "cofins", "money"),
+    ("inss_withheld_amount", "inss", "money"),
+    ("ir_withheld_amount", "irrf", "money"),
+    ("ir_withheld_amount", "ir", "money"),
+    ("csll_withheld_amount", "csll", "money"),
+    ("deductions_amount", "valor deducao", "money"),
+    ("deductions_amount", "deducoes", "money"),
+    ("deductions_amount", "deducao", "money"),
+    ("gross_amount", "valor servico", "money"),
+)
+
+_FINANCIAL_LABEL_SPECS = tuple(sorted(_FINANCIAL_LABEL_SPECS, key=lambda item: len(item[1]), reverse=True))
+_FINANCIAL_PLACEHOLDER_FIELDS = {None}
+_FINANCIAL_VALUE_RE = re.compile(
+    r"(?:R\$\s*-?\s*)?\d{1,3}(?:\.\d{3})*,\d{2,4}\s*%?"
+    r"|(?:R\$\s*-?\s*)?\d+,\d{2,4}\s*%?"
+    r"|\d{1,2}\s*%"
+)
+
+
+def _map_financial_table(
+    line: _Line,
+    line_index: int,
+    lines: list[_Line],
+) -> dict[str, _FinancialMapping]:
+    if line.section != "values":
+        return {}
+    normalized_header = _normalize(line.text)
+    if _looks_like_financial_noise_header(normalized_header):
+        return {}
+    columns = _financial_columns_from_line(line.text)
+    if not _looks_like_financial_table(columns):
+        return {}
+    value_lines = _financial_value_lines_after_header(line_index, lines)
+    if not value_lines:
+        return {}
+    values = _financial_values_from_text(" ".join(value_line.text for value_line in value_lines))
+    if not values:
+        return {}
+    return _align_financial_columns(columns, values, value_lines)
+
+
+def _financial_columns_from_line(text: str) -> list[_FinancialColumn]:
+    normalized = _normalize(text)
+    columns: list[_FinancialColumn] = []
+    occupied: list[tuple[int, int]] = []
+    for field_name, label_text, kind in _FINANCIAL_LABEL_SPECS:
+        pattern = r"(?:^|\s)" + re.escape(label_text) + r"(?=\s|$)"
+        for match in re.finditer(pattern, normalized):
+            start = match.start()
+            end = match.end()
+            if any(not (end <= used_start or start >= used_end) for used_start, used_end in occupied):
+                continue
+            columns.append(_FinancialColumn(field_name, label_text, kind, start, end))
+            occupied.append((start, end))
+    columns.sort(key=lambda item: item.start)
+    return columns
+
+
+def _looks_like_financial_noise_header(normalized_header: str) -> bool:
+    return any(
+        phrase in normalized_header
+        for phrase in (
+            "disp ret",
+            "igual ou menor",
+            "lei ",
+            "lei complementar",
+            "pgto",
+            "transparencia",
+            "valor aproximado",
+        )
+    )
+
+
+def _looks_like_financial_table(columns: list[_FinancialColumn]) -> bool:
+    value_columns = [column for column in columns if column.field_name not in _FINANCIAL_PLACEHOLDER_FIELDS]
+    if len(value_columns) >= 2:
+        return True
+    return any(column.field_name == "iss_rate" for column in columns) and len(columns) >= 2
+
+
+def _financial_value_lines_after_header(line_index: int, lines: list[_Line]) -> tuple[_Line, ...]:
+    selected: list[_Line] = []
+    for nearby_line in lines[line_index + 1 : line_index + 4]:
+        if nearby_line.section != "values":
+            break
+        normalized = _normalize(nearby_line.text)
+        if normalized in _SECTION_ONLY_VALUES:
+            continue
+        if _financial_columns_from_line(nearby_line.text) and selected:
+            break
+        if _FINANCIAL_VALUE_RE.search(_merge_split_money_fragments(nearby_line.text)) or re.fullmatch(r"\s*,\s*\d{2}\s*", nearby_line.text):
+            selected.append(nearby_line)
+            if len(selected) >= 2 and not re.fullmatch(r"\s*,\s*\d{2}\s*", nearby_line.text):
+                break
+            continue
+        if selected:
+            break
+    return tuple(selected)
+
+
+def _financial_values_from_text(text: str) -> list[_FinancialValue]:
+    text = _merge_split_money_fragments(text)
+    values: list[_FinancialValue] = []
+    for match in _FINANCIAL_VALUE_RE.finditer(text):
+        value = re.sub(r"\s+", " ", match.group(0)).strip()
+        value = re.sub(r"\s*%\s*$", "%", value)
+        kind = "rate" if value.endswith("%") else "money"
+        values.append(_FinancialValue(value, kind, match.start(), match.end()))
+    return values
+
+
+def _merge_split_money_fragments(text: str) -> str:
+    text = re.sub(r"\b(\d+)\s+,\s*(\d{2,4})\b", r"\1,\2", text)
+    text = re.sub(r"(R\$)\s+(-)\s+", r"\1 \2", text)
+    return text
+
+
+def _align_financial_columns(
+    columns: list[_FinancialColumn],
+    values: list[_FinancialValue],
+    value_lines: tuple[_Line, ...],
+) -> dict[str, _FinancialMapping]:
+    mapping: dict[str, _FinancialMapping] = {}
+    rate_column_index = next((index for index, column in enumerate(columns) if column.field_name == "iss_rate"), None)
+    if rate_column_index is not None:
+        rate_value_index = _find_rate_value_index(columns, values, rate_column_index)
+        if rate_value_index is not None:
+            _map_financial_side(columns[:rate_column_index], values[:rate_value_index], value_lines, mapping)
+            rate_value = values[rate_value_index]
+            if _is_acceptable_financial_value("iss_rate", rate_value.value, columns[rate_column_index]):
+                mapping["iss_rate"] = _FinancialMapping(rate_value.value, columns[rate_column_index], value_lines)
+            right_values = values[rate_value_index + 1 :]
+            _map_financial_side(columns[rate_column_index + 1 :], right_values, value_lines, mapping)
+            if "iss_amount" not in mapping:
+                iss_value = next((value for value in right_values if value.kind == "money"), None)
+                if iss_value is not None:
+                    mapping["iss_amount"] = _FinancialMapping(
+                        iss_value.value,
+                        _FinancialColumn(
+                            "iss_amount",
+                            "valor iss",
+                            "money",
+                            columns[rate_column_index].end,
+                            columns[rate_column_index].end,
+                        ),
+                        value_lines,
+                    )
+            return mapping
+
+    _map_financial_side(columns, values, value_lines, mapping)
+    if "iss_amount" not in mapping and any(column.field_name == "taxable_amount" for column in columns):
+        consumable_columns = [column for column in columns if _financial_column_consumes_value(column)]
+        money_values = [value for value in values if value.kind == "money"]
+        if len(money_values) > len(consumable_columns):
+            iss_value = money_values[-1]
+            mapping["iss_amount"] = _FinancialMapping(
+                iss_value.value,
+                _FinancialColumn("iss_amount", "valor iss", "money", columns[-1].end, columns[-1].end),
+                value_lines,
+            )
+    return mapping
+
+
+def _find_rate_value_index(
+    columns: list[_FinancialColumn],
+    values: list[_FinancialValue],
+    rate_column_index: int,
+) -> int | None:
+    for index, value in enumerate(values):
+        if value.kind == "rate":
+            return index
+    consumable_before_rate = len([column for column in columns[:rate_column_index] if _financial_column_consumes_value(column)])
+    if consumable_before_rate < len(values):
+        candidate = values[consumable_before_rate]
+        if _looks_like_unmarked_rate(candidate.value):
+            return consumable_before_rate
+    return None
+
+
+def _map_financial_side(
+    columns: list[_FinancialColumn],
+    values: list[_FinancialValue],
+    value_lines: tuple[_Line, ...],
+    mapping: dict[str, _FinancialMapping],
+) -> None:
+    consumable_columns = [column for column in columns if _financial_column_consumes_value(column)]
+    money_values = [value for value in values if value.kind == "money"]
+    if not consumable_columns or not money_values:
+        return
+
+    if len(money_values) >= len(consumable_columns):
+        pairs = zip(consumable_columns, money_values)
+    else:
+        pairs = _align_sparse_financial_side(consumable_columns, money_values)
+
+    for column, value in pairs:
+        if column.field_name is None:
+            continue
+        if column.field_name in mapping:
+            continue
+        if not _is_acceptable_financial_value(column.field_name, value.value, column):
+            continue
+        mapping[column.field_name] = _FinancialMapping(value.value, column, value_lines)
+
+
+def _align_sparse_financial_side(
+    columns: list[_FinancialColumn],
+    values: list[_FinancialValue],
+) -> list[tuple[_FinancialColumn, _FinancialValue]]:
+    if not columns or not values:
+        return []
+    if len(values) == 1:
+        taxable_column = next((column for column in columns if column.field_name == "taxable_amount"), None)
+        if taxable_column is not None and len(columns) <= 2:
+            return [(taxable_column, values[-1])]
+        return []
+    pairs: list[tuple[_FinancialColumn, _FinancialValue]] = [(columns[-1], values[-1])]
+    first_column = columns[0]
+    first_value = values[0]
+    if first_column.field_name in {"deductions_amount", "other_retentions_amount", None} and _is_zero_money(first_value.value):
+        pairs.insert(0, (first_column, first_value))
+    return pairs
+
+
+def _financial_column_consumes_value(column: _FinancialColumn) -> bool:
+    return column.kind in {"money", "rate"}
+
+
+def _looks_like_unmarked_rate(value: str) -> bool:
+    if value.endswith("%"):
+        return True
+    if "R$" in value.upper():
+        return False
+    if _is_zero_money(value):
+        return False
+    number = _decimal_from_br_number(value)
+    return number is not None and 0 < number <= 100
+
+
+def _is_acceptable_financial_value(field_name: str, value: str, column: _FinancialColumn) -> bool:
+    if field_name == "iss_rate":
+        return value.endswith("%") or _looks_like_unmarked_rate(value)
+    if field_name == "deductions_amount" and not _is_zero_money(value):
+        return False
+    if field_name in _MONEY_FIELDS:
+        return not value.endswith("%")
+    return True
+
+
+def _decimal_from_br_number(value: str) -> float | None:
+    normalized = re.sub(r"[^\d,.-]", "", value).replace(".", "").replace(",", ".")
+    if not normalized:
+        return None
+    try:
+        return float(normalized)
+    except ValueError:
+        return None
 
 
 def _tokens(value: str) -> list[str]:
