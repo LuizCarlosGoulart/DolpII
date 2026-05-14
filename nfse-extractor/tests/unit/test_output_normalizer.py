@@ -676,6 +676,9 @@ def test_output_normalizer_corrects_common_ocr_email_at_symbol_with_low_confiden
     assert provider_email.confidence is not None and provider_email.confidence < 0.75
     assert provider_email.metadata["value_source"] == "ocr_corrected_email"
     assert provider_email.metadata["ocr_correction_applied"] is True
+    assert provider_email.metadata["review_status"] == "needs_review"
+    assert "email_ocr_corrected" in provider_email.metadata["review_reasons"]
+    assert "email_ocr_separator_uncertain" in provider_email.metadata["review_reasons"]
 
 
 def test_output_normalizer_rejects_implausible_integer_iss_rate_from_noisy_line() -> None:
@@ -953,8 +956,41 @@ def test_output_normalizer_corrects_merged_net_amount_credit_line() -> None:
 
     candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
     values = _candidate_values(candidates)
+    net_amount = next(candidate for candidate in candidates if candidate.field_name == "net_amount")
 
     assert values["net_amount"] == "12.044,00"
+    assert "merged_financial_context" in net_amount.metadata["review_reasons"]
+
+
+def test_output_normalizer_marks_plain_service_code_for_review() -> None:
+    document = Document(document_id="doc-review-service-code")
+    elements = [
+        *_line(document.document_id, 1, 1, "SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "Codigo do Servico 1711", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    service_code = next(candidate for candidate in candidates if candidate.field_name == "service_code")
+
+    assert service_code.value == "1711"
+    assert service_code.metadata["review_status"] == "needs_review"
+    assert "service_code_format_uncertain" in service_code.metadata["review_reasons"]
+
+
+def test_output_normalizer_marks_multiple_candidates_for_review() -> None:
+    document = Document(document_id="doc-review-conflict")
+    elements = [
+        *_line(document.document_id, 1, 1, "Data Emissao 05/08/2021", y=10.0),
+        *_line(document.document_id, 1, 2, "Autorizacao para emissao em 27/07/2020", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    issue_date = next(candidate for candidate in candidates if candidate.field_name == "issue_date")
+
+    assert issue_date.value == "05/08/2021"
+    assert issue_date.metadata["review_status"] == "needs_review"
+    assert "multiple_candidates" in issue_date.metadata["review_reasons"]
+    assert issue_date.metadata["candidate_conflict_count"] == 2
 
 
 def test_output_normalizer_preserves_candidate_traceability_metadata() -> None:
@@ -973,3 +1009,6 @@ def test_output_normalizer_preserves_candidate_traceability_metadata() -> None:
     assert provider_document.metadata["section_confidence"] > 0
     assert provider_document.metadata["section_reasons"]
     assert provider_document.metadata["label_text"] in {"cnpj cpf", "document pattern"}
+    assert provider_document.metadata["review_status"] == "accepted"
+    assert provider_document.metadata["review_reasons"] == []
+    assert provider_document.metadata["manual_review_required"] is False

@@ -109,6 +109,28 @@ _MONEY_FIELDS = {
 _FINANCIAL_SINGLETON_FIELDS = _MONEY_FIELDS | {"iss_rate"}
 _PHONE_FIELDS = {"provider_phone", "recipient_phone"}
 _UF_FIELDS = {"provider_uf", "recipient_uf"}
+_REVIEW_LOW_CONFIDENCE_THRESHOLDS = {
+    "nfse_number": 0.85,
+    "nfse_series": 0.80,
+    "issue_date": 0.85,
+    "verification_code": 0.85,
+    "provider_document": 0.88,
+    "recipient_document": 0.88,
+    "provider_email": 0.75,
+    "recipient_email": 0.75,
+    "provider_name": 0.75,
+    "recipient_name": 0.75,
+    "provider_address": 0.75,
+    "recipient_address": 0.75,
+    "provider_phone": 0.75,
+    "recipient_phone": 0.75,
+    "provider_uf": 0.75,
+    "recipient_uf": 0.75,
+    "service_code": 0.85,
+    "service_description": 0.75,
+}
+_FINANCIAL_REVIEW_THRESHOLD = 0.85
+_DEFAULT_REVIEW_THRESHOLD = 0.70
 _SECTION_ONLY_VALUES = {
     "de servicos",
     "dos servicos",
@@ -928,6 +950,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
 
     @staticmethod
     def _deduplicate_candidates(candidates: list[FieldCandidate]) -> list[FieldCandidate]:
+        field_candidate_counts = _field_candidate_counts(candidates)
         deduped: dict[tuple[str, str, str], FieldCandidate] = {}
         for candidate in candidates:
             key = (
@@ -950,6 +973,10 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             if current is None or _candidate_rank(candidate) > _candidate_rank(current):
                 best_singletons[candidate.field_name] = candidate
         results.extend(best_singletons.values())
+        results = [
+            _with_review_metadata(candidate, field_candidate_counts.get(candidate.field_name, 1))
+            for candidate in results
+        ]
         return sorted(results, key=lambda item: (item.field_name, str(item.metadata.get("line_index", ""))))
 
     def _load_yaml(self, filename: str) -> dict[str, Any]:
@@ -1031,6 +1058,80 @@ def _candidate_rank(candidate: FieldCandidate) -> tuple[float, float, float]:
 
     line_index = float(candidate.metadata.get("line_index", 0) or 0)
     return (score, confidence, -line_index)
+
+
+def _field_candidate_counts(candidates: list[FieldCandidate]) -> dict[str, int]:
+    values_by_field: dict[str, set[str]] = {}
+    for candidate in candidates:
+        values_by_field.setdefault(candidate.field_name, set()).add(_normalize(candidate.value))
+    return {field_name: len(values) for field_name, values in values_by_field.items()}
+
+
+def _with_review_metadata(candidate: FieldCandidate, field_candidate_count: int) -> FieldCandidate:
+    reasons = _candidate_review_reasons(candidate, field_candidate_count)
+    metadata = dict(candidate.metadata)
+    metadata["review_status"] = "needs_review" if reasons else "accepted"
+    metadata["review_reasons"] = reasons
+    metadata["manual_review_required"] = bool(reasons)
+    metadata["review_confidence_threshold"] = _review_confidence_threshold(candidate.field_name)
+    if field_candidate_count > 1:
+        metadata["candidate_conflict_count"] = field_candidate_count
+    else:
+        metadata.pop("candidate_conflict_count", None)
+    return candidate.model_copy(update={"metadata": metadata})
+
+
+def _candidate_review_reasons(candidate: FieldCandidate, field_candidate_count: int) -> list[str]:
+    field_name = candidate.field_name
+    value = str(candidate.value)
+    metadata = candidate.metadata
+    context = _normalize(metadata.get("line_text", ""))
+    value_source = str(metadata.get("value_source", ""))
+    reasons: list[str] = []
+
+    confidence = candidate.confidence
+    threshold = _review_confidence_threshold(field_name)
+    if confidence is not None and confidence < threshold:
+        reasons.append("low_confidence")
+
+    section_confidence = metadata.get("section_confidence")
+    if isinstance(section_confidence, (float, int)) and section_confidence < 0.65:
+        reasons.append("low_section_confidence")
+
+    if metadata.get("section_override_applied") is True:
+        reasons.append("section_inferred_from_field")
+
+    if field_candidate_count > 1:
+        reasons.append("multiple_candidates")
+
+    if value_source in {"nearby_line", "nearby_lines"}:
+        reasons.append("nearby_value")
+    elif value_source == "next_line_table":
+        reasons.append("table_value")
+    elif value_source == "ocr_corrected_email":
+        reasons.append("email_ocr_corrected")
+
+    if field_name in _EMAIL_FIELDS and metadata.get("ocr_correction_applied") is True:
+        reasons.append("email_ocr_separator_uncertain")
+
+    if field_name == "service_code" and re.fullmatch(r"\d{3,4}", value):
+        reasons.append("service_code_format_uncertain")
+
+    if field_name == "iss_rate" and not value.endswith("%"):
+        reasons.append("rate_without_percent")
+
+    if field_name in _FINANCIAL_SINGLETON_FIELDS and any(
+        term in context for term in ("credito", "trib federais", "total trib", "linha digitavel")
+    ):
+        reasons.append("merged_financial_context")
+
+    return list(dict.fromkeys(reasons))
+
+
+def _review_confidence_threshold(field_name: str) -> float:
+    if field_name in _FINANCIAL_SINGLETON_FIELDS:
+        return _FINANCIAL_REVIEW_THRESHOLD
+    return _REVIEW_LOW_CONFIDENCE_THRESHOLDS.get(field_name, _DEFAULT_REVIEW_THRESHOLD)
 
 
 _FINANCIAL_LABEL_SPECS: tuple[tuple[str | None, str, str], ...] = (
