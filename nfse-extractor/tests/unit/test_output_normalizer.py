@@ -933,6 +933,30 @@ def test_output_normalizer_prefers_structural_financial_candidates() -> None:
     assert values["iss_amount"] == "602,20"
 
 
+def test_output_normalizer_corrects_merged_net_amount_credit_line() -> None:
+    document = Document(document_id="doc-merged-net-credit")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(
+            document.document_id,
+            1,
+            2,
+            (
+                "Valor 12.044,00 Base 0,00 PIS Total de Cálculo para o Crédito Outras "
+                "Desconto 0,00 0,00 Retenções Total Alíquota Dedução Trib. 0,00 0,00 "
+                "Utilizada Federais Base 12.044,00 de Cálculo Valor 12.044,00 "
+                "Valor Líquido do Crédito 602,20 ISSQN"
+            ),
+            y=26.0,
+        ),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["net_amount"] == "12.044,00"
+
+
 def test_output_normalizer_preserves_candidate_traceability_metadata() -> None:
     document = Document(document_id="doc-trace")
     elements = [

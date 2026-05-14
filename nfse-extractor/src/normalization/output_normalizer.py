@@ -374,6 +374,9 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     value, value_elements = service_description
                     value_source = "following_service_lines"
 
+            if value and match.field_name == "net_amount":
+                value = _correct_merged_net_amount(line.text, value)
+
             if not value:
                 continue
             if not self._is_acceptable_value(match.field_name, value):
@@ -1316,6 +1319,23 @@ def _is_acceptable_financial_value(field_name: str, value: str, column: _Financi
     if field_name in _MONEY_FIELDS:
         return not value.endswith("%")
     return True
+
+
+def _correct_merged_net_amount(line_text: str, value: str) -> str:
+    label_match = re.search(r"\bvalor\s+l[ií]quido\b", line_text, flags=re.IGNORECASE)
+    if label_match is None:
+        return value
+
+    normalized_suffix = _normalize(line_text[label_match.end() :])
+    if not normalized_suffix.startswith("do credito") and not _is_zero_money(value):
+        return value
+
+    prefix_values = [
+        match.group(0).strip()
+        for match in _money_matches(line_text[: label_match.start()])
+        if not _is_zero_money(match.group(0))
+    ]
+    return prefix_values[-1] if prefix_values else value
 
 
 def _decimal_from_br_number(value: str) -> float | None:
