@@ -106,6 +106,7 @@ _MONEY_FIELDS = {
     "deductions_amount",
     "net_amount",
 }
+_FINANCIAL_SINGLETON_FIELDS = _MONEY_FIELDS | {"iss_rate"}
 _PHONE_FIELDS = {"provider_phone", "recipient_phone"}
 _UF_FIELDS = {"provider_uf", "recipient_uf"}
 _SECTION_ONLY_VALUES = {
@@ -935,7 +936,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             if current is None or (candidate.confidence or 0.0) > (current.confidence or 0.0):
                 deduped[key] = candidate
 
-        singleton_fields = {"issue_date", "nfse_number", "nfse_series", "verification_code"}
+        singleton_fields = {"issue_date", "nfse_number", "nfse_series", "verification_code"} | _FINANCIAL_SINGLETON_FIELDS
         best_singletons: dict[str, FieldCandidate] = {}
         results: list[FieldCandidate] = []
         for candidate in deduped.values():
@@ -986,6 +987,44 @@ def _candidate_rank(candidate: FieldCandidate) -> tuple[float, float, float]:
             score += 0.2
         if normalized_value.upper() in _VERIFICATION_CODE_STOP_VALUES:
             score -= 1.0
+    elif field_name in _FINANCIAL_SINGLETON_FIELDS:
+        value_source = str(candidate.metadata.get("value_source", ""))
+        if value_source == "financial_table":
+            score += 0.35
+        elif value_source == "next_line_table":
+            score += 0.15
+        if any(term in context for term in ("credito", "trib federais", "total trib")):
+            score -= 0.45
+        if field_name == "gross_amount" and any(term in label for term in ("valor bruto", "valor total", "valor servico")):
+            score += 0.25
+        elif field_name == "taxable_amount" and "base" in label:
+            score += 0.25
+        elif field_name == "iss_rate":
+            if "aliquota" in label:
+                score += 0.25
+            if _is_zero_money(value):
+                score -= 0.85
+            if value.endswith("%"):
+                score += 0.10
+        elif field_name == "iss_amount" and ("valor iss" in label or "issqn devido" in label):
+            score += 0.25
+        elif field_name == "net_amount":
+            if "valor liquido" in label:
+                score += 0.25
+            if "credito" in context:
+                score -= 0.55
+        elif field_name in {
+            "deductions_amount",
+            "unconditional_discount",
+            "conditional_discount",
+            "pis_withheld_amount",
+            "cofins_withheld_amount",
+            "inss_withheld_amount",
+            "ir_withheld_amount",
+            "csll_withheld_amount",
+            "other_retentions_amount",
+        } and _is_zero_money(value):
+            score += 0.08
 
     line_index = float(candidate.metadata.get("line_index", 0) or 0)
     return (score, confidence, -line_index)

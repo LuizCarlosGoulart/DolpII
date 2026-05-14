@@ -908,6 +908,31 @@ def test_output_normalizer_ignores_informational_retention_law_lines() -> None:
     assert "csll_withheld_amount" not in values
 
 
+def test_output_normalizer_prefers_structural_financial_candidates() -> None:
+    document = Document(document_id="doc-financial-ranking")
+    elements = [
+        *_line(document.document_id, 1, 1, "VALORES", y=10.0),
+        *_line(document.document_id, 1, 2, "Valor ISS", y=26.0),
+        *_line(document.document_id, 1, 3, "24,09", y=42.0),
+        *_line(
+            document.document_id,
+            1,
+            4,
+            "Serviço Local Prestação i Alíquota Situação Trib. Valor Serviço Desc. Incondic. Valor Dedução Valor ISS",
+            y=58.0,
+        ),
+        *_line(document.document_id, 1, 5, "2601 8039 5% TI 12.044,00 0,00 0,00 602,20", y=74.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert _values_for(candidates, "iss_amount") == ["602,20"]
+    assert values["gross_amount"] == "12.044,00"
+    assert values["iss_rate"] == "5%"
+    assert values["iss_amount"] == "602,20"
+
+
 def test_output_normalizer_preserves_candidate_traceability_metadata() -> None:
     document = Document(document_id="doc-trace")
     elements = [
