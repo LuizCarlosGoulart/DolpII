@@ -1653,6 +1653,8 @@ _NFSE_SERIES_STOP_TOKENS = {
     # that the old regex was incorrectly accepting as series identifiers.
     "A", "AS", "DA", "DAS", "DE", "DO", "DOS", "E", "EM", "NA", "NAS",
     "NO", "NOS", "O", "OS", "OU", "SE", "UF", "UM", "UMA",
+    # Demonstrative pronouns (e.g. "Esta nota fiscal...")
+    "ESTA", "ESTE", "ESSA", "ESSE", "ESTAS", "ESTES", "ESSAS", "ESSES",
     # Month names (abbreviated)
     "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT",
     "NOV", "DEZ",
@@ -1670,6 +1672,11 @@ def _extract_nfse_series(value: str) -> str | None:
         maxsplit=1,
         flags=re.IGNORECASE,
     )[0]
+    # Strip date patterns before scanning for candidates so that year/day
+    # fragments (e.g. "21" from "10/09/21") are never mistaken for a series.
+    value = re.sub(r"\b\d{2}/\d{2}/\d{2,4}\b", " ", value)   # DD/MM/YY or DD/MM/YYYY
+    value = re.sub(r"\b\d{2}/\d{4}\b", " ", value)            # MM/YYYY
+    value = re.sub(r"\b\d{2}/\d{2}\b", " ", value)            # DD/MM
     value = value.strip(" :-,.\t\r\n()")
     if not value:
         return None
@@ -1682,8 +1689,20 @@ def _extract_nfse_series(value: str) -> str | None:
 
 
 def _clean_party_name_value(value: str) -> str | None:
+    # Python's re with IGNORECASE does not strip Unicode accents, so we include
+    # both the accented and unaccented forms of common Portuguese stop-labels.
+    # E.g. "Inscrição" must match as well as "inscricao".
     value = re.split(
-        r"\b(?:cnpj|cpf|endereco|e\s*mail|email|fone|insc\.?|inscricao|municipio|telefone|uf)\b",
+        r"\b(?:"
+        r"cnpj|cpf"
+        r"|endere[çc]o|endereco"
+        r"|e\s*mail|email"
+        r"|fone"
+        r"|insc\.?|inscri[çc][aã]o|inscricao"
+        r"|munic[íi]pio|municipio"
+        r"|telefone"
+        r"|uf"
+        r")\b",
         value,
         maxsplit=1,
         flags=re.IGNORECASE,
@@ -1815,6 +1834,9 @@ def _looks_like_service_text_noise(field_name: str, normalized: str, value: str)
             )
         )
     if field_name == "service_city":
+        # A city name always contains at least one alphabetic character.
+        if all(t.isdigit() for t in tokens if t):
+            return True
         if normalized in {"da prestacao do servico", "de prestacao", "do servico"}:
             return True
         if "descricao do servico" in normalized or "descricao dos servicos" in normalized:
