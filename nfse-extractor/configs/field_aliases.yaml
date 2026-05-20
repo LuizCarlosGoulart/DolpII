@@ -34,7 +34,6 @@ aliases:
   inss_withheld_amount: ["valor_inss", "inss_retido", "retencao_inss"]
   ir_withheld_amount: ["valor_ir", "ir_retido", "retencao_ir", "irrf", "prrf"]
   csll_withheld_amount: ["valor_csll", "csll_retido", "retencao_csll"]
-  social_contributions_withheld_amount: ["contribuicoes_sociais_retidas", "contribuicoes sociais retidas", "csrf", "csrf_retido"]
   iss_withheld_amount: ["iss_retido", "iss retido", "valor_iss_retido", "retencao_iss"]
   other_retentions_amount: ["outras_retencoes", "outras retencoes"]
   deductions_amount: ["valor_deducoes", "valor deducoes", "deducoes", "deducoes_base"]

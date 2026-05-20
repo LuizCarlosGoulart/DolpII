@@ -101,7 +101,6 @@ _MONEY_FIELDS = {
     "inss_withheld_amount",
     "ir_withheld_amount",
     "csll_withheld_amount",
-    "social_contributions_withheld_amount",
     "other_retentions_amount",
     "deductions_amount",
     "net_amount",
@@ -634,9 +633,16 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         # ── Party names: take everything after the first ":" separator ────────
         # Covers "Nome/Razão Social: NCR BRASIL LTDA" and the Dolphin OCR variant
         # "Name/Razão Social: NCR BRASIL LTDA" (English "Name" misread for "Nome").
+        # Guard: only trigger when the text *before* the colon looks like a name
+        # label keyword — this prevents "Inscrição Municipal: 474043" from being
+        # mis-classified as a party name.
         if field_name in _PARTY_NAME_FIELDS:
             colon_pos = line_text.find(":")
             if colon_pos == -1:
+                return None
+            prefix_norm = _normalize(line_text[:colon_pos])
+            name_label_keywords = ("nome", "razao social", "razao", "social", "denominacao", "name")
+            if not any(kw in prefix_norm for kw in name_label_keywords):
                 return None
             suffix = line_text[colon_pos + 1:].strip()
             return _clean_party_name_value(suffix)
@@ -1629,6 +1635,21 @@ def _extract_municipal_registration(value: str) -> str | None:
     return match.group(0).strip(" .:-").upper() if match.group(0).lower() == "isento" else match.group(0).strip(" .:-")
 
 
+_NFSE_SERIES_STOP_TOKENS = {
+    # Common Portuguese articles, prepositions, conjunctions and abbreviations
+    # that the old regex was incorrectly accepting as series identifiers.
+    "A", "AS", "DA", "DAS", "DE", "DO", "DOS", "E", "EM", "NA", "NAS",
+    "NO", "NOS", "O", "OS", "OU", "SE", "UF", "UM", "UMA",
+    # Month names (abbreviated)
+    "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT",
+    "NOV", "DEZ",
+    # Day-of-week abbreviations
+    "SEG", "TER", "QUA", "QUI", "SEX", "SAB", "DOM",
+    # Fiscal document abbreviations that should not be mistaken for series
+    "NFE", "NFSE", "NFS", "RPS", "NF",
+}
+
+
 def _extract_nfse_series(value: str) -> str | None:
     value = re.split(
         r"\b(?:codigo|c[oó]digo|data|emissao|emiss[aã]o|emitid[ao]|nota|rps)\b",
@@ -1640,6 +1661,8 @@ def _extract_nfse_series(value: str) -> str | None:
     if not value:
         return None
     candidates = re.findall(r"\b[A-Z]{1,4}\d{0,4}\b|\b\d{1,4}\b", value.upper())
+    # Filter out common Portuguese words that are not valid series identifiers.
+    candidates = [c for c in candidates if c not in _NFSE_SERIES_STOP_TOKENS]
     if not candidates:
         return None
     return candidates[-1].strip(" :-,.()")
@@ -1682,6 +1705,10 @@ def _is_valid_verification_code(code: str) -> bool:
     if normalized_code.isdigit():
         return False
     if len(normalized_code) < 5:
+        return False
+    # Reject purely alphabetic codes (e.g. "QUARTA-FEIRA", "SEGUNDA") — valid
+    # verification codes always contain at least one digit.
+    if not any(character.isdigit() for character in normalized_code):
         return False
     if "-" in code:
         return True

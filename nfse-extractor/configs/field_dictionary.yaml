@@ -340,16 +340,6 @@ fields:
     example_values: ["12,50", "12.50"]
     validation_hints: ["Optional because many notes omit it.", "Keep distinct from COFINS and PIS."]
     context_hints: ["Usually in the retention breakdown.", "Often close to PIS and COFINS."]
-  - internal_name: social_contributions_withheld_amount
-    category: discounts_retentions
-    description: Total social contributions retained when the layout reports a combined amount.
-    type: decimal
-    required: false
-    expected_format: "Brazilian currency format or normalized decimal string."
-    aliases: ["contribuicoes_sociais_retidas", "contribuicoes sociais retidas", "csrf", "csrf_retido"]
-    example_values: ["58,13", "58.13"]
-    validation_hints: ["Keep separate from individual PIS, COFINS, and CSLL when both are present.", "Treat as optional."]
-    context_hints: ["Usually in the retention breakdown or values summary."]
   - internal_name: iss_withheld_amount
     category: discounts_retentions
     description: ISS amount withheld at source when retention applies.
