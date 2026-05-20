@@ -198,6 +198,7 @@ def load_dolphin_runtime(
                                 "bbox": [x1, y1, x2 - x1, y2 - y1],
                                 "reading_order": reading_order,
                                 "tags": tags,
+                                "confidence": 0.92,
                             }
                         )
                     else:
@@ -244,6 +245,7 @@ def load_dolphin_runtime(
                         "bbox": [x1, y1, x2 - x1, y2 - y1],  # xyxy → xywh
                         "reading_order": elem["reading_order"],
                         "tags": elem["tags"],
+                        "confidence": 0.92,
                     }
                 )
 
@@ -423,14 +425,82 @@ def _decompose_table_rows(element: dict) -> list[dict]:
             row_h = h / n_rows
             row_bbox = [x, y + row_idx * row_h, w, row_h]
 
-        rows.append(
-            {
-                "label": "para",
-                "text": row_text,
-                "bbox": row_bbox,
-                "reading_order": element["reading_order"] * 1000 + row_idx,
-                "tags": element.get("tags", []),
-            }
-        )
+        row_dict = {
+            "label": "para",
+            "text": row_text,
+            "bbox": row_bbox,
+            "reading_order": element["reading_order"] * 1000 + row_idx,
+            "tags": element.get("tags", []),
+            "confidence": element.get("confidence", 0.92),
+        }
+        # Split each row into sub-elements (one per cell/label:value pair) so the
+        # normalizer can match labels against their adjacent value elements.
+        rows.extend(_split_row_into_subelements(row_dict))
 
     return rows if rows else [element]
+
+
+def _split_row_into_subelements(row_dict: dict) -> list[dict]:
+    """Split a merged row element into fine-grained sub-elements.
+
+    Two-pass splitting strategy:
+
+    1. **Double-space** split — separates distinct table cells joined with
+       ``"  "`` (the separator used by :func:`_decompose_table_rows`).
+    2. **Colon split** — each cell of the form ``"Label: Value"`` is further
+       split into two sub-elements so the normalizer can pair the label token
+       with the value element that follows it (the same structure produced by
+       Tesseract's word-level output).
+
+    Sub-elements inherit all fields from ``row_dict`` and receive proportional
+    X-offset bounding boxes (same Y, scaled widths based on character count).
+    When only one sub-element results, the original dict is returned unchanged.
+    """
+    text = row_dict.get("text", "")
+    bbox = row_dict.get("bbox")  # [x, y, w, h] or None
+
+    # ── Pass 1: split on double-space (cell boundaries) ──────────────────────
+    segments: list[str] = [s for s in text.split("  ") if s.strip()]
+    if not segments:
+        return [row_dict]
+
+    # ── Pass 2: split each cell on the FIRST ": " (label:value separator) ───
+    sub_texts: list[str] = []
+    for segment in segments:
+        if ": " in segment:
+            label_part, value_part = segment.split(": ", 1)
+            label_part = label_part.strip()
+            value_part = value_part.strip()
+            if label_part:
+                sub_texts.append(label_part)
+            if value_part:
+                sub_texts.append(value_part)
+        else:
+            sub_texts.append(segment.strip())
+
+    sub_texts = [s for s in sub_texts if s]
+    if len(sub_texts) <= 1:
+        return [row_dict]
+
+    # ── Assign proportional X-offset bounding boxes ──────────────────────────
+    total_chars = sum(len(s) for s in sub_texts)
+    if total_chars == 0:
+        return [row_dict]
+
+    result: list[dict] = []
+    x_origin = float(bbox[0]) if bbox else 0.0
+    row_y = float(bbox[1]) if bbox else 0.0
+    row_w = float(bbox[2]) if bbox else 0.0
+    row_h = float(bbox[3]) if bbox else 0.0
+    x_cursor = x_origin
+
+    for sub_text in sub_texts:
+        sub_w = row_w * len(sub_text) / total_chars
+        sub_elem = dict(row_dict)
+        sub_elem["text"] = sub_text
+        if bbox is not None:
+            sub_elem["bbox"] = [x_cursor, row_y, sub_w, row_h]
+        result.append(sub_elem)
+        x_cursor += sub_w
+
+    return result

@@ -618,10 +618,37 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         return value
 
     def _extract_inline_value(self, field_name: str, line_text: str) -> str | None:
-        if field_name not in _UF_FIELDS:
-            return None
-        match = re.search(r"\bUF\s*:?\s*([A-Z]{2})\b", line_text, flags=re.IGNORECASE)
-        return match.group(1).upper() if match else None
+        """Extract a field value embedded in the same text fragment as its label.
+
+        This is the fallback used when ``_value_elements_after_label`` finds no
+        elements after the label — which happens when a VLM (e.g. Dolphin) returns
+        whole label:value pairs as a single OCR element.  The method is
+        intentionally conservative: it only tries extraction for field types whose
+        typed extractor is robust enough to work correctly on mixed label+value text.
+        """
+        # ── UF: exact contextual match ────────────────────────────────────────
+        if field_name in _UF_FIELDS:
+            match = re.search(r"\bUF\s*:?\s*([A-Z]{2})\b", line_text, flags=re.IGNORECASE)
+            return match.group(1).upper() if match else None
+
+        # ── Party names: take everything after the first ":" separator ────────
+        # Covers "Nome/Razão Social: NCR BRASIL LTDA" and the Dolphin OCR variant
+        # "Name/Razão Social: NCR BRASIL LTDA" (English "Name" misread for "Nome").
+        if field_name in _PARTY_NAME_FIELDS:
+            colon_pos = line_text.find(":")
+            if colon_pos == -1:
+                return None
+            suffix = line_text[colon_pos + 1:].strip()
+            return _clean_party_name_value(suffix)
+
+        # ── Identifier / header fields: typed extraction on the full line ─────
+        # These extractors use precise regex patterns or strict validators that
+        # correctly isolate the value even in mixed label+value text, so calling
+        # them on the complete line text is safe.
+        if field_name in {"nfse_number", "nfse_series"}:
+            return self._extract_typed_value(field_name, line_text)
+
+        return None
 
     def _extract_table_value(
         self,
