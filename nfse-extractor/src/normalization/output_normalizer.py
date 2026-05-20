@@ -166,6 +166,11 @@ _NONZERO_TABLE_VALUE_REQUIRES_EXPLICIT_LABEL = {
 
 _SERVICE_NEARBY_FIELDS = {"operation_nature", "service_code"}
 _SERVICE_TEXT_FIELDS = {"operation_nature", "service_city", "service_description"}
+# Fields that should only be extracted from lines the section classifier places
+# in the "service" or "values" section.  Matching these labels on header,
+# provider or recipient lines produces systematic false positives because the
+# same vocabulary appears in addresses, document headers, and party blocks.
+_SERVICE_SECTION_ONLY_LABELS = {"operation_nature", "service_city", "service_code"}
 
 _VERIFICATION_CODE_STOP_VALUES = {
     "ASSINATURA",
@@ -349,6 +354,14 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         matches = self._find_label_matches(line)
         candidates: list[FieldCandidate] = []
         for match_index, match in enumerate(matches):
+            # Service-scoped fields must come from a line already classified in
+            # the service or values section.  When these labels appear on
+            # header/provider/recipient lines they almost always produce false
+            # positives (city names from addresses, nature text from document
+            # titles, etc.).  This guard is layout-agnostic: it relies only on
+            # the section classifier's output, not on document-specific patterns.
+            if match.field_name in _SERVICE_SECTION_ONLY_LABELS and line.section not in {"service", "values"}:
+                continue
             next_match = matches[match_index + 1] if match_index + 1 < len(matches) else None
             value_elements = self._value_elements_after_label(line, match, next_match)
             value_source = "same_line"
