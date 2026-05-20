@@ -248,7 +248,16 @@ def load_dolphin_runtime(
                 )
 
         recognition_results.sort(key=lambda x: x.get("reading_order", 0))
-        return recognition_results
+
+        # Decompose HTML table elements into per-row text elements so the
+        # normalizer receives individual lines instead of multi-KB HTML blobs.
+        expanded: list[dict] = []
+        for elem in recognition_results:
+            if elem.get("label") == "tab" and "<table" in elem.get("text", "").lower():
+                expanded.extend(_decompose_table_rows(elem))
+            else:
+                expanded.append(elem)
+        return expanded
 
     return predictor
 
@@ -369,3 +378,59 @@ def _check_bbox_overlap(
     np.fill_diagonal(iou, 0.0)
     has_overlap = (iou > iou_threshold).any(axis=1)
     return bool(has_overlap.mean() > overlap_ratio_threshold)
+
+
+def _decompose_table_rows(element: dict) -> list[dict]:
+    """Decompose an HTML ``<table>`` element into one dict per table row.
+
+    Each row becomes a plain-text ``"para"`` element whose text is the
+    concatenation of its cell contents separated by double spaces.  This
+    converts Dolphin's document-level HTML blob into the short text lines
+    that ``ConfigDrivenOutputNormalizer`` expects.
+
+    Falls back to returning the original element unchanged when no ``<tr>``
+    rows can be found (e.g. malformed HTML or plain-text table output).
+    """
+    import re as _re
+
+    html_text = element.get("text", "")
+    row_re = _re.compile(r"<tr[^>]*>(.*?)</tr>", _re.DOTALL | _re.IGNORECASE)
+    cell_re = _re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", _re.DOTALL | _re.IGNORECASE)
+    tag_re = _re.compile(r"<[^>]+>")
+
+    all_rows = list(row_re.finditer(html_text))
+    if not all_rows:
+        return [element]
+
+    n_rows = len(all_rows)
+    parent_bbox = element.get("bbox")
+
+    rows: list[dict] = []
+    for row_idx, row_match in enumerate(all_rows):
+        cell_texts: list[str] = []
+        for cell_match in cell_re.finditer(row_match.group(1)):
+            text = tag_re.sub(" ", cell_match.group(1))
+            text = _re.sub(r"\s+", " ", text).strip()
+            if text:
+                cell_texts.append(text)
+        row_text = "  ".join(cell_texts)
+        if not row_text.strip():
+            continue
+
+        row_bbox = None
+        if parent_bbox is not None:
+            x, y, w, h = parent_bbox
+            row_h = h / n_rows
+            row_bbox = [x, y + row_idx * row_h, w, row_h]
+
+        rows.append(
+            {
+                "label": "para",
+                "text": row_text,
+                "bbox": row_bbox,
+                "reading_order": element["reading_order"] * 1000 + row_idx,
+                "tags": element.get("tags", []),
+            }
+        )
+
+    return rows if rows else [element]
