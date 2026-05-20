@@ -1192,6 +1192,7 @@ _FINANCIAL_LABEL_SPECS: tuple[tuple[str | None, str, str], ...] = (
     ("iss_rate", "aliquota iss", "rate"),
     ("iss_rate", "aliquota", "rate"),
     ("iss_rate", "alig", "rate"),
+    ("iss_rate", "aliq", "rate"),
     ("iss_amount", "issqn devido", "money"),
     ("iss_amount", "valor do iss", "money"),
     ("iss_amount", "valor iss", "money"),

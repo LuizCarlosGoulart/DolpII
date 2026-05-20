@@ -142,10 +142,12 @@ def _score_line(text: str) -> _ScoredLine:
         "header",
         {
             "data emissao": 2,
+            "emissao": 2,
             "municipio de": 2,
             "nota fiscal": 4,
             "nfs e": 4,
             "nfse": 4,
+            "nota no": 2,
             "numero da nota": 4,
             "prefeitura": 3,
             "secretaria": 2,
