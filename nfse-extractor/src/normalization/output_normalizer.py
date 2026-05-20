@@ -164,7 +164,7 @@ _NONZERO_TABLE_VALUE_REQUIRES_EXPLICIT_LABEL = {
     "deductions_amount",
 }
 
-_SERVICE_NEARBY_FIELDS = {"operation_nature", "service_city", "service_code"}
+_SERVICE_NEARBY_FIELDS = {"operation_nature", "service_code"}
 _SERVICE_TEXT_FIELDS = {"operation_nature", "service_city", "service_description"}
 
 _VERIFICATION_CODE_STOP_VALUES = {
@@ -1771,7 +1771,7 @@ def _clean_service_text_value(field_name: str, value: str) -> str | None:
 
 def _truncate_service_text(field_name: str, value: str) -> str:
     if field_name == "operation_nature":
-        stop_pattern = r"\b(?:codigo|c[óo]digo|local\s+d[aeo]|valor|base\s+de\s+c[aá]lculo)\b"
+        stop_pattern = r"\b(?:codigo|c[óo]digo|data|emiss[aã]o|local\s+d[aeo]|valor|base\s+de\s+c[aá]lculo)\b"
     elif field_name == "service_city":
         stop_pattern = r"\b(?:data|codigo|c[óo]digo|natureza|valor|base\s+de\s+c[aá]lculo|iss)\b"
     else:

@@ -464,7 +464,11 @@ def _split_row_into_subelements(row_dict: dict) -> list[dict]:
     if not segments:
         return [row_dict]
 
-    # ── Pass 2: split each cell on the FIRST ": " (label:value separator) ───
+    # ── Pass 2: split each segment on ": " OR typed-value boundary ─────────
+    # When a cell has an explicit colon-separator ("Label: Value") we use it.
+    # Otherwise we look for a typed-value token (date, document number, money,
+    # long number) to infer where the label text ends and the value begins —
+    # e.g. "Número da Nota 00032794" → ["Número da Nota", "00032794"].
     sub_texts: list[str] = []
     for segment in segments:
         if ": " in segment:
@@ -476,7 +480,7 @@ def _split_row_into_subelements(row_dict: dict) -> list[dict]:
             if value_part:
                 sub_texts.append(value_part)
         else:
-            sub_texts.append(segment.strip())
+            sub_texts.extend(_typed_value_split(segment))
 
     sub_texts = [s for s in sub_texts if s]
     if len(sub_texts) <= 1:
@@ -504,3 +508,52 @@ def _split_row_into_subelements(row_dict: dict) -> list[dict]:
         x_cursor += sub_w
 
     return result
+
+
+# Matches the start of a "typed value" token within a mixed label+value string.
+# Used by ``_typed_value_split`` to detect where label text ends and a value
+# begins when no explicit ": " separator is present.
+#
+# Pattern ordering matters: more-specific patterns (CNPJ, CPF, formatted money,
+# full date) are listed before the catch-all long-integer pattern so that the
+# alternation chooses the semantically correct match when multiple alternatives
+# could match at the same position.
+_TYPED_VALUE_BOUNDARY_RE = re.compile(
+    r"(?:"
+    r"\b\d{2}/\d{2}/\d{4}\b"                    # DD/MM/YYYY date
+    r"|\b\d{2}/\d{4}\b"                          # MM/YYYY competence date
+    r"|\b\d{2}[\.,]\d{3}\.\d{3}/\d{4}-\d{2}\b"  # CNPJ with mask
+    r"|\b\d{3}\.\d{3}\.\d{3}-\d{2}\b"           # CPF with mask
+    r"|R\$\s*\d"                                 # currency starting with R$
+    r"|\b\d{1,3}(?:\.\d{3})+,\d{2}\b"          # formatted money  (1.234,56)
+    r"|\b\d{5}-\d{3}\b"                         # CEP (Brazilian ZIP code)
+    r"|\b\d{4,}\b"                              # any integer with ≥ 4 digits
+    r")"
+)
+
+
+def _typed_value_split(segment: str) -> list[str]:
+    """Split a mixed label+value segment at the first typed-value boundary.
+
+    Examples::
+
+        "Número da Nota 00032794"  →  ["Número da Nota", "00032794"]
+        "Emissão 05/09/2021"       →  ["Emissão", "05/09/2021"]
+        "CNPJ 12.345.678/0001-90"  →  ["CNPJ", "12.345.678/0001-90"]
+        "05/09/2021"               →  ["05/09/2021"]        (pure value, no split)
+        "Série E"                  →  ["Série E"]           (no typed token found)
+
+    When no typed-value token is found, or the token starts at position 0 (the
+    segment is already a pure value), the original segment is returned unchanged
+    inside a one-element list.
+    """
+    match = _TYPED_VALUE_BOUNDARY_RE.search(segment)
+    if match is None or match.start() == 0:
+        return [segment]
+    prefix = segment[: match.start()].strip()
+    # Only split when the prefix contains at least one letter — guards against
+    # splitting on e.g. "  00032794" where the "prefix" would be just spaces.
+    if not prefix or not any(c.isalpha() for c in prefix):
+        return [segment]
+    suffix = segment[match.start() :].strip()
+    return [p for p in [prefix, suffix] if p]
