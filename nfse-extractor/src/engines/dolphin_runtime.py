@@ -60,6 +60,9 @@ def load_dolphin_runtime(
 
     resolved_path = model_path or "ByteDance/Dolphin-v2"
 
+    import os
+    os.environ.setdefault("PYTORCH_ALLOC_CONF", "expandable_segments:True")
+
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -110,6 +113,9 @@ def load_dolphin_runtime(
             return_tensors="pt",
         ).to(device)
 
+        if device == "cuda":
+            torch.cuda.empty_cache()
+
         with torch.no_grad():
             generated_ids = model.generate(
                 **inputs,
@@ -143,6 +149,10 @@ def load_dolphin_runtime(
 
         # Stage 1 ── reading order / layout
         layout_output = _chat(["Parse the reading order of this document."], [image])[0]
+
+        # Free VRAM between stage 1 and stage 2
+        if device == "cuda":
+            torch.cuda.empty_cache()
 
         # Parse stage-1 output into (coords, label, tags) triples
         layout_list = _parse_layout_string(layout_output)
@@ -246,8 +256,13 @@ def load_dolphin_runtime(
 # ─── Utility helpers (inlined from bytedance/Dolphin utils/utils.py, MIT) ─────
 
 
-def _resize_img(image: Any, max_size: int = 1600, min_size: int = 28) -> Any:
-    """Resize so the longest side ≤ max_size and the shortest side ≥ min_size."""
+def _resize_img(image: Any, max_size: int = 896, min_size: int = 28) -> Any:
+    """Resize so the longest side ≤ max_size and the shortest side ≥ min_size.
+
+    896 matches the Dolphin demo's PDF page target size and keeps VRAM usage
+    within T4 (15 GB) limits.  The original demo used 1600 but that requires
+    ~4-5x more VRAM for the visual attention pass on full-page images.
+    """
     width, height = image.size
     if max(width, height) <= max_size and min(width, height) >= min_size:
         return image
