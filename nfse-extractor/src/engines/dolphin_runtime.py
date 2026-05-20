@@ -49,7 +49,7 @@ def load_dolphin_runtime(
 
     Args:
         model_path:      HuggingFace model ID or local snapshot path.
-                         Defaults to ``'ByteDance/Dolphin'``.
+                         Defaults to ``'ByteDance/Dolphin-v2'``.
         device:          ``'cuda'``, ``'cpu'``, or ``None`` (auto-detect).
         max_batch_size:  Maximum elements per VLM inference call (default 4).
                          Reduce if you hit OOM on small-VRAM GPUs.
@@ -58,7 +58,7 @@ def load_dolphin_runtime(
     from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
     from qwen_vl_utils import process_vision_info, smart_resize  # noqa: F401
 
-    resolved_path = model_path or "ByteDance/Dolphin"
+    resolved_path = model_path or "ByteDance/Dolphin-v2"
 
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
