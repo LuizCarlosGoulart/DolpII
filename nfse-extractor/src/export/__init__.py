@@ -7,6 +7,7 @@ from .manual_review import (
     write_manual_review_files,
 )
 from .raw_artifacts import (
+    load_extracted_elements_json,
     serialize_extracted_elements,
     write_extracted_elements_json,
     write_text_log,
@@ -15,6 +16,7 @@ from .raw_artifacts import (
 __all__ = [
     "apply_manual_corrections",
     "build_manual_review_artifact",
+    "load_extracted_elements_json",
     "persist_processing_bundle",
     "serialize_extracted_elements",
     "serialize_jsonable",

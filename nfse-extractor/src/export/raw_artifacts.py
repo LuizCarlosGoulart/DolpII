@@ -1,4 +1,4 @@
-"""Helpers for serializing raw extraction artifacts."""
+"""Helpers for serializing and deserializing raw extraction artifacts."""
 
 from __future__ import annotations
 
@@ -25,6 +25,17 @@ def write_extracted_elements_json(
         encoding="utf-8",
     )
     return path
+
+
+def load_extracted_elements_json(input_path: str | Path) -> list[ExtractedElement]:
+    """Load raw extraction artifacts from a JSON file written by write_extracted_elements_json.
+
+    Each record in the JSON array is validated against ExtractedElement so the
+    returned objects are identical to what the adapter would have produced.
+    """
+    path = Path(input_path)
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return [ExtractedElement.model_validate(record) for record in data]
 
 
 def write_text_log(content: str, output_path: str | Path) -> Path:
