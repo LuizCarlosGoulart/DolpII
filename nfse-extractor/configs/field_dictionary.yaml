@@ -10,16 +10,6 @@ fields:
     example_values: ["12345", "NF2024-000123"]
     validation_hints: ["Should be non-empty and stable across outputs.", "Prefer values near verification code and issue date."]
     context_hints: ["Usually appears in the header area.", "Often preceded by Numero or NFS-e."]
-  - internal_name: nfse_series
-    category: note_identification
-    description: Official NFS-e series when the layout exposes it separately.
-    type: string
-    required: true
-    expected_format: "Short alphanumeric series code."
-    aliases: ["serie", "serie_nfse", "serie da nfs-e", "serie da nota"]
-    example_values: ["E", "1", "A"]
-    validation_hints: ["Keep separate from NFS-e number.", "Do not infer when no explicit series exists."]
-    context_hints: ["Usually appears near the NFS-e number in the header."]
   - internal_name: verification_code
     category: note_identification
     description: Municipal verification or authenticity code for the NFS-e.

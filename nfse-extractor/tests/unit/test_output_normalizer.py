@@ -40,19 +40,17 @@ def test_output_normalizer_extracts_header_fields_from_labels_and_next_line() ->
     elements = [
         *_line(document.document_id, 1, 1, "Numero da Nota Fiscal", y=10.0),
         *_line(document.document_id, 1, 2, "1933", y=26.0),
-        *_line(document.document_id, 1, 3, "Serie E", y=42.0),
-        *_line(document.document_id, 1, 4, "Data Emissao 25/08/2023", y=58.0),
+        *_line(document.document_id, 1, 3, "Data Emissao 25/08/2023", y=42.0),
     ]
 
     candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
     values = _candidate_values(candidates)
 
     assert values["nfse_number"] == "1933"
-    assert values["nfse_series"] == "E"
     assert values["issue_date"] == "25/08/2023"
 
 
-def test_output_normalizer_splits_series_number_and_issue_date_from_same_header_line() -> None:
+def test_output_normalizer_splits_number_and_issue_date_from_same_header_line() -> None:
     document = Document(document_id="doc-header-composite")
     elements = [
         *_line(document.document_id, 1, 1, "Serie: E Nota No.: 5852528 Emissao: 05/09/2021", y=10.0),
@@ -61,20 +59,8 @@ def test_output_normalizer_splits_series_number_and_issue_date_from_same_header_
     candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
     values = _candidate_values(candidates)
 
-    assert values["nfse_series"] == "E"
     assert values["nfse_number"] == "5852528"
     assert values["issue_date"] == "05/09/2021"
-
-
-def test_output_normalizer_sanitizes_long_rps_series_context() -> None:
-    document = Document(document_id="doc-series-rps")
-    elements = [
-        *_line(document.document_id, 1, 1, "RPS No 16822 Serie 100 emitida em 10/08/2021 JWIP-PGQB", y=10.0),
-    ]
-
-    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
-
-    assert _values_for(candidates, "nfse_series") == ["100"]
 
 
 def test_output_normalizer_separates_nfse_number_from_rps_and_generic_nfse_text() -> None:

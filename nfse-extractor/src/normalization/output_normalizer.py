@@ -110,7 +110,6 @@ _PHONE_FIELDS = {"provider_phone", "recipient_phone"}
 _UF_FIELDS = {"provider_uf", "recipient_uf"}
 _REVIEW_LOW_CONFIDENCE_THRESHOLDS = {
     "nfse_number": 0.85,
-    "nfse_series": 0.80,
     "issue_date": 0.85,
     "verification_code": 0.85,
     "provider_document": 0.88,
@@ -598,8 +597,6 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if field_name == "issue_date":
             match = _PATTERN_FIELD_HINTS["date"].search(value)
             return match.group(0) if match else None
-        if field_name == "nfse_series":
-            return _extract_nfse_series(value)
         if field_name == "competence_date":
             match = _PATTERN_FIELD_HINTS["month_year"].search(value)
             if match:
@@ -664,7 +661,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         # These extractors use precise regex patterns or strict validators that
         # correctly isolate the value even in mixed label+value text, so calling
         # them on the complete line text is safe.
-        if field_name in {"nfse_number", "nfse_series"}:
+        if field_name == "nfse_number":
             return self._extract_typed_value(field_name, line_text)
 
         return None
@@ -859,7 +856,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             or field_name in _PHONE_FIELDS
             or field_name in _MONEY_FIELDS
             or field_name in _SERVICE_TEXT_FIELDS
-            or field_name in {"competence_date", "issue_date", "iss_rate", "nfse_number", "nfse_series", "service_code", "verification_code"}
+            or field_name in {"competence_date", "issue_date", "iss_rate", "nfse_number", "service_code", "verification_code"}
         )
 
     @staticmethod
@@ -1008,7 +1005,7 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             if current is None or (candidate.confidence or 0.0) > (current.confidence or 0.0):
                 deduped[key] = candidate
 
-        singleton_fields = {"issue_date", "nfse_number", "nfse_series", "verification_code"} | _FINANCIAL_SINGLETON_FIELDS
+        singleton_fields = {"issue_date", "nfse_number", "verification_code"} | _FINANCIAL_SINGLETON_FIELDS
         best_singletons: dict[str, FieldCandidate] = {}
         results: list[FieldCandidate] = []
         for candidate in deduped.values():
@@ -1050,12 +1047,6 @@ def _candidate_rank(candidate: FieldCandidate) -> tuple[float, float, float]:
         if any(term in context for term in ("rps", "recibo provisorio")):
             score -= 0.55
         score -= min(len(re.sub(r"\D", "", value)), 12) * 0.005
-    elif field_name == "nfse_series":
-        score += max(0.0, 0.35 - len(value) * 0.02)
-        if label == "serie" or "serie" in context:
-            score += 0.25
-        if any(term in context for term in ("codigo de verificacao", "rps", "emitid")):
-            score -= 0.15
     elif field_name == "verification_code":
         if any(term in context for term in ("codigo de verificacao", "codigo verificador", "certificacao")):
             score += 0.5
@@ -1647,45 +1638,6 @@ def _extract_municipal_registration(value: str) -> str | None:
         return None
     return match.group(0).strip(" .:-").upper() if match.group(0).lower() == "isento" else match.group(0).strip(" .:-")
 
-
-_NFSE_SERIES_STOP_TOKENS = {
-    # Common Portuguese articles, prepositions, conjunctions and abbreviations
-    # that the old regex was incorrectly accepting as series identifiers.
-    "A", "AS", "DA", "DAS", "DE", "DO", "DOS", "E", "EM", "NA", "NAS",
-    "NO", "NOS", "O", "OS", "OU", "SE", "UF", "UM", "UMA",
-    # Demonstrative pronouns (e.g. "Esta nota fiscal...")
-    "ESTA", "ESTE", "ESSA", "ESSE", "ESTAS", "ESTES", "ESSAS", "ESSES",
-    # Month names (abbreviated)
-    "JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT",
-    "NOV", "DEZ",
-    # Day-of-week abbreviations
-    "SEG", "TER", "QUA", "QUI", "SEX", "SAB", "DOM",
-    # Fiscal document abbreviations that should not be mistaken for series
-    "NFE", "NFSE", "NFS", "RPS", "NF",
-}
-
-
-def _extract_nfse_series(value: str) -> str | None:
-    value = re.split(
-        r"\b(?:codigo|c[oó]digo|data|emissao|emiss[aã]o|emitid[ao]|nota|rps)\b",
-        value,
-        maxsplit=1,
-        flags=re.IGNORECASE,
-    )[0]
-    # Strip date patterns before scanning for candidates so that year/day
-    # fragments (e.g. "21" from "10/09/21") are never mistaken for a series.
-    value = re.sub(r"\b\d{2}/\d{2}/\d{2,4}\b", " ", value)   # DD/MM/YY or DD/MM/YYYY
-    value = re.sub(r"\b\d{2}/\d{4}\b", " ", value)            # MM/YYYY
-    value = re.sub(r"\b\d{2}/\d{2}\b", " ", value)            # DD/MM
-    value = value.strip(" :-,.\t\r\n()")
-    if not value:
-        return None
-    candidates = re.findall(r"\b[A-Z]{1,4}\d{0,4}\b|\b\d{1,4}\b", value.upper())
-    # Filter out common Portuguese words that are not valid series identifiers.
-    candidates = [c for c in candidates if c not in _NFSE_SERIES_STOP_TOKENS]
-    if not candidates:
-        return None
-    return candidates[-1].strip(" :-,.()")
 
 
 def _clean_party_name_value(value: str) -> str | None:
