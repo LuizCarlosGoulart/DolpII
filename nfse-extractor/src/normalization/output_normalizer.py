@@ -388,6 +388,19 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                     value_elements = lines[line_index + 1].elements
                     value_source = "next_line_table"
 
+            # nfse_number: look at the IMMEDIATELY next line only (no multi-line
+            # scan).  This covers "label on line N, number on line N+1" layouts
+            # while avoiding the false positives that came from scanning up to
+            # 4 lines ahead (street numbers, municipal registrations, etc.).
+            if value is None and match.field_name == "nfse_number" and line_index + 1 < len(lines):
+                next_line = lines[line_index + 1]
+                if next_line.section != IGNORED_SECTION:
+                    _next_val = self._extract_typed_value(match.field_name, next_line.text)
+                    if _next_val is not None:
+                        value = _next_val
+                        value_elements = next_line.elements
+                        value_source = "next_line"
+
             if value is None and self._can_scan_nearby(match.field_name):
                 for nearby_line in lines[line_index + 1 : line_index + 5]:
                     if not self._can_use_nearby_line(match.field_name, nearby_line):
@@ -826,7 +839,10 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
 
     @staticmethod
     def _can_scan_nearby(field_name: str) -> bool:
-        return field_name in {"issue_date", "verification_code", "nfse_number"} | _SERVICE_NEARBY_FIELDS
+        # nfse_number is intentionally excluded: nearby scan picks up street
+        # numbers, municipal registrations and other false positives too often.
+        # The field is only extracted when an explicit label is present.
+        return field_name in {"issue_date", "verification_code"} | _SERVICE_NEARBY_FIELDS
 
     @staticmethod
     def _can_use_nearby_line(field_name: str, line: _Line) -> bool:
@@ -1157,8 +1173,14 @@ def _candidate_review_reasons(candidate: FieldCandidate, field_candidate_count: 
     if field_name == "iss_rate" and not value.endswith("%"):
         reasons.append("rate_without_percent")
 
-    if field_name in _FINANCIAL_SINGLETON_FIELDS and any(
-        term in context for term in ("credito", "trib federais", "total trib", "linha digitavel")
+    # merged_financial_context: only flag when the value was NOT extracted via a
+    # direct label match.  When a specific label was found (label_tail,
+    # next_line, next_line_table, inline), the extraction is targeted and
+    # reliable even if the surrounding line text looks like a merged table row.
+    if (
+        field_name in _FINANCIAL_SINGLETON_FIELDS
+        and value_source not in {"label_tail", "next_line", "next_line_table", "inline"}
+        and any(term in context for term in ("credito", "trib federais", "total trib", "linha digitavel"))
     ):
         reasons.append("merged_financial_context")
 
@@ -1661,6 +1683,10 @@ def _clean_party_name_value(value: str) -> str | None:
     )[0]
     value = _PATTERN_FIELD_HINTS["document_id"].sub("", value)
     value = re.sub(r"\b\d{11,14}\b$", "", value)
+    # Strip trailing ": <number>" contamination that occurs when OCR misreads a
+    # stop-label (e.g. "Inscrição" → "Inserção") and the cleanup above doesn't
+    # truncate it.  A legitimate company name never ends with ": 123456".
+    value = re.sub(r"[\s:,\-]+\d[\d.\s]*$", "", value)
     value = re.sub(r"\s+", " ", value).strip(" :-,\t\r\n")
     if len(_tokens(value)) < 2:
         return None
