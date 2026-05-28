@@ -171,11 +171,21 @@ def load_dolphin_runtime(
             layout_list = [([0, 0, img_w, img_h], "distorted_page", [])]
 
         # Stage 2 ── element recognition
+        #
+        # NOTE on ``fig`` handling: Dolphin's Stage-1 layout classifier is a
+        # discrete labeller (para / tab / fig / equ / code / distorted_page).
+        # For dense form layouts (e.g. NFS-e from São Paulo) it routinely
+        # mislabels the body of the document as ``fig``.  We therefore route
+        # ``fig`` crops through the same text-recognition prompt as ``para``
+        # instead of dropping them with empty text.  Genuine figures (logos,
+        # brasões) return empty strings from the recognizer and are filtered
+        # out downstream by ``DolphinExtractionAdapter`` (``if not text:
+        # continue``), so this change is safe for non-form documents while
+        # recovering content for layouts the Stage-1 classifier misreads.
         tab_elems: list[dict] = []
         equ_elems: list[dict] = []
         code_elems: list[dict] = []
         text_elems: list[dict] = []
-        figure_results: list[dict] = []
         reading_order = 0
 
         for bbox, label, tags in layout_list:
@@ -189,34 +199,22 @@ def load_dolphin_runtime(
                     pil_crop = image.crop((x1, y1, x2, y2))
 
                 if pil_crop.size[0] > 3 and pil_crop.size[1] > 3:
-                    if label == "fig":
-                        figure_results.append(
-                            {
-                                "label": label,
-                                "text": "",
-                                # bbox already in original-image xyxy → convert to xywh
-                                "bbox": [x1, y1, x2 - x1, y2 - y1],
-                                "reading_order": reading_order,
-                                "tags": tags,
-                                "confidence": 0.92,
-                            }
-                        )
+                    element_info = {
+                        "crop": pil_crop,
+                        "label": label,
+                        "bbox": [x1, y1, x2, y2],  # kept as xyxy until text is added
+                        "reading_order": reading_order,
+                        "tags": tags,
+                    }
+                    if label == "tab":
+                        tab_elems.append(element_info)
+                    elif label == "equ":
+                        equ_elems.append(element_info)
+                    elif label == "code":
+                        code_elems.append(element_info)
                     else:
-                        element_info = {
-                            "crop": pil_crop,
-                            "label": label,
-                            "bbox": [x1, y1, x2, y2],  # kept as xyxy until text is added
-                            "reading_order": reading_order,
-                            "tags": tags,
-                        }
-                        if label == "tab":
-                            tab_elems.append(element_info)
-                        elif label == "equ":
-                            equ_elems.append(element_info)
-                        elif label == "code":
-                            code_elems.append(element_info)
-                        else:
-                            text_elems.append(element_info)
+                        # para, fig, distorted_page → text recognition prompt
+                        text_elems.append(element_info)
 
                 reading_order += 1
 
@@ -224,7 +222,7 @@ def load_dolphin_runtime(
                 print(f"[dolphin_runtime] Skipped element label={label!r}: {exc}")
                 continue
 
-        recognition_results = list(figure_results)
+        recognition_results: list[dict] = []
 
         for elems, prompt in (
             (tab_elems, "Parse the table in the image."),
