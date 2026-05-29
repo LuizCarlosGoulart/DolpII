@@ -629,7 +629,15 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if field_name == "verification_code":
             return _extract_verification_code(value)
         if field_name == "nfse_number":
-            if "/" in value or _PATTERN_FIELD_HINTS["date"].search(value):
+            # When the value string contains a date (DD/MM/YYYY), work only with
+            # the prefix so numbers that precede the date are not discarded.
+            # This handles layouts where the note number and issue date appear in
+            # adjacent elements that get merged into a single value string, e.g.
+            # "31407 Série E Data Emissão: 28/09/2022 Certificação: 6E93194D2".
+            date_match = _PATTERN_FIELD_HINTS["date"].search(value)
+            if date_match:
+                value = value[: date_match.start()].strip()
+            if not value or "/" in value:
                 return None
             number_matches = re.findall(r"\b\d[\d.]{0,11}\b", value)
             if not number_matches:
@@ -676,6 +684,12 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         # them on the complete line text is safe.
         if field_name == "nfse_number":
             return self._extract_typed_value(field_name, line_text)
+
+        if field_name == "verification_code":
+            # Strip date patterns so "DD/MM/YYYY" slashes do not block the "/" guard
+            # in _extract_verification_code when code and date appear on the same line.
+            sanitized = _PATTERN_FIELD_HINTS["date"].sub("", line_text)
+            return _extract_verification_code(sanitized)
 
         return None
 
