@@ -685,6 +685,14 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if field_name == "nfse_number":
             return self._extract_typed_value(field_name, line_text)
 
+        if field_name == "service_description":
+            # When Dolphin merges the "Discriminação do Serviço" label and its value
+            # into a single element (so no separate value element follows the label),
+            # recover the value from the full line.  The typed extractor strips the
+            # label prefix; a label-only line cleans to empty and returns None, so
+            # layouts that carry the value on a separate line are unaffected.
+            return self._extract_typed_value(field_name, line_text)
+
         if field_name == "verification_code":
             # Strip date patterns so "DD/MM/YYYY" slashes do not block the "/" guard
             # in _extract_verification_code when code and date appear on the same line.
@@ -1778,7 +1786,16 @@ def _clean_service_text_value(field_name: str, value: str) -> str | None:
         return None
 
     if field_name == "service_description":
-        value = re.sub(r"^(?:descri[cç][aã]o|discriminacao|discrimina[cç][aã]o)\s*:?\s*", "", value, flags=re.IGNORECASE)
+        # Strip the leading label, optionally including the "do serviço(s)" tail so
+        # a merged element like "DISCRIMINAÇÃO DO SERVIÇO CONSULTA" cleans down to
+        # "CONSULTA" (and a label-only "DISCRIMINAÇÃO DO SERVIÇO" cleans to empty).
+        value = re.sub(
+            r"^(?:descri[cç][aã]o|discriminacao|discrimina[cç][aã]o)"
+            r"(?:\s+d[oe]s?\s+servi[çc]os?)?\s*:?\s*",
+            "",
+            value,
+            flags=re.IGNORECASE,
+        )
     value = _truncate_service_text(field_name, value)
     if field_name == "service_city":
         value = re.sub(r"^\d{3,5}\s+", "", value).strip(" :-\t\r\n")
@@ -1812,7 +1829,18 @@ def _looks_like_service_text_noise(field_name: str, normalized: str, value: str)
     tokens = _tokens(value)
     if field_name == "service_description":
         if len(tokens) < 3:
-            return True
+            # Most short values are label fragments or stray tokens, but some
+            # legitimate descriptions are a single content word (e.g. "CONSULTA").
+            # Accept a short value only when every token is an alphabetic word of at
+            # least four characters and none is a financial/section stop token;
+            # otherwise treat it as noise.  Label fragments such as "do servico" are
+            # already rejected upstream via _SECTION_ONLY_VALUES.
+            if not tokens:
+                return True
+            if not all(token.isalpha() and len(token) >= 4 for token in tokens):
+                return True
+            if any(token in _SERVICE_DESCRIPTION_STOP_TOKENS for token in tokens):
+                return True
         return any(
             phrase in normalized
             for phrase in (

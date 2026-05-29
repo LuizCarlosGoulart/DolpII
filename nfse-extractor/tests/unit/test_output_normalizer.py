@@ -616,6 +616,46 @@ def test_output_normalizer_rejects_value_table_as_service_description() -> None:
     assert _values_for(candidates, "service_description") == []
 
 
+def test_output_normalizer_extracts_short_service_description_from_merged_element() -> None:
+    # Dolphin merges the "Discriminação do Serviço" label and a single-word value
+    # ("CONSULTA") into one element, so no separate value element follows the label.
+    # The inline fallback must recover the short content word.
+    document = Document(document_id="doc-service-merged-short")
+    merged = ExtractedElement(
+        element_id=f"{document.document_id}:dolphin:0",
+        element_type="text",
+        text="DISCRIMINAÇÃO DO SERVIÇO CONSULTA",
+        page_number=1,
+        bounding_box=(136.0, 800.0, 1518.0, 30.0),
+        confidence=0.92,
+        metadata={"source_engine": "dolphin"},
+    )
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, [merged])
+
+    assert _values_for(candidates, "service_description") == ["CONSULTA"]
+
+
+def test_output_normalizer_rejects_short_stopword_as_service_description() -> None:
+    # The single-content-word relaxation must not admit a financial/section stop
+    # word: "DISCRIMINAÇÃO DO SERVIÇO VALORES" cleans to "VALORES", which is a stop
+    # token and must still be rejected as noise.
+    document = Document(document_id="doc-service-merged-stopword")
+    merged = ExtractedElement(
+        element_id=f"{document.document_id}:dolphin:0",
+        element_type="text",
+        text="DISCRIMINAÇÃO DO SERVIÇO VALORES",
+        page_number=1,
+        bounding_box=(136.0, 800.0, 1518.0, 30.0),
+        confidence=0.92,
+        metadata={"source_engine": "dolphin"},
+    )
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, [merged])
+
+    assert _values_for(candidates, "service_description") == []
+
+
 def test_output_normalizer_extracts_service_description_from_lines_after_header() -> None:
     document = Document(document_id="doc-service-lines")
     elements = [
