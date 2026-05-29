@@ -6,6 +6,9 @@ from pathlib import Path
 from urllib.parse import urlparse, unquote
 from urllib.request import url2pathname
 
+from PIL import Image
+import pytesseract
+
 from src.core import Document, ExtractedElement, ExtractionEngine
 from src.preprocessing import PreprocessedDocument, PreprocessedPage
 
@@ -23,9 +26,6 @@ class TesseractExtractionAdapter(ExtractionEngine):
         self.config = config
 
     def extract(self, document: Document) -> list[ExtractedElement]:
-        from PIL import Image
-        import pytesseract
-
         path = self._document_path(document)
         media_type = self._resolve_media_type(document, path)
         if media_type == "application/pdf":
@@ -51,8 +51,6 @@ class TesseractExtractionAdapter(ExtractionEngine):
         preprocessed_document: PreprocessedDocument,
     ) -> list[ExtractedElement]:
         """Extract raw elements from preprocessed page images."""
-        import pytesseract
-
         elements: list[ExtractedElement] = []
         for page in preprocessed_document.pages:
             raw = pytesseract.image_to_data(

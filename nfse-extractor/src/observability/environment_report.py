@@ -26,8 +26,13 @@ DEFAULT_STORAGE_PATHS = (
 
 def detect_runtime_type() -> str:
     """Return a lightweight runtime label without importing heavy packages."""
-    if find_spec("google.colab") is not None:
-        return "colab"
+    try:
+        # find_spec raises ModuleNotFoundError on Python 3.14 when the parent
+        # namespace package ('google') doesn't exist at all.
+        if find_spec("google.colab") is not None:
+            return "colab"
+    except (ModuleNotFoundError, ValueError):
+        pass
     if "ipykernel" in sys.modules:
         return "notebook"
     return "local"

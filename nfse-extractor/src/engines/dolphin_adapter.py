@@ -81,7 +81,14 @@ class DolphinExtractionAdapter(ExtractionEngine):
         )
         accepts_named_args = {"model_path", "device"}.issubset(signature.parameters)
 
-        if accepts_kwargs or accepts_named_args:
+        # Only forward model_path / device when the caller explicitly configured
+        # them (i.e. at least one is not None).  When both are None the factory
+        # defaults should take effect, and passing None kwargs to a factory that
+        # does not declare those parameters (e.g. a plain MagicMock in tests)
+        # would be surprising.
+        if (self.model_path is not None or self.device is not None) and (
+            accepts_kwargs or accepts_named_args
+        ):
             self._predictor = self._runtime_factory(
                 model_path=self.model_path,
                 device=self.device,
