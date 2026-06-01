@@ -44,6 +44,20 @@ def _default_max_image_size() -> int:
     return int(os.environ.get("NFSE_DOLPHIN_MAX_SIZE", "1280"))
 
 
+# Neutral prior used when a real per-element confidence is unavailable: Dolphin's
+# two-stage VLM does not expose a calibrated confidence, so absent the measured
+# token probability we fall back to this documented constant rather than implying
+# a precision we do not have.
+_DOLPHIN_PRIOR_CONFIDENCE = 0.92
+
+
+def _real_confidence_enabled() -> bool:
+    """Whether to derive per-element confidence from the model's own token
+    probabilities (default on).  Set NFSE_DOLPHIN_REAL_CONFIDENCE=0 to fall back
+    to the neutral prior — e.g. if capturing generation scores exhausts VRAM."""
+    return os.environ.get("NFSE_DOLPHIN_REAL_CONFIDENCE", "1") != "0"
+
+
 def load_dolphin_runtime(
     *,
     model_path: str | None = None,
@@ -99,8 +113,46 @@ def load_dolphin_runtime(
 
     # ── Inner helpers ─────────────────────────────────────────────────────────
 
-    def _chat(prompts: list[str], images: list[Any]) -> list[str]:
-        """Run a batched VLM forward pass. Returns one string per pair."""
+    def _sequence_confidences(sequences: Any, scores: Any, input_len: int) -> list[float] | None:
+        """Geometric-mean token probability of each generated sequence.
+
+        Uses the model's own per-step logits (a genuine confidence signal) via
+        ``compute_transition_scores``.  Pad tokens emitted after EOS are masked.
+        Returns ``None`` on any failure so the caller falls back to the prior.
+        """
+        try:
+            transition = model.compute_transition_scores(
+                sequences, scores, normalize_logits=True
+            )  # (batch, gen_len) log-probs of the chosen tokens
+            gen_tokens = sequences[:, input_len:]
+            pad_id = processor.tokenizer.pad_token_id
+            if pad_id is None:
+                mask = torch.ones_like(gen_tokens, dtype=torch.bool)
+            else:
+                mask = gen_tokens != pad_id
+            valid = mask.to(transition.dtype)
+            counts = valid.sum(dim=1).clamp(min=1.0)
+            mean_logp = (transition * valid).sum(dim=1) / counts
+            conf = mean_logp.exp().clamp(0.0, 1.0)
+            return [float(c) for c in conf.tolist()]
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Real-confidence computation failed (%s); using prior.", exc)
+            return None
+
+    def _chat(
+        prompts: list[str],
+        images: list[Any],
+        *,
+        want_confidence: bool = False,
+    ) -> list[tuple[str, float]]:
+        """Run a batched VLM forward pass. Returns ``(text, confidence)`` per pair.
+
+        ``confidence`` is the model's mean token probability when
+        ``want_confidence`` is set and real confidence is enabled; otherwise the
+        neutral prior.  Score capture is requested only for Stage-2 recognition
+        (short per-crop generations) to bound the extra VRAM ``output_scores``
+        needs; Stage-1 layout parsing skips it.
+        """
         from qwen_vl_utils import process_vision_info as _pvi
 
         processed = [_resize_img(img) for img in images]
@@ -116,7 +168,7 @@ def load_dolphin_runtime(
             ]
             for img, q in zip(processed, prompts)
         ]
-        texts = [
+        texts_in = [
             processor.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
             for msgs in all_messages
         ]
@@ -126,7 +178,7 @@ def load_dolphin_runtime(
             all_image_inputs.extend(img_inputs)
 
         inputs = processor(
-            text=texts,
+            text=texts_in,
             images=all_image_inputs if all_image_inputs else None,
             padding=True,
             return_tensors="pt",
@@ -135,33 +187,61 @@ def load_dolphin_runtime(
         if device == "cuda":
             torch.cuda.empty_cache()
 
+        capture = want_confidence and _real_confidence_enabled()
+        gen_kwargs = dict(
+            max_new_tokens=4096,
+            do_sample=False,
+            temperature=None,
+            # Greedy decoding on low-quality scans degenerates into runaway
+            # repetition (e.g. the same "Data Emissão: …" line emitted until
+            # max_new_tokens, causing 20-minute generations and hundreds of
+            # garbage elements).  A mild repetition penalty breaks the loop so the
+            # model emits EOS naturally, without hard-blocking the genuine repeats
+            # that occur in NFS-e tables (e.g. repeated "R$ 0,00").
+            repetition_penalty=1.1,
+        )
         with torch.no_grad():
-            generated_ids = model.generate(
-                **inputs,
-                max_new_tokens=4096,
-                do_sample=False,
-                temperature=None,
-                # Greedy decoding on low-quality scans degenerates into runaway
-                # repetition (e.g. the same "Data Emissão: …" line emitted until
-                # max_new_tokens, causing 20-minute generations and hundreds of
-                # garbage elements).  A mild repetition penalty breaks the loop so
-                # the model emits EOS naturally, without hard-blocking the genuine
-                # repeats that occur in NFS-e tables (e.g. repeated "R$ 0,00").
-                repetition_penalty=1.1,
-            )
-        trimmed = [
-            out_ids[len(in_ids):]
-            for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
-        ]
-        return processor.batch_decode(
+            if capture:
+                outputs = model.generate(
+                    **inputs,
+                    **gen_kwargs,
+                    output_scores=True,
+                    return_dict_in_generate=True,
+                )
+                sequences = outputs.sequences
+            else:
+                outputs = None
+                sequences = model.generate(**inputs, **gen_kwargs)
+
+        input_len = inputs.input_ids.shape[1]
+        trimmed = [out_ids[input_len:] for out_ids in sequences]
+        decoded = processor.batch_decode(
             trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
         )
 
-    def _chat_batched(prompts: list[str], images: list[Any]) -> list[str]:
+        confidences: list[float] | None = None
+        if capture and outputs is not None:
+            confidences = _sequence_confidences(outputs.sequences, outputs.scores, input_len)
+        if confidences is None:
+            confidences = [_DOLPHIN_PRIOR_CONFIDENCE] * len(decoded)
+
+        if device == "cuda":
+            outputs = None
+            torch.cuda.empty_cache()
+
+        return list(zip(decoded, confidences))
+
+    def _chat_batched(prompts: list[str], images: list[Any]) -> list[tuple[str, float]]:
         """Chunk ``_chat`` calls so each batch stays within ``max_batch_size``."""
-        results: list[str] = []
+        results: list[tuple[str, float]] = []
         for i in range(0, len(images), max_batch_size):
-            results.extend(_chat(prompts[i : i + max_batch_size], images[i : i + max_batch_size]))
+            results.extend(
+                _chat(
+                    prompts[i : i + max_batch_size],
+                    images[i : i + max_batch_size],
+                    want_confidence=True,
+                )
+            )
         return results
 
     # ── Predictor (returned to the caller) ────────────────────────────────────
@@ -173,8 +253,8 @@ def load_dolphin_runtime(
         """
         from qwen_vl_utils import smart_resize as _sr
 
-        # Stage 1 ── reading order / layout
-        layout_output = _chat(["Parse the reading order of this document."], [image])[0]
+        # Stage 1 ── reading order / layout (text only; no score capture)
+        layout_output = _chat(["Parse the reading order of this document."], [image])[0][0]
 
         # Free VRAM between stage 1 and stage 2
         if device == "cuda":
@@ -256,8 +336,8 @@ def load_dolphin_runtime(
             if not elems:
                 continue
             crops = [e["crop"] for e in elems]
-            texts = _chat_batched([prompt] * len(crops), crops)
-            for elem, text in zip(elems, texts):
+            recognized = _chat_batched([prompt] * len(crops), crops)
+            for elem, (text, confidence) in zip(elems, recognized):
                 x1, y1, x2, y2 = elem["bbox"]
                 recognition_results.append(
                     {
@@ -266,7 +346,7 @@ def load_dolphin_runtime(
                         "bbox": [x1, y1, x2 - x1, y2 - y1],  # xyxy → xywh
                         "reading_order": elem["reading_order"],
                         "tags": elem["tags"],
-                        "confidence": 0.92,
+                        "confidence": confidence,
                     }
                 )
 
@@ -458,7 +538,7 @@ def _decompose_table_rows(element: dict) -> list[dict]:
             "bbox": row_bbox,
             "reading_order": element["reading_order"] * 1000 + row_idx,
             "tags": element.get("tags", []),
-            "confidence": element.get("confidence", 0.92),
+            "confidence": element.get("confidence", _DOLPHIN_PRIOR_CONFIDENCE),
         }
         # Split each row into sub-elements (one per cell/label:value pair) so the
         # normalizer can match labels against their adjacent value elements.
