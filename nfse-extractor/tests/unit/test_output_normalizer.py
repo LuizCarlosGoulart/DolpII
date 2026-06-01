@@ -145,15 +145,27 @@ def test_output_normalizer_joins_split_verification_code_lines() -> None:
     assert _values_for(candidates, "verification_code") == ["60614BB7-2144-0FA7-5D1E-BC858573B392"]
 
 
-def test_output_normalizer_accepts_short_alpha_hyphen_verification_code() -> None:
-    document = Document(document_id="doc-verification-alpha-hyphen")
-    elements = [
-        *_line(document.document_id, 1, 1, "Codigo de Verificacao JWIP-PGQB", y=10.0),
-    ]
+def test_output_normalizer_requires_digit_in_verification_code() -> None:
+    # A verification code must contain at least one digit.  This rejects purely
+    # alphabetic tokens that share the short hyphenated-code shape — most notably
+    # weekday words such as "QUARTA-FEIRA" — which were a recurring false
+    # positive.  Every NFS-e verification code observed in practice carries a
+    # digit (e.g. "H3XY-4INL", "5F5FA-74663"), so this is the intended behaviour.
+    normalizer = ConfigDrivenOutputNormalizer()
 
-    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    document_alpha = Document(document_id="doc-verification-alpha-only")
+    alpha_only = normalizer.normalize(
+        document_alpha,
+        [*_line(document_alpha.document_id, 1, 1, "Codigo de Verificacao JWIP-PGQB", y=10.0)],
+    )
+    assert _values_for(alpha_only, "verification_code") == []
 
-    assert _values_for(candidates, "verification_code") == ["JWIP-PGQB"]
+    document_digit = Document(document_id="doc-verification-with-digit")
+    with_digit = normalizer.normalize(
+        document_digit,
+        [*_line(document_digit.document_id, 1, 1, "Codigo de Verificacao H3XY-4INL", y=10.0)],
+    )
+    assert _values_for(with_digit, "verification_code") == ["H3XY-4INL"]
 
 
 def test_output_normalizer_rejects_boilerplate_words_as_verification_code() -> None:
@@ -500,7 +512,11 @@ def test_output_normalizer_extracts_service_fields_from_following_lines() -> Non
     assert values["service_description"] == "SERVICO DE MANUTENCAO EM EQUIPAMENTOS DE INFORMATICA"
     assert values["service_code"] == "10.02"
     assert values["operation_nature"] == "501 - ISS devido para Itajai Simples Nacional"
-    assert values["service_city"] == "ITAJAI/SC"
+    # service_city is intentionally NOT pulled from a separate following line.
+    # It is extracted only from an explicit same-line "label: value"; mining a
+    # following line too often captures provider/recipient address cities.
+    # See bb869b3 (section gate) and ee0e3f8 (removal of manual fallbacks).
+    assert "service_city" not in values
 
 
 def test_output_normalizer_removes_inline_description_prefix() -> None:
@@ -577,7 +593,12 @@ def test_output_normalizer_normalizes_ocr_separator_in_service_city() -> None:
     assert _values_for(candidates, "service_city") == ["ITAJAI/SC/BRASIL"]
 
 
-def test_output_normalizer_extracts_coded_service_city_and_rejects_legend_noise() -> None:
+def test_output_normalizer_does_not_mine_service_city_from_unlabeled_coded_line() -> None:
+    # A bare "<code> <city>" line in the service block (with no service_city
+    # label) is intentionally NOT mined for a city.  The heuristic fallback that
+    # used to do this was removed (ee0e3f8) because it produced address-city
+    # false positives; service_city is now extracted only from an explicit
+    # same-line label.  This also keeps legend/noise lines out of the field.
     document = Document(document_id="doc-service-city-coded")
     elements = [
         *_line(document.document_id, 1, 1, "DESCRICAO DOS SERVICOS PRESTADOS", y=10.0),
@@ -590,7 +611,7 @@ def test_output_normalizer_extracts_coded_service_city_and_rejects_legend_noise(
 
     candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
 
-    assert _values_for(candidates, "service_city") == ["Balneario Camboriu"]
+    assert _values_for(candidates, "service_city") == []
 
 
 def test_output_normalizer_rejects_service_description_header_without_content() -> None:
