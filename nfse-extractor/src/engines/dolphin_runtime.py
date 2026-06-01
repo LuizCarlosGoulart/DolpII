@@ -22,10 +22,17 @@ Utility helpers (``_resize_img``, ``_parse_layout_string``,
 from __future__ import annotations
 
 import logging
+import os
 import re
 from typing import Any, Callable
 
 logger = logging.getLogger(__name__)
+
+# Longest-side target (px) for the full-page image fed to Stage-1 layout parse.
+# 896 keeps VRAM within T4 limits but is too small for dense scanned NFS-e pages,
+# whose layout parse then collapses to a single distorted_page region.  Override
+# with NFSE_DOLPHIN_MAX_SIZE (e.g. 1024/1280) to trade VRAM for legibility.
+_DEFAULT_MAX_IMAGE_SIZE = int(os.environ.get("NFSE_DOLPHIN_MAX_SIZE", "896"))
 
 
 def load_dolphin_runtime(
@@ -272,13 +279,19 @@ def load_dolphin_runtime(
 # ─── Utility helpers (inlined from bytedance/Dolphin utils/utils.py, MIT) ─────
 
 
-def _resize_img(image: Any, max_size: int = 896, min_size: int = 28) -> Any:
+def _resize_img(image: Any, max_size: int | None = None, min_size: int = 28) -> Any:
     """Resize so the longest side ≤ max_size and the shortest side ≥ min_size.
 
+    ``max_size`` defaults to ``_DEFAULT_MAX_IMAGE_SIZE`` (env-configurable, 896).
     896 matches the Dolphin demo's PDF page target size and keeps VRAM usage
     within T4 (15 GB) limits.  The original demo used 1600 but that requires
-    ~4-5x more VRAM for the visual attention pass on full-page images.
+    ~4-5x more VRAM for the visual attention pass on full-page images.  Both the
+    inference image (``_chat``) and the coordinate-scaling reference
+    (``_process_coordinates``) call this helper, so a single default keeps the
+    returned bounding boxes consistent with the image actually fed to the model.
     """
+    if max_size is None:
+        max_size = _DEFAULT_MAX_IMAGE_SIZE
     width, height = image.size
     if max(width, height) <= max_size and min(width, height) >= min_size:
         return image
