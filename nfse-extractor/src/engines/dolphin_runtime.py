@@ -32,13 +32,16 @@ logger = logging.getLogger(__name__)
 def _default_max_image_size() -> int:
     """Longest-side target (px) for the full-page image fed to Stage-1 layout parse.
 
-    896 keeps VRAM within T4 limits but is too small for dense scanned NFS-e
-    pages, whose layout parse then collapses to a single distorted_page region.
-    Override with NFSE_DOLPHIN_MAX_SIZE (e.g. 1024/1280) to trade VRAM for
-    legibility.  Read at call time (not import time) so setting the env var in a
-    notebook takes effect without reimporting the module.
+    Default 1280.  At 896 (the original Dolphin demo size) dense scanned NFS-e
+    pages were unreadable and the layout parse collapsed to a single
+    distorted_page region on ~86% of a 21-document sample (≈5% critical-field
+    coverage).  Raising to 1280 eliminated the collapse (0%) and lifted coverage
+    to ≈72%, without exhausting T4 VRAM.  Override with NFSE_DOLPHIN_MAX_SIZE
+    (e.g. drop to 896 for speed / smaller GPUs, or try 1600 on larger GPUs).
+    Read at call time (not import time) so setting the env var in a notebook
+    takes effect without reimporting the module.
     """
-    return int(os.environ.get("NFSE_DOLPHIN_MAX_SIZE", "896"))
+    return int(os.environ.get("NFSE_DOLPHIN_MAX_SIZE", "1280"))
 
 
 def load_dolphin_runtime(
