@@ -661,22 +661,14 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
             match = re.search(r"\bUF\s*:?\s*([A-Z]{2})\b", line_text, flags=re.IGNORECASE)
             return match.group(1).upper() if match else None
 
-        # ── Party names: take everything after the first ":" separator ────────
+        # ── Party names: value sits between the name label and the next label ──
         # Covers "Nome/Razão Social: NCR BRASIL LTDA" and the Dolphin OCR variant
-        # "Name/Razão Social: NCR BRASIL LTDA" (English "Name" misread for "Nome").
-        # Guard: only trigger when the text *before* the colon looks like a name
-        # label keyword — this prevents "Inscrição Municipal: 474043" from being
-        # mis-classified as a party name.
+        # "Name/Razão Social: …" (English "Name" misread for "Nome").  When Dolphin
+        # merges the whole party block into one element the value precedes a later
+        # label's colon, so the old "text after the first colon" rule captured the
+        # wrong field (e.g. the Nome Fantasia value).  See _extract_inline_party_name.
         if field_name in _PARTY_NAME_FIELDS:
-            colon_pos = line_text.find(":")
-            if colon_pos == -1:
-                return None
-            prefix_norm = _normalize(line_text[:colon_pos])
-            name_label_keywords = ("nome", "razao social", "razao", "social", "denominacao", "name")
-            if not any(kw in prefix_norm for kw in name_label_keywords):
-                return None
-            suffix = line_text[colon_pos + 1:].strip()
-            return _clean_party_name_value(suffix)
+            return _extract_inline_party_name(line_text)
 
         # ── Identifier / header fields: typed extraction on the full line ─────
         # These extractors use precise regex patterns or strict validators that
@@ -1684,6 +1676,31 @@ def _extract_municipal_registration(value: str) -> str | None:
 
 
 
+_LEADING_PARTY_NAME_LABEL_RE = re.compile(
+    r"(?:nome|name)\s*/?\s*raz[aã]o\s+social\s*:?\s*"        # Nome/Razão Social
+    r"|raz[aã]o\s+social\s*/?\s*(?:nome|name)?\s*:?\s*"      # Razão Social[/Nome]
+    r"|(?:nome|name)\s*:?\s+",                               # Nome / Name
+    re.IGNORECASE,
+)
+
+
+def _extract_inline_party_name(line_text: str) -> str | None:
+    """Extract a party name from a merged ``label value next-label …`` fragment.
+
+    Dolphin often returns an entire provider/recipient block as a single element,
+    e.g. ``"Nome/Razão Social ANGIOMED … LTDA Nome Fantasia: CLINICA … CNPJ/CPF: …"``.
+    The value lies between the leading name label and the next field label, so we
+    strip the leading name label and let :func:`_clean_party_name_value` truncate
+    at the next label.  The previous "text after the first colon" heuristic picked
+    the wrong value because the first colon belongs to a later label (e.g.
+    ``"Nome Fantasia:"``).
+    """
+    match = _LEADING_PARTY_NAME_LABEL_RE.search(line_text)
+    if match is None:
+        return None
+    return _clean_party_name_value(line_text[match.end():])
+
+
 def _clean_party_name_value(value: str) -> str | None:
     # Python's re with IGNORECASE does not strip Unicode accents, so we include
     # both the accented and unaccented forms of common Portuguese stop-labels.
@@ -1691,6 +1708,7 @@ def _clean_party_name_value(value: str) -> str | None:
     value = re.split(
         r"\b(?:"
         r"cnpj|cpf"
+        r"|nome\s+fantasia|name\s+fantasia"
         r"|endere[çc]o|endereco"
         r"|e\s*mail|email"
         r"|fone"

@@ -353,6 +353,49 @@ def test_output_normalizer_removes_document_suffix_from_party_name() -> None:
     assert _values_for(candidates, "provider_name") == ["DANIEL CESAR BALDO"]
 
 
+def test_output_normalizer_extracts_party_names_from_merged_block_elements() -> None:
+    # Dolphin returns the entire party block as one element, with the name value
+    # between the name label and the next field label. The inline fallback must take
+    # that span — not the value after the first colon, which belongs to a later
+    # label ("Nome Fantasia:" for the provider, "CNPJ/CPF:" for the recipient).
+    document = Document(document_id="doc-merged-party-blocks")
+
+    def _merged(block_num: int, text: str, *, y: float) -> ExtractedElement:
+        return ExtractedElement(
+            element_id=f"{document.document_id}:dolphin:{block_num}",
+            element_type="text",
+            text=text,
+            page_number=1,
+            bounding_box=(136.0, y, 1400.0, 14.0),
+            confidence=0.92,
+            metadata={"source_engine": "dolphin", "block_num": block_num, "line_num": 1},
+        )
+
+    elements = [
+        *_line(document.document_id, 1, 1, "DADOS DO PRESTADOR", y=10.0),
+        _merged(
+            2,
+            "Nome/Razão Social ANGIOMED CLINICA DE ANGIOLOGIA E CIRURGIA VASCULAR LTDA "
+            "Nome Fantasia: CLINICA ANGIOMED CNPJ/CPF: 02.267.916/0001-38 "
+            "Endereço: RUA BRUNO SILVA E-mail: fiscal@x.com",
+            y=26.0,
+        ),
+        *_line(document.document_id, 3, 1, "DADOS DO TOMADOR", y=42.0),
+        _merged(
+            4,
+            "Name/Razão Social ELISEO BELLAVER CNPJ/CPF: 195.846.449-04 "
+            "Endereço: RUA 351 APT 501 E-mail:",
+            y=58.0,
+        ),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _candidate_values(candidates)
+
+    assert values["provider_name"] == "ANGIOMED CLINICA DE ANGIOLOGIA E CIRURGIA VASCULAR LTDA"
+    assert values["recipient_name"] == "ELISEO BELLAVER"
+
+
 def test_output_normalizer_infers_provider_block_before_recipient() -> None:
     document = Document(document_id="doc-implicit-provider")
     elements = [
