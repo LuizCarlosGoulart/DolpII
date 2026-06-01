@@ -125,6 +125,13 @@ def load_dolphin_runtime(
                 max_new_tokens=4096,
                 do_sample=False,
                 temperature=None,
+                # Greedy decoding on low-quality scans degenerates into runaway
+                # repetition (e.g. the same "Data Emissão: …" line emitted until
+                # max_new_tokens, causing 20-minute generations and hundreds of
+                # garbage elements).  A mild repetition penalty breaks the loop so
+                # the model emits EOS naturally, without hard-blocking the genuine
+                # repeats that occur in NFS-e tables (e.g. repeated "R$ 0,00").
+                repetition_penalty=1.1,
             )
         trimmed = [
             out_ids[len(in_ids):]
