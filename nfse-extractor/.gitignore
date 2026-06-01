@@ -13,6 +13,8 @@ htmlcov/
 data/
 artifacts/
 outputs/
+output/
+output_test/
 dist/
 build/
 *.egg-info/

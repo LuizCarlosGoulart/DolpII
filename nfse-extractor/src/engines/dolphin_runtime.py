@@ -21,8 +21,11 @@ Utility helpers (``_resize_img``, ``_parse_layout_string``,
 
 from __future__ import annotations
 
+import logging
 import re
 from typing import Any, Callable
+
+logger = logging.getLogger(__name__)
 
 
 def load_dolphin_runtime(
@@ -66,7 +69,7 @@ def load_dolphin_runtime(
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    print(f"[dolphin_runtime] Loading model from {resolved_path!r} on {device!r} …")
+    logger.info("Loading model from %r on %r …", resolved_path, device)
     processor = AutoProcessor.from_pretrained(resolved_path)
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(resolved_path)
     model.eval()
@@ -76,7 +79,7 @@ def load_dolphin_runtime(
     else:
         model = model.float()
     processor.tokenizer.padding_side = "left"
-    print("[dolphin_runtime] Model loaded and ready.")
+    logger.info("Model loaded and ready.")
 
     # ── Inner helpers ─────────────────────────────────────────────────────────
 
@@ -164,10 +167,7 @@ def load_dolphin_runtime(
         ):
             layout_list = [([0, 0, img_w, img_h], "distorted_page", [])]
         elif len(layout_list) > 1 and _check_bbox_overlap(layout_list, image, _sr):
-            print(
-                "[dolphin_runtime] High bbox overlap detected; "
-                "falling back to distorted_page mode."
-            )
+            logger.warning("High bbox overlap detected; falling back to distorted_page mode.")
             layout_list = [([0, 0, img_w, img_h], "distorted_page", [])]
 
         # Stage 2 ── element recognition
@@ -219,7 +219,7 @@ def load_dolphin_runtime(
                 reading_order += 1
 
             except Exception as exc:  # noqa: BLE001
-                print(f"[dolphin_runtime] Skipped element label={label!r}: {exc}")
+                logger.warning("Skipped element label=%r: %s", label, exc, exc_info=True)
                 continue
 
         recognition_results: list[dict] = []

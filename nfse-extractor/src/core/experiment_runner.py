@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from time import perf_counter
 from typing import Any, Callable
@@ -12,10 +13,13 @@ from src.ingestion import load_documents
 from src.normalization import normalize_raw_elements
 from src.observability import PipelineObserver
 from src.preprocessing import preprocess_document
+from src.validation import validate_config_integrity
 
 from .field_dictionary import load_field_dictionary
 from .interfaces import DecisionEngine, FieldResolver, OutputNormalizer, Validator
 from .models import DecisionResult, Document, ResolvedField
+
+logger = logging.getLogger(__name__)
 
 
 FieldCorrectnessHook = Callable[[str, ResolvedField | None, Any, Document], bool | None]
@@ -48,6 +52,15 @@ class ExperimentComparisonRunner:
         self.field_correctness_hook = field_correctness_hook
         self.field_dictionary = load_field_dictionary(field_dictionary_path)
         self.field_names = tuple(self.field_dictionary.by_internal_name())
+
+        config_issues = validate_config_integrity()
+        if config_issues:
+            for issue in config_issues:
+                logger.warning("Config integrity issue: %s", issue)
+            raise RuntimeError(
+                f"Config integrity check failed with {len(config_issues)} issue(s); "
+                "see warnings above."
+            )
 
         if preprocessor is not None:
             self.preprocessor = preprocessor
