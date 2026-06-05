@@ -808,7 +808,8 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
         if not any(keyword in normalized_header for keyword in ("descricao", "discriminacao", "servicos prestados")):
             return None
 
-        description_lines: list[_Line] = []
+        description_parts: list[str] = []
+        description_elements: list[ExtractedElement] = []
         for nearby_line in lines[line_index + 1 : line_index + 7]:
             normalized = _normalize(nearby_line.text)
             if nearby_line.section != "service":
@@ -820,20 +821,36 @@ class ConfigDrivenOutputNormalizer(OutputNormalizer):
                 continue
             if len(tokens) < 3:
                 continue
-            if _PATTERN_FIELD_HINTS["money"].search(nearby_line.text):
+            money_match = _PATTERN_FIELD_HINTS["money"].search(nearby_line.text)
+            if money_match:
+                # A line containing money is normally the value table.  But some
+                # layouts (e.g. São Paulo line items) put the description and its
+                # price on the same line, e.g.
+                # "000010 ROYALTIES QTD: 1,000 UN Preço: 9.874,24".  Only when no
+                # description has been collected yet, salvage the descriptive text
+                # before the price — and only if it reads as description, not a
+                # financial label.  Otherwise behave exactly as before (stop), so
+                # multi-line descriptions followed by a value row are unchanged.
+                if not description_parts:
+                    prefix = nearby_line.text[: money_match.start()]
+                    if _looks_like_description_prefix(prefix):
+                        description_parts.append(prefix)
+                        description_elements.extend(nearby_line.elements)
                 break
-            description_lines.append(nearby_line)
-            if len(description_lines) >= 3:
+            description_parts.append(nearby_line.text)
+            description_elements.extend(nearby_line.elements)
+            if len(description_parts) >= 3:
                 break
 
-        if not description_lines:
+        if not description_parts:
             return None
 
-        value = _clean_service_text_value("service_description", self._clean_value(" ".join(item.text for item in description_lines)))
+        value = _clean_service_text_value(
+            "service_description", self._clean_value(" ".join(description_parts))
+        )
         if value is None or not self._is_acceptable_value("service_description", value):
             return None
-        elements = [element for item in description_lines for element in item.elements]
-        return value, elements
+        return value, description_elements
 
     @staticmethod
     def _extract_verification_code_from_nearby(
@@ -1841,6 +1858,21 @@ def _truncate_service_text(field_name: str, value: str) -> str:
         )
     parts = re.split(stop_pattern, value, maxsplit=1, flags=re.IGNORECASE)
     return parts[0].strip(" :-\t\r\n")
+
+
+def _looks_like_description_prefix(text: str) -> bool:
+    """Whether the text before a price on a service line reads as a real
+    description rather than a financial-table label.
+
+    Used to salvage São Paulo line items ("… ROYALTIES … Preço: 9.874,24") while
+    still rejecting value rows ("Valor Tributável R$ 230,00"): requires at least
+    two alphabetic words of >= 3 characters and no financial/section stop token.
+    """
+    tokens = _tokens(text)
+    if any(token in _SERVICE_DESCRIPTION_STOP_TOKENS for token in tokens):
+        return False
+    alpha_words = [token for token in tokens if token.isalpha() and len(token) >= 3]
+    return len(alpha_words) >= 2
 
 
 def _looks_like_service_text_noise(field_name: str, normalized: str, value: str) -> bool:

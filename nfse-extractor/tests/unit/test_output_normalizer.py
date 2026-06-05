@@ -680,6 +680,43 @@ def test_output_normalizer_rejects_value_table_as_service_description() -> None:
     assert _values_for(candidates, "service_description") == []
 
 
+def test_output_normalizer_recovers_service_description_from_priced_line_item() -> None:
+    # São Paulo line-item layout: the description and its price share one line.
+    # The descriptive prefix before the price must be recovered rather than
+    # dropped by the money guard.
+    document = Document(document_id="doc-sp-line-item")
+    elements = [
+        *_line(document.document_id, 1, 1, "DISCRIMINACAO DOS SERVICOS", y=10.0),
+        *_line(document.document_id, 1, 2, "000010 ROYALTIES QTD: 1,000 UN Preco: 9.874,24", y=26.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+    values = _values_for(candidates, "service_description")
+
+    assert values, "expected a service_description candidate"
+    assert "ROYALTIES" in values[0].upper()
+    # The price itself must not leak into the description.
+    assert "9.874,24" not in values[0]
+
+
+def test_output_normalizer_priced_value_row_after_description_is_unchanged() -> None:
+    # Regression guard: when a real description is collected first, a following
+    # value row containing money must still be ignored (break), so multi-line
+    # descriptions are unaffected by the priced-line-item salvage.
+    document = Document(document_id="doc-desc-then-value-row")
+    elements = [
+        *_line(document.document_id, 1, 1, "DISCRIMINACAO DO SERVICO", y=10.0),
+        *_line(document.document_id, 1, 2, "Manutencao preventiva mensal de equipamentos", y=26.0),
+        *_line(document.document_id, 1, 3, "Valor Tributavel R$ 230,00 Base de Calculo R$ 230,00", y=42.0),
+    ]
+
+    candidates = ConfigDrivenOutputNormalizer().normalize(document, elements)
+
+    assert _values_for(candidates, "service_description") == [
+        "Manutencao preventiva mensal de equipamentos"
+    ]
+
+
 def test_output_normalizer_extracts_short_service_description_from_merged_element() -> None:
     # Dolphin merges the "Discriminação do Serviço" label and a single-word value
     # ("CONSULTA") into one element, so no separate value element follows the label.
