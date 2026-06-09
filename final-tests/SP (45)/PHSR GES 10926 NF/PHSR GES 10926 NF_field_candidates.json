@@ -1,0 +1,692 @@
+[
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:deductions_amount:14:5:ba5e53c8a7d7",
+    "field_name": "deductions_amount",
+    "value": "0,00",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:61",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:62",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:63",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:64",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:65"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "deducoes",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 14,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1276.8999999999999,
+        1352.0,
+        83.34999999999991
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:gross_amount:9:1:62d0ef4ab346",
+    "field_name": "gross_amount",
+    "value": "R$ 750,00",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:43"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 750,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 750,00",
+      "line_index": 9,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        860.15,
+        1352.0,
+        83.35000000000002
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:iss_amount:14:5:edaa3fd4b29e",
+    "field_name": "iss_amount",
+    "value": "37,50",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:61",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:62",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:63",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:64",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:65"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor do iss",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 14,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1276.8999999999999,
+        1352.0,
+        83.34999999999991
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:iss_rate:14:5:499e4fb028c8",
+    "field_name": "iss_rate",
+    "value": "5,00%",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:61",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:62",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:63",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:64",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:65"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "aliquota",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 14,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1276.8999999999999,
+        1352.0,
+        83.34999999999991
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:issue_date:1:1:02f0ee581048",
+    "field_name": "issue_date",
+    "value": "09/07/2021",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:10"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "CPF/CNPJ ---- Name/Razão Social PHSR MASTER FRANQUIA LTDA. Inscrição Municipal ---- Data e Hora de Emissão 09/07/2021 12:11:29 Código de Verificação SUUR-1ELK",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ ---- Name/Razão Social PHSR MASTER FRANQUIA LTDA. Inscrição Municipal ---- Data e Hora de Emissão 09/07/2021 12:11:29 Código de Verificação SUUR-1ELK",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        193.35,
+        1352.0,
+        83.35
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:operation_nature:13:3:34b442b1bb58",
+    "field_name": "operation_nature",
+    "value": "Municipio da Prestação do Serviço Número Inscricão da Obra",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:66",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:67",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:68"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "natureza",
+      "context_text": "03115 - Assessoria ou consultoria de qualquer natureza, não contida em outros itens desta lista.",
+      "section_name": "service",
+      "raw_section_name": "service",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "service_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "03115 - Assessoria ou consultoria de qualquer natureza, não contida em outros itens desta lista.",
+      "line_index": 13,
+      "value_source": "nearby_line",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1193.55,
+        1352.0,
+        83.34999999999991
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "nearby_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:pis_withheld_amount:10:5:0ac5f335fad7",
+    "field_name": "pis_withheld_amount",
+    "value": "4,88",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:49",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:50",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:51",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:52",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:53"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "pis pasep",
+      "context_text": "INSS (R$) IRRF (R$) CSLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) IRRF (R$) CSLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "line_index": 10,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        943.5,
+        1352.0,
+        83.34999999999991
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:provider_document:0:3:56aacc415ca8",
+    "field_name": "provider_document",
+    "value": "02.876.218/0006-44",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:0",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:1",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9712525892257691,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFP/CNPJ 02.876.218/0006-44 INTERMEDIARIO DE SERVIÇOS",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0006-44 INTERMEDIARIO DE SERVIÇOS",
+      "line_index": 0,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        110.0,
+        1352.0,
+        83.35
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:provider_name:1:1:8f64427555de",
+    "field_name": "provider_name",
+    "value": "PHSR MASTER FRANQUIA LTDA.",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:6"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "CPF/CNPJ ---- Name/Razão Social PHSR MASTER FRANQUIA LTDA. Inscrição Municipal ---- Data e Hora de Emissão 09/07/2021 12:11:29 Código de Verificação SUUR-1ELK",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ ---- Name/Razão Social PHSR MASTER FRANQUIA LTDA. Inscrição Municipal ---- Data e Hora de Emissão 09/07/2021 12:11:29 Código de Verificação SUUR-1ELK",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        193.35,
+        1352.0,
+        83.35
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:provider_name:3:1:ec81d176a614",
+    "field_name": "provider_name",
+    "value": "PH EXPRESS NEUMARKT SHOPPING",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:19"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "Nome/Razão Social PH EXPRESS NEUMARKT SHOPPING TOMADOR DE SERVIÇOS",
+      "section_name": "provider",
+      "raw_section_name": "recipient",
+      "section_override_applied": true,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social PH EXPRESS NEUMARKT SHOPPING TOMADOR DE SERVIÇOS",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        360.04999999999995,
+        1352.0,
+        83.35000000000002
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field",
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:provider_uf:2:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:17"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Erdereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Erdereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        276.7,
+        1352.0,
+        83.34999999999997
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:recipient_document:4:1:56aacc415ca8",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0006-44",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:22"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 02.876.218/0006-44 CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 02.876.218/0006-44 CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        443.4,
+        1352.0,
+        83.35000000000002
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:recipient_email:5:1:6924ed19cf4f",
+    "field_name": "recipient_email",
+    "value": "123@mudar.com",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:34"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Erdereço R SETE DE SETEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail 123@mudar.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Erdereço R SETE DE SETEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail 123@mudar.com",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        526.75,
+        1352.0,
+        83.35000000000002
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:recipient_uf:5:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:32"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Erdereço R SETE DE SETEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail 123@mudar.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Erdereço R SETE DE SETEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail 123@mudar.com",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        526.75,
+        1352.0,
+        83.35000000000002
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:taxable_amount:14:5:d6f140cfe687",
+    "field_name": "taxable_amount",
+    "value": "750,00",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:61",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:62",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:63",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:64",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:65"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base_de_calculo",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 14,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1276.8999999999999,
+        1352.0,
+        83.34999999999991
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "8296cc32-136a-50ad-aaae-4e7123b362d9:config-driven-output-normalizer:verification_code:1:8:5e2f51b0951e",
+    "field_name": "verification_code",
+    "value": "1213-CENTRO-CEP",
+    "source_element_ids": [
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:27",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:28",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:29",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:30",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:31",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:32",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:33",
+      "8296cc32-136a-50ad-aaae-4e7123b362d9:dolphin:34"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "CPF/CNPJ ---- Name/Razão Social PHSR MASTER FRANQUIA LTDA. Inscrição Municipal ---- Data e Hora de Emissão 09/07/2021 12:11:29 Código de Verificação SUUR-1ELK",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ ---- Name/Razão Social PHSR MASTER FRANQUIA LTDA. Inscrição Municipal ---- Data e Hora de Emissão 09/07/2021 12:11:29 Código de Verificação SUUR-1ELK",
+      "line_index": 1,
+      "value_source": "nearby_line",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        193.35,
+        1352.0,
+        83.35
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "nearby_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

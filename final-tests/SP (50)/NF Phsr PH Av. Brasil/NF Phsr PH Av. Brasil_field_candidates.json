@@ -1,0 +1,626 @@
+[
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:deductions_amount:20:5:ba5e53c8a7d7",
+    "field_name": "deductions_amount",
+    "value": "0,00",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:58",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:59",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:60",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:61",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:62"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "deducoes",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 20,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1310.923076923077,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:gross_amount:15:1:eabd884da6e4",
+    "field_name": "gross_amount",
+    "value": "R$ 5.655,72",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:40"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 5.655,72",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 5.655,72",
+      "line_index": 15,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        991.6923076923077,
+        1352.0,
+        63.846153846153925
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:iss_amount:20:5:b80ed1ca5988",
+    "field_name": "iss_amount",
+    "value": "113,11",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:58",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:59",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:60",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:61",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:62"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor do iss",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 20,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1310.923076923077,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:iss_rate:20:5:a2c836166074",
+    "field_name": "iss_rate",
+    "value": "2,00%",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:58",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:59",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:60",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:61",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:62"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "aliquota",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 20,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1310.923076923077,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:provider_address:4:1:f01eb1d0585c",
+    "field_name": "provider_address",
+    "value": "AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        289.38461538461536,
+        1352.0,
+        63.84615384615387
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:provider_document:3:2:5008afd7d177",
+    "field_name": "provider_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:10",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:11"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9726901936531067,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFF/CNPJ 02.876.218/0001-30",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CFF/CNPJ 02.876.218/0001-30",
+      "line_index": 3,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        225.53846153846155,
+        1352.0,
+        63.84615384615387
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:provider_name:2:1:722964f31d79",
+    "field_name": "provider_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA.",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:9"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "NOME/RAZão Social HAGI PIZZAS E SUPERMERCADO LTDA.",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "NOME/RAZão Social HAGI PIZZAS E SUPERMERCADO LTDA.",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        161.69230769230768,
+        1352.0,
+        63.84615384615384
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:provider_uf:5:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:17"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Município São Paulo UF SP",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        353.2307692307692,
+        1352.0000000000002,
+        63.84615384615387
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:recipient_address:9:1:0ba0ce51410a",
+    "field_name": "recipient_address",
+    "value": "R 1201 117 - CENTRO -CEP: 88330-792",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:24"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço R 1201 117 - CENTRO -CEP: 88330-792",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço R 1201 117 - CENTRO -CEP: 88330-792",
+      "line_index": 9,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        608.6153846153846,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:recipient_document:8:2:5008afd7d177",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:21",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:22"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9726901936531067,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFF/CNPJ 02.876.218/0001-30",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CFF/CNPJ 02.876.218/0001-30",
+      "line_index": 8,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        544.7692307692307,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:recipient_email:10:1:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:30"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Município Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Município Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 10,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        672.4615384615385,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:recipient_name:7:1:722964f31d79",
+    "field_name": "recipient_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA.",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:20"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "NOME/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA.",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "NOME/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA.",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        480.9230769230769,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:recipient_uf:10:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:28"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Município Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Município Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 10,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        672.4615384615385,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:service_description:13:2:202be645e79f",
+    "field_name": "service_description",
+    "value": "000010 ROYALTIES QTD 1,000 UN Preço",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:37",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:38"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "discriminacao dos servicos",
+      "context_text": "DISCRIMINAÇÃO DOS SERVIÇOS",
+      "section_name": "service",
+      "raw_section_name": "service",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "discriminacao dos servicos"
+      ],
+      "page_number": 1,
+      "line_text": "DISCRIMINAÇÃO DOS SERVIÇOS",
+      "line_index": 13,
+      "value_source": "following_service_lines",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        864.0,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:config-driven-output-normalizer:taxable_amount:20:5:e72f15155fd7",
+    "field_name": "taxable_amount",
+    "value": "5.655,72",
+    "source_element_ids": [
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:58",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:59",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:60",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:61",
+      "1cd0d1f3-6988-54c1-b2d3-922dfbe3adbd:dolphin:62"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base de calculo",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 20,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1310.923076923077,
+        1352.0,
+        63.84615384615381
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

@@ -1,0 +1,491 @@
+[
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:cofins_withheld_amount:5:5:92958bfa7cd5",
+    "field_name": "cofins_withheld_amount",
+    "value": "22,50",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:19",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:20",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:21",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:22",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:23"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cofins",
+      "context_text": "INSS (R$) IRRF (R$) C SLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) IRRF (R$) C SLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "line_index": 5,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        587.3333333333334,
+        1356.0,
+        110.66666666666663
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:deductions_amount:9:5:ba5e53c8a7d7",
+    "field_name": "deductions_amount",
+    "value": "0,00",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:31",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:32",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:33",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:34",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:35"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "deducoes",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 9,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1030.0,
+        1355.9999999999998,
+        110.66666666666674
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:gross_amount:4:1:62d0ef4ab346",
+    "field_name": "gross_amount",
+    "value": "R$ 750,00",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 750,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 750,00",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        476.6666666666667,
+        1355.9999999999998,
+        110.66666666666669
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:inss_withheld_amount:5:5:9b2fe3a049cd",
+    "field_name": "inss_withheld_amount",
+    "value": "11,25",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:19",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:20",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:21",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:22",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:23"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inss",
+      "context_text": "INSS (R$) IRRF (R$) C SLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) IRRF (R$) C SLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "line_index": 5,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        587.3333333333334,
+        1356.0,
+        110.66666666666663
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:ir_withheld_amount:5:5:68486306c0f2",
+    "field_name": "ir_withheld_amount",
+    "value": "7,50",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:19",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:20",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:21",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:22",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:23"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "irrf",
+      "context_text": "INSS (R$) IRRF (R$) C SLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) IRRF (R$) C SLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "line_index": 5,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        587.3333333333334,
+        1356.0,
+        110.66666666666663
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:iss_amount:9:5:edaa3fd4b29e",
+    "field_name": "iss_amount",
+    "value": "37,50",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:31",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:32",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:33",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:34",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:35"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor do iss",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 9,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1030.0,
+        1355.9999999999998,
+        110.66666666666674
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:iss_rate:9:5:499e4fb028c8",
+    "field_name": "iss_rate",
+    "value": "5,00%",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:31",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:32",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:33",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:34",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:35"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "aliquota",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 9,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1030.0,
+        1355.9999999999998,
+        110.66666666666674
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:operation_nature:8:3:d9d0a7bb8d9d",
+    "field_name": "operation_nature",
+    "value": "Municipio da Prestação do Serviço Número Inscrição da Obra",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:36",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:37",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:38"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "natureza",
+      "context_text": "03115 - Assessoria ou consultoria de qualquer natureza, não contida em outros itens desta lista.",
+      "section_name": "service",
+      "raw_section_name": "service",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "service_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "03115 - Assessoria ou consultoria de qualquer natureza, não contida em outros itens desta lista.",
+      "line_index": 8,
+      "value_source": "nearby_line",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        919.3333333333334,
+        1356.0,
+        110.66666666666663
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "nearby_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:pis_withheld_amount:5:5:0ac5f335fad7",
+    "field_name": "pis_withheld_amount",
+    "value": "4,88",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:19",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:20",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:21",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:22",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:23"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "pis pasep",
+      "context_text": "INSS (R$) IRRF (R$) C SLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) IRRF (R$) C SLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "line_index": 5,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        587.3333333333334,
+        1356.0,
+        110.66666666666663
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:provider_document:0:3:5008afd7d177",
+    "field_name": "provider_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:0",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:1",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9654168176651001,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFP/CNPJ 02.876.218/0001-30 INTERMEDIARIO DE SERVIÇOS",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0001-30 INTERMEDIARIO DE SERVIÇOS",
+      "line_index": 0,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        34.0,
+        1356.0,
+        110.66666666666669
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "1195ff4d-6e42-5137-b827-f9011b6e8d11:config-driven-output-normalizer:taxable_amount:9:5:d6f140cfe687",
+    "field_name": "taxable_amount",
+    "value": "750,00",
+    "source_element_ids": [
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:31",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:32",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:33",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:34",
+      "1195ff4d-6e42-5137-b827-f9011b6e8d11:dolphin:35"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base de calculo",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Alíquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 9,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1030.0,
+        1355.9999999999998,
+        110.66666666666674
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

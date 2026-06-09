@@ -1,0 +1,443 @@
+[
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:issue_date:1:6:51c6b19f4359",
+    "field_name": "issue_date",
+    "value": "11/07/2022",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:4",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:5",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:6",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:7",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:8",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:9"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9500000000000001,
+    "metadata": {
+      "label_text": "date pattern",
+      "context_text": "INSCRIÇÃO Municipal 3.671.409-7 Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSCRIÇÃO Municipal 3.671.409-7 Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF",
+      "line_index": 1,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        69.5576923076923,
+        1076.0,
+        8.557692307692307
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:provider_address:2:1:56504dc5f8be",
+    "field_name": "provider_address",
+    "value": "WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:11"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "section_name": "provider",
+      "raw_section_name": "recipient",
+      "section_override_applied": true,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        78.11538461538461,
+        1076.0,
+        17.115384615384627
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:provider_document:2:14:5008afd7d177",
+    "field_name": "provider_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:10",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:17",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:18",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:11",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:19",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:20",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:12",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:13",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:14",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:21",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:15",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:22",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:23",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:16"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9500000000000001,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "section_name": "provider",
+      "raw_section_name": "recipient",
+      "section_override_applied": true,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "line_index": 2,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        78.11538461538461,
+        1076.0,
+        17.115384615384627
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:provider_email:2:1:4d602c67e3cd",
+    "field_name": "provider_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:20"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "section_name": "provider",
+      "raw_section_name": "recipient",
+      "section_override_applied": true,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        78.11538461538461,
+        1076.0,
+        17.115384615384627
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:provider_municipal_registration:1:1:7ab9cdaa2a05",
+    "field_name": "provider_municipal_registration",
+    "value": "3.671.409-7",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:5"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "INSCRIÇÃO Municipal 3.671.409-7 Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSCRIÇÃO Municipal 3.671.409-7 Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        69.5576923076923,
+        1076.0,
+        8.557692307692307
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:provider_name:2:1:f455ae83fd51",
+    "field_name": "provider_name",
+    "value": "Name/Razão Social",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:17"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "section_name": "provider",
+      "raw_section_name": "recipient",
+      "section_override_applied": true,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        78.11538461538461,
+        1076.0,
+        17.115384615384627
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:provider_uf:2:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "section_name": "provider",
+      "raw_section_name": "recipient",
+      "section_override_applied": true,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        78.11538461538461,
+        1076.0,
+        17.115384615384627
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:recipient_email:2:14:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:10",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:17",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:18",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:11",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:19",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:20",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:12",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:13",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:14",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:21",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:15",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:22",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:23",
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:16"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9500000000000001,
+    "metadata": {
+      "label_text": "email pattern",
+      "context_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "line_index": 2,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        78.11538461538461,
+        1076.0,
+        17.115384615384627
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:recipient_municipal_registration:2:1:41b7535bdb8c",
+    "field_name": "recipient_municipal_registration",
+    "value": "COPINOS",
+    "source_element_ids": [
+      "19736520-7e3a-5059-accc-1bc22c970b2b:dolphin:22"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social Name/Razão Social HAGI SUPERMERCADOS LTDA CFP/CNPJ: 02.876.218/0001-30 Endereço: AV BRASIL 561, EDIFICIO COLUMBUS TOW - CENTRO - CEP: 88330-043 Município: Balneário Camboriú WAY &amp; COM TECNOLOGIA LTDA Endereço: AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Município: São Paulo E-mail andreas_sandri@hotmail.com UF SP TOMADOR DE SERVIÇOS INTERMEDIÁRIO DE SERVIÇOS Inscrição Municipal COPINOS R$) PIS/PASEP (R$) ----",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        78.11538461538461,
+        1076.0,
+        17.115384615384627
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "19736520-7e3a-5059-accc-1bc22c970b2b:config-driven-output-normalizer:verification_code:1:0:86275fc87abf",
+    "field_name": "verification_code",
+    "value": "E9FE-EEJF",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "INSCRIÇÃO Municipal 3.671.409-7 Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSCRIÇÃO Municipal 3.671.409-7 Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF Data e Hora de Emissão 11/07/2022 12:42:48 Código de Verificação E9FE-EEJF",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        289.0,
+        69.5576923076923,
+        1076.0,
+        8.557692307692307
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

@@ -1,0 +1,553 @@
+[
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:gross_amount:14:1:9a72eac7f7ee",
+    "field_name": "gross_amount",
+    "value": "R$ 0,00",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:63"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 0,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 0,00",
+      "line_index": 14,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1141.952380952381,
+        1354.0,
+        79.3809523809523
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:issue_date:2:1:724ad01c9676",
+    "field_name": "issue_date",
+    "value": "22/03/2022",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:8"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 22/03/2022 10:47:56 Código de Verificação JEHM-6NTX",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 22/03/2022 10:47:56 Código de Verificação JEHM-6NTX",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        189.38095238095238,
+        1354.0,
+        79.38095238095238
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:nfse_number:1:1:830d5d1e881a",
+    "field_name": "nfse_number",
+    "value": "39221545",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:5"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "Cortes PREFEITURA DO MUNICIPIO DE SÃO PAULO Número da Nota 39221545",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "municipio de",
+        "numero da nota",
+        "prefeitura"
+      ],
+      "page_number": 1,
+      "line_text": "Cortes PREFEITURA DO MUNICIPIO DE SÃO PAULO Número da Nota 39221545",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        110.0,
+        1354.0,
+        79.38095238095238
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:provider_address:5:1:3c7eee95b2d5",
+    "field_name": "provider_address",
+    "value": "AV DRA RUTH CARDOSO 7815, ANDAR 3 E 6 - PINHEIROS - CEP: 05425-905",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:23"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Ticket Endereço AV DRA RUTH CARDOSO 7815, ANDAR 3 E 6 - PINHEIROS - CEP: 05425-905 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Ticket Endereço AV DRA RUTH CARDOSO 7815, ANDAR 3 E 6 - PINHEIROS - CEP: 05425-905 Município São Paulo UF SP",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        427.5238095238095,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:provider_document:4:1:32e3a405f64b",
+    "field_name": "provider_document",
+    "value": "47.866.934/0001-74",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:16"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 47.866.934/0001-74 Name/Razão Social TICKET SERVICOS SA Inscrição Municipal ----",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 47.866.934/0001-74 Name/Razão Social TICKET SERVICOS SA Inscrição Municipal ----",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        348.1428571428571,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:provider_municipal_registration:3:1:8ebb9fb274af",
+    "field_name": "provider_municipal_registration",
+    "value": "5.987.120-2",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:14"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 288302 Serie E4, emitido em 22/03/2022 PRESTADOR DE SERVIÇOS Inscrição Municipal 5.987.120-2",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "prestador",
+        "prestador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 288302 Serie E4, emitido em 22/03/2022 PRESTADOR DE SERVIÇOS Inscrição Municipal 5.987.120-2",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        268.76190476190476,
+        1353.9999999999998,
+        79.38095238095235
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:provider_name:4:1:c550c8630205",
+    "field_name": "provider_name",
+    "value": "TICKET SERVICOS SA",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:18"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "CPF/CNPJ 47.866.934/0001-74 Name/Razão Social TICKET SERVICOS SA Inscrição Municipal ----",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 47.866.934/0001-74 Name/Razão Social TICKET SERVICOS SA Inscrição Municipal ----",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        348.1428571428571,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:provider_uf:5:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:27"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Ticket Endereço AV DRA RUTH CARDOSO 7815, ANDAR 3 E 6 - PINHEIROS - CEP: 05425-905 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Ticket Endereço AV DRA RUTH CARDOSO 7815, ANDAR 3 E 6 - PINHEIROS - CEP: 05425-905 Município São Paulo UF SP",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        427.5238095238095,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:recipient_address:8:1:2a22099f6669",
+    "field_name": "recipient_address",
+    "value": "R SETE DE SETEMBRO 1213, SALAO COML L 29 SHOPPING NEUMA - CENTRO - CEP: 89010-203",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:37"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço R SETE DE SETEMBRO 1213, SALAO COML L 29 SHOPPING NEUMA - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail d.baldo@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço R SETE DE SETEMBRO 1213, SALAO COML L 29 SHOPPING NEUMA - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail d.baldo@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        665.6666666666666,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:recipient_document:7:1:56aacc415ca8",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0006-44",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:33"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        586.2857142857142,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:recipient_email:8:1:977b8b9afb4a",
+    "field_name": "recipient_email",
+    "value": "d.baldo@hotmail.com",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:43"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Endereço R SETE DE SETEMBRO 1213, SALAO COML L 29 SHOPPING NEUMA - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail d.baldo@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço R SETE DE SETEMBRO 1213, SALAO COML L 29 SHOPPING NEUMA - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail d.baldo@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        665.6666666666666,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:recipient_name:7:1:7f6e1d977ac7",
+    "field_name": "recipient_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:31"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        586.2857142857142,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:recipient_uf:8:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "debad597-4dbd-558d-b517-bba4b198fcbe:dolphin:41"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Endereço R SETE DE SETEMBRO 1213, SALAO COML L 29 SHOPPING NEUMA - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail d.baldo@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço R SETE DE SETEMBRO 1213, SALAO COML L 29 SHOPPING NEUMA - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail d.baldo@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        665.6666666666666,
+        1354.0,
+        79.38095238095241
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "debad597-4dbd-558d-b517-bba4b198fcbe:config-driven-output-normalizer:verification_code:2:0:91fe33762b3e",
+    "field_name": "verification_code",
+    "value": "JEHM-6NTX",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 22/03/2022 10:47:56 Código de Verificação JEHM-6NTX",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 22/03/2022 10:47:56 Código de Verificação JEHM-6NTX",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        189.38095238095238,
+        1354.0,
+        79.38095238095238
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

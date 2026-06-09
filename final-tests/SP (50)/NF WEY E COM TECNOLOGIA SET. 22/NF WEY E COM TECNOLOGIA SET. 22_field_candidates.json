@@ -1,0 +1,594 @@
+[
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:gross_amount:15:1:0e7ebf4ae271",
+    "field_name": "gross_amount",
+    "value": "R$ 120,00",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:44"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 120,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 120,00",
+      "line_index": 15,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1116.608695652174,
+        1355.9999999999998,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:issue_date:1:1:d9b83d016a64",
+    "field_name": "issue_date",
+    "value": "09/09/2022",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:5"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 09/09/2022 12:31:57 Código de Verificação 5SAM-IZGY",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 09/09/2022 12:31:57 Código de Verificação 5SAM-IZGY",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        106.17391304347827,
+        1356.0,
+        72.17391304347827
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:nfse_number:0:1:4146841e1216",
+    "field_name": "nfse_number",
+    "value": "00112507",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "PREFEITURA DO MUNICIPIO DE SÃO PAULO Número da Nota 00112507",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "municipio de",
+        "numero da nota",
+        "prefeitura"
+      ],
+      "page_number": 1,
+      "line_text": "PREFEITURA DO MUNICIPIO DE SÃO PAULO Número da Nota 00112507",
+      "line_index": 0,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        34.0,
+        1356.0,
+        72.17391304347827
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:provider_address:4:1:b325e9b9103f",
+    "field_name": "provider_address",
+    "value": "AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:17"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        322.69565217391306,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:provider_document:3:1:479514ef7125",
+    "field_name": "provider_document",
+    "value": "01.115.787/0001-08",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        250.5217391304348,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:provider_municipal_registration:2:1:7ab9cdaa2a05",
+    "field_name": "provider_municipal_registration",
+    "value": "3.671.409-7",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:11"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "NOTA FISCAL ELECTRÔNCICA DE SERVIÇOS - NFS-e RPS N° 1074 Serie NFSE, emitido em 09/09/2022 PRESTADOR DE SERVIÇOS Inscrição Municipal 3.671.409-7",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "prestador",
+        "prestador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "NOTA FISCAL ELECTRÔNCICA DE SERVIÇOS - NFS-e RPS N° 1074 Serie NFSE, emitido em 09/09/2022 PRESTADOR DE SERVIÇOS Inscrição Municipal 3.671.409-7",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        178.34782608695653,
+        1356.0000000000002,
+        72.17391304347828
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:provider_name:3:1:43ea5147b3c2",
+    "field_name": "provider_name",
+    "value": "WAY &amp; COM TECNOLOGIA LTDA",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:15"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        250.5217391304348,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:provider_uf:4:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:19"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Endereço AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DR CHUCRI ZAIDAN 1550, CONJ 2503 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        322.69565217391306,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:recipient_address:8:1:7fe11f7291cb",
+    "field_name": "recipient_address",
+    "value": "Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:28"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        611.3913043478261,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:recipient_document:7:1:7fe9a9d5baa2",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0005-63",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:24"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 02.876.218/0005-63 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 02.876.218/0005-63 Inscrição Municipal ----",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        539.2173913043479,
+        1356.0000000000002,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:recipient_email:8:1:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:32"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        611.3913043478261,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:recipient_name:6:1:7f6e1d977ac7",
+    "field_name": "recipient_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:22"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        467.0434782608696,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:recipient_uf:8:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:30"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        611.3913043478261,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:service_description:11:3:25626b285f0f",
+    "field_name": "service_description",
+    "value": "PIZZA HUT SHOPPING MAIS Ref. Set/ 2022 - Vencto. 31/10/2022",
+    "source_element_ids": [
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:40",
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:41",
+      "56646d3e-21bf-5677-9944-0138f3a4454d:dolphin:42"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "discriminacao dos servicos",
+      "context_text": "DISCRIMINAÇÃO DOS SERVIÇOS",
+      "section_name": "service",
+      "raw_section_name": "service",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "discriminacao dos servicos"
+      ],
+      "page_number": 1,
+      "line_text": "DISCRIMINAÇÃO DOS SERVIÇOS",
+      "line_index": 11,
+      "value_source": "following_service_lines",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        827.9130434782609,
+        1356.0,
+        72.17391304347825
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "56646d3e-21bf-5677-9944-0138f3a4454d:config-driven-output-normalizer:verification_code:1:0:7c4c862f5307",
+    "field_name": "verification_code",
+    "value": "5SAM-IZGY",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 09/09/2022 12:31:57 Código de Verificação 5SAM-IZGY",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 09/09/2022 12:31:57 Código de Verificação 5SAM-IZGY",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        106.17391304347827,
+        1356.0,
+        72.17391304347827
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

@@ -1,0 +1,355 @@
+[
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:issue_date:2:1:f52beb9d1d9c",
+    "field_name": "issue_date",
+    "value": "10/06/2022",
+    "source_element_ids": [
+      "99b63605-f51c-551d-bd6c-1382c42ecddd:dolphin:4"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "Data e Hora de Emissão 10/06/2022 08:31:30",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao"
+      ],
+      "page_number": 1,
+      "line_text": "Data e Hora de Emissão 10/06/2022 08:31:30",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        349.57142857142856,
+        1355.0,
+        119.28571428571428
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:net_amount:13:1:dbc372595b9c",
+    "field_name": "net_amount",
+    "value": "505,27",
+    "source_element_ids": [
+      "99b63605-f51c-551d-bd6c-1382c42ecddd:dolphin:22"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor liquido",
+      "context_text": "2919 - SUPTE.TECNICO EM INFORMATICA E PROGR. MANUTENCAO MENSAL ALOHA Valor liquido 505,27 Vencimento: 001-30.06.2022 NOME FANTASIA: PH BALNEARIO CAMBORIU PERÍODO 06/2022",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor liquido"
+      ],
+      "page_number": 1,
+      "line_text": "2919 - SUPTE.TECNICO EM INFORMATICA E PROGR. MANUTENCAO MENSAL ALOHA Valor liquido 505,27 Vencimento: 001-30.06.2022 NOME FANTASIA: PH BALNEARIO CAMBORIU PERÍODO 06/2022",
+      "line_index": 13,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        1661.7142857142858,
+        1355.0,
+        119.28571428571422
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:nfse_number:1:1:47783078f6c7",
+    "field_name": "nfse_number",
+    "value": "00038952",
+    "source_element_ids": [
+      "99b63605-f51c-551d-bd6c-1382c42ecddd:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "Número da Nota 00038952",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "numero da nota"
+      ],
+      "page_number": 1,
+      "line_text": "Número da Nota 00038952",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        230.28571428571428,
+        1355.0,
+        119.28571428571428
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:provider_document:5:2:78056bf2ce47",
+    "field_name": "provider_document",
+    "value": "33.033.440/0001-02",
+    "source_element_ids": [
+      "99b63605-f51c-551d-bd6c-1382c42ecddd:dolphin:8",
+      "99b63605-f51c-551d-bd6c-1382c42ecddd:dolphin:9"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9637259531021118,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "COPF/CNPJ 33.033.440/0001-02 Inscrição Municipal: 1.038.953-9",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "COPF/CNPJ 33.033.440/0001-02 Inscrição Municipal: 1.038.953-9",
+      "line_index": 5,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        707.4285714285714,
+        1355.0,
+        119.28571428571433
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:provider_name:6:0:48839a67d46c",
+    "field_name": "provider_name",
+    "value": "NCR BRASIL LTDA",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social NCR BRASIL LTDA Endereço: AV JORNALISTA ROBERTO MARINHO 86, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010 Município: São Paulo UF: SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social NCR BRASIL LTDA Endereço: AV JORNALISTA ROBERTO MARINHO 86, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010 Município: São Paulo UF: SP",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        826.7142857142858,
+        1355.0,
+        119.28571428571433
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:provider_uf:6:0:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Name/Razão Social NCR BRASIL LTDA Endereço: AV JORNALISTA ROBERTO MARINHO 86, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010 Município: São Paulo UF: SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social NCR BRASIL LTDA Endereço: AV JORNALISTA ROBERTO MARINHO 86, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010 Município: São Paulo UF: SP",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        826.7142857142858,
+        1355.0,
+        119.28571428571433
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:recipient_document:8:2:5008afd7d177",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "99b63605-f51c-551d-bd6c-1382c42ecddd:dolphin:13",
+      "99b63605-f51c-551d-bd6c-1382c42ecddd:dolphin:14"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9637259531021118,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "Name/Razão Social HAGI - PIZZAS E SUPERMERCADO LTDA COPF/CNPJ: 02.876.218/0001-30 Inscrição Municipal: ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social HAGI - PIZZAS E SUPERMERCADO LTDA COPF/CNPJ: 02.876.218/0001-30 Inscrição Municipal: ----",
+      "line_index": 8,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        1065.2857142857142,
+        1355.0,
+        119.28571428571422
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:recipient_name:8:0:e3cb97cf8c49",
+    "field_name": "recipient_name",
+    "value": "HAGI - PIZZAS E SUPERMERCADO LTDA COPF/",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social HAGI - PIZZAS E SUPERMERCADO LTDA COPF/CNPJ: 02.876.218/0001-30 Inscrição Municipal: ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social HAGI - PIZZAS E SUPERMERCADO LTDA COPF/CNPJ: 02.876.218/0001-30 Inscrição Municipal: ----",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        1065.2857142857142,
+        1355.0,
+        119.28571428571422
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "99b63605-f51c-551d-bd6c-1382c42ecddd:config-driven-output-normalizer:recipient_uf:9:0:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Endereço Rua AV BRASIL 561 - CENTRO - CEP: 88330-043 Município: Balneário Camboriú UF: SC E-mail: -----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço Rua AV BRASIL 561 - CENTRO - CEP: 88330-043 Município: Balneário Camboriú UF: SC E-mail: -----",
+      "line_index": 9,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        175.0,
+        1184.5714285714287,
+        1355.0,
+        119.28571428571422
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  }
+]

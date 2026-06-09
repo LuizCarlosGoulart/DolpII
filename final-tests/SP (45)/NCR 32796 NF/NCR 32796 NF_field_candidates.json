@@ -1,0 +1,239 @@
+[
+  {
+    "candidate_id": "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:config-driven-output-normalizer:deductions_amount:3:5:ba5e53c8a7d7",
+    "field_name": "deductions_amount",
+    "value": "0,00",
+    "source_element_ids": [
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:16",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:17",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:18",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:19",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:20"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "deducoes",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 3,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        846.25,
+        1380.0000000000002,
+        232.75
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:config-driven-output-normalizer:ir_withheld_amount:0:4:a49f4ad7216d",
+    "field_name": "ir_withheld_amount",
+    "value": "4,80",
+    "source_element_ids": [
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:5",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:6",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:7",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:8"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "irrf",
+      "context_text": "INSS (R$) IRRF (R$) CPLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.55,
+      "section_reasons": [
+        "section_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) IRRF (R$) CPLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "line_index": 0,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        148.0,
+        1380.0,
+        232.75
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_section_confidence",
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:config-driven-output-normalizer:iss_amount:3:5:9861dd659e0e",
+    "field_name": "iss_amount",
+    "value": "13,91",
+    "source_element_ids": [
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:16",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:17",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:18",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:19",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:20"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor do iss",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 3,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        846.25,
+        1380.0000000000002,
+        232.75
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:config-driven-output-normalizer:iss_rate:3:5:5630ac17288d",
+    "field_name": "iss_rate",
+    "value": "2,90%",
+    "source_element_ids": [
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:16",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:17",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:18",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:19",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:20"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "aliquota",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 3,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        846.25,
+        1380.0000000000002,
+        232.75
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:config-driven-output-normalizer:taxable_amount:3:5:1d090a710fbe",
+    "field_name": "taxable_amount",
+    "value": "479,90",
+    "source_element_ids": [
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:16",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:17",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:18",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:19",
+      "d82bed1a-c4ea-58d7-8574-1b8903c0a2f2:dolphin:20"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base_de_calculo",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 3,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        846.25,
+        1380.0000000000002,
+        232.75
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

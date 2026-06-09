@@ -1,0 +1,682 @@
+[
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:gross_amount:14:1:62d0ef4ab346",
+    "field_name": "gross_amount",
+    "value": "R$ 750,00",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:46"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 750,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 750,00",
+      "line_index": 14,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1140.6666666666667,
+        1355.9999999999998,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:ir_withheld_amount:15:1:9b2fe3a049cd",
+    "field_name": "ir_withheld_amount",
+    "value": "11,25",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:48"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "irrf",
+      "context_text": "INSS (R$) - IRRF (R$) CSLL (R$) 11,25 COFINS (R$) 7,50 PIS/PASEP (R$) 22,50 4,88",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) - IRRF (R$) CSLL (R$) 11,25 COFINS (R$) 7,50 PIS/PASEP (R$) 22,50 4,88",
+      "line_index": 15,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1219.7142857142858,
+        1356.0000000000002,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:iss_rate:17:2:edaa3fd4b29e",
+    "field_name": "iss_rate",
+    "value": "37,50",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:57",
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:58"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "aliquota",
+      "context_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 750,00 Alíquota (%) 5,00% Crédito (R$) 37,50 0,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 750,00 Alíquota (%) 5,00% Crédito (R$) 37,50 0,00",
+      "line_index": 17,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1377.8095238095239,
+        1356.0000000000002,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "rate_without_percent",
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:issue_date:1:1:d9b83d016a64",
+    "field_name": "issue_date",
+    "value": "09/09/2022",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:5"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 09/09/2022 11:05:24 Código de Verificação D6TF-HQY5",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 09/09/2022 11:05:24 Código de Verificação D6TF-HQY5",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        113.04761904761905,
+        1356.0,
+        79.04761904761905
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:nfse_number:0:1:2864372da465",
+    "field_name": "nfse_number",
+    "value": "00014848",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "PREFEITURA DO MUNICIPIO DE SÃO PAULO Número da Nota 00014848",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "municipio de",
+        "numero da nota",
+        "prefeitura"
+      ],
+      "page_number": 1,
+      "line_text": "PREFEITURA DO MUNICIPIO DE SÃO PAULO Número da Nota 00014848",
+      "line_index": 0,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        34.0,
+        1356.0,
+        79.04761904761905
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:operation_nature:16:4:9a5e1e5b6464",
+    "field_name": "operation_nature",
+    "value": "Município da Prestação do Serviço - Número Inscricção da Obra",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:59",
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:60",
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:61",
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:62"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "natureza",
+      "context_text": "Código do Serviço 03115 - Assessoria ou consultoria de qualquer natureza, não contida em outros itens desta lista.",
+      "section_name": "service",
+      "raw_section_name": "service",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "codigo do servico"
+      ],
+      "page_number": 1,
+      "line_text": "Código do Serviço 03115 - Assessoria ou consultoria de qualquer natureza, não contida em outros itens desta lista.",
+      "line_index": 16,
+      "value_source": "nearby_line",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1298.7619047619048,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "nearby_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:provider_address:4:1:f01eb1d0585c",
+    "field_name": "provider_address",
+    "value": "AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:17"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        350.1904761904762,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:provider_document:3:1:3f5db40258fb",
+    "field_name": "provider_document",
+    "value": "30.231.176/0001-15",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 30.231.176/0001-15 Name/Razão Social PHSR MASTER FRANQUIA LTDA.",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 30.231.176/0001-15 Name/Razão Social PHSR MASTER FRANQUIA LTDA.",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        271.14285714285717,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:provider_municipal_registration:2:1:6e138cbe3fc7",
+    "field_name": "provider_municipal_registration",
+    "value": "5.948.735-6",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:11"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "NOTA FISCAL ELECTRÔNCICA DE SERVIÇOS - NFS-e RPS N° 14952 Serie CONV, emitido em 31/08/2022 PRESTADOR DE SERVIÇOS Inscrição Municipal 5.948.735-6",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "prestador",
+        "prestador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "NOTA FISCAL ELECTRÔNCICA DE SERVIÇOS - NFS-e RPS N° 14952 Serie CONV, emitido em 31/08/2022 PRESTADOR DE SERVIÇOS Inscrição Municipal 5.948.735-6",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        192.0952380952381,
+        1356.0,
+        79.04761904761907
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:provider_name:3:1:8f64427555de",
+    "field_name": "provider_name",
+    "value": "PHSR MASTER FRANQUIA LTDA.",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:15"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "CPF/CNPJ 30.231.176/0001-15 Name/Razão Social PHSR MASTER FRANQUIA LTDA.",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 30.231.176/0001-15 Name/Razão Social PHSR MASTER FRANQUIA LTDA.",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        271.14285714285717,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:provider_uf:4:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:21"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        350.1904761904762,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:recipient_address:8:1:b6af78f990c8",
+    "field_name": "recipient_address",
+    "value": "R 1201 117 - CENTRO - CEP: 88330-792",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:30"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço R 1201 117 - CENTRO - CEP: 88330-792",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço R 1201 117 - CENTRO - CEP: 88330-792",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        666.3809523809524,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:recipient_document:7:1:5008afd7d177",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:26"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 02.876.218/0001-30 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 02.876.218/0001-30 Inscrição Municipal ----",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        587.3333333333334,
+        1356.0000000000002,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:recipient_email:9:1:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:36"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Município Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Município Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 9,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        745.4285714285714,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:recipient_name:6:1:7f6e1d977ac7",
+    "field_name": "recipient_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:24"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        508.28571428571433,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:recipient_uf:9:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "7900ee8f-96e4-5f4d-8e70-1a33f1642019:dolphin:34"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Município Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Município Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 9,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        745.4285714285714,
+        1356.0,
+        79.04761904761904
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "7900ee8f-96e4-5f4d-8e70-1a33f1642019:config-driven-output-normalizer:verification_code:1:0:c5707d298886",
+    "field_name": "verification_code",
+    "value": "D6TF-HQY5",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 09/09/2022 11:05:24 Código de Verificação D6TF-HQY5",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 09/09/2022 11:05:24 Código de Verificação D6TF-HQY5",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        113.04761904761905,
+        1356.0,
+        79.04761904761905
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

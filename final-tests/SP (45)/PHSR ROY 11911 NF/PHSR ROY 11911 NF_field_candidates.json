@@ -1,0 +1,618 @@
+[
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:gross_amount:11:1:a24db98abd80",
+    "field_name": "gross_amount",
+    "value": "R$ 7.760,69",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:51"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 7.760,69",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 7.760,69",
+      "line_index": 11,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1075.1052631578948,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:issue_date:1:1:247f6454675c",
+    "field_name": "issue_date",
+    "value": "07/10/2021",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:7"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00011911 Data e Hora de Emissão 07/10/2021 13:05:08 Código de Verificação 6TEI-D5FY",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00011911 Data e Hora de Emissão 07/10/2021 13:05:08 Código de Verificação 6TEI-D5FY",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        197.73684210526318,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:nfse_number:1:1:3fce5e56e8ea",
+    "field_name": "nfse_number",
+    "value": "00011911",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:5"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00011911 Data e Hora de Emissão 07/10/2021 13:05:08 Código de Verificação 6TEI-D5FY",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00011911 Data e Hora de Emissão 07/10/2021 13:05:08 Código de Verificação 6TEI-D5FY",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        197.73684210526318,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:provider_document:0:3:56aacc415ca8",
+    "field_name": "provider_document",
+    "value": "02.876.218/0006-44",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:0",
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:1",
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9526207137107849,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFP/CNPJ 02.876.218/0006-44 PREFEITURA DO MUNICIPIO DE SÃO PAULO",
+      "section_name": "provider",
+      "raw_section_name": "header",
+      "section_override_applied": true,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "municipio de",
+        "prefeitura"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0006-44 PREFEITURA DO MUNICIPIO DE SÃO PAULO",
+      "line_index": 0,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        110.0,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field",
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.88,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:provider_document:3:1:3f5db40258fb",
+    "field_name": "provider_document",
+    "value": "30.231.176/0001-15",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:15"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 30.231.176/0001-15",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 30.231.176/0001-15",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        373.2105263157895,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.88,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:provider_municipal_registration:2:1:6e138cbe3fc7",
+    "field_name": "provider_municipal_registration",
+    "value": "5.948.735-6",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 12002 Serie CONV, emitido em 30/09/2021 PRESTADOR DE SERVIÇOS Inscrição Municipal 5.948.735-6",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "prestador",
+        "prestador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 12002 Serie CONV, emitido em 30/09/2021 PRESTADOR DE SERVIÇOS Inscrição Municipal 5.948.735-6",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        285.47368421052636,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:provider_name:4:4:b264f5dabf31",
+    "field_name": "provider_name",
+    "value": "PHSR MASTER FRANQUIA LTDA. Estate Ave DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP 05477",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:17",
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:18",
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:19",
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:20"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social PHSR MASTER FRANQUIA LTDA. Estate Ave DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP 05477-902 Municipio São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social PHSR MASTER FRANQUIA LTDA. Estate Ave DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP 05477-902 Municipio São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        460.94736842105266,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:provider_uf:4:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:24"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Name/Razão Social PHSR MASTER FRANQUIA LTDA. Estate Ave DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP 05477-902 Municipio São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social PHSR MASTER FRANQUIA LTDA. Estate Ave DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP 05477-902 Municipio São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        460.94736842105266,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:recipient_document:6:1:56aacc415ca8",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0006-44",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:29"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "Name/Razão Social PH EXPRESS NEUMARKT SHOPPING CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social PH EXPRESS NEUMARKT SHOPPING CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        636.421052631579,
+        1352.0000000000002,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:recipient_email:8:1:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:43"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Municipio Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Municipio Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        811.8947368421053,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:recipient_name:10:1:396d1f8df231",
+    "field_name": "recipient_name",
+    "value": "DISEMINAÇÃO DOS SERVIÇOS",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:49"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "CPF/CNPJ ---- Name/Razão Social ---- DISEMINAÇÃO DOS SERVIÇOS",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ ---- Name/Razão Social ---- DISEMINAÇÃO DOS SERVIÇOS",
+      "line_index": 10,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        987.3684210526317,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:recipient_name:6:1:ec81d176a614",
+    "field_name": "recipient_name",
+    "value": "PH EXPRESS NEUMARKT SHOPPING",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:27"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social PH EXPRESS NEUMARKT SHOPPING CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social PH EXPRESS NEUMARKT SHOPPING CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        636.421052631579,
+        1352.0000000000002,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:recipient_uf:8:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:41"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Municipio Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Municipio Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        811.8947368421053,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:taxable_amount:15:2:517a889f32ce",
+    "field_name": "taxable_amount",
+    "value": "7.760,69",
+    "source_element_ids": [
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:66",
+      "cfa21c54-f15b-5232-9912-c913db4223e6:dolphin:67"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base_de_calculo",
+      "context_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 7.760,69 Aliquta (%) 5,00% Valor do ISS (R$) 388,03 Credito (R$) 0,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 7.760,69 Aliquta (%) 5,00% Valor do ISS (R$) 388,03 Credito (R$) 0,00",
+      "line_index": 15,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1426.0526315789475,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "cfa21c54-f15b-5232-9912-c913db4223e6:config-driven-output-normalizer:verification_code:1:0:147c426ffcf1",
+    "field_name": "verification_code",
+    "value": "6TEI-D5FY",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00011911 Data e Hora de Emissão 07/10/2021 13:05:08 Código de Verificação 6TEI-D5FY",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00011911 Data e Hora de Emissão 07/10/2021 13:05:08 Código de Verificação 6TEI-D5FY",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        197.73684210526318,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

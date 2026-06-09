@@ -1,0 +1,4706 @@
+[
+  {
+    "bounding_box": [
+      149.0,
+      110.0,
+      212.3921568627451,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:0",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "CFP/CNPJ"
+  },
+  {
+    "bounding_box": [
+      361.3921568627451,
+      110.0,
+      477.88235294117646,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:1",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "02.876.218/0001-30"
+  },
+  {
+    "bounding_box": [
+      839.2745098039215,
+      110.0,
+      663.7254901960785,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:2",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "INTERMEDIARIO DE SERVIÇOS"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      136.46031746031747,
+      193.42857142857142,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:3",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "CPF/CNPJ"
+  },
+  {
+    "bounding_box": [
+      342.42857142857144,
+      136.46031746031747,
+      96.71428571428571,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:4",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      439.14285714285717,
+      136.46031746031747,
+      411.0357142857143,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:5",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Name/Razão Social"
+  },
+  {
+    "bounding_box": [
+      850.1785714285714,
+      136.46031746031747,
+      96.71428571428571,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:6",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      946.8928571428571,
+      136.46031746031747,
+      459.39285714285717,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:7",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Inscrição Municipal"
+  },
+  {
+    "bounding_box": [
+      1406.2857142857142,
+      136.46031746031747,
+      96.71428571428571,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:8",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      162.9206349206349,
+      120.35555555555555,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:9",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "COPA"
+  },
+  {
+    "bounding_box": [
+      269.35555555555555,
+      162.9206349206349,
+      541.6,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:10",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "02.876.218/0001-30"
+  },
+  {
+    "bounding_box": [
+      810.9555555555555,
+      162.9206349206349,
+      571.6888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:11",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "INSCRIção Municipal"
+  },
+  {
+    "bounding_box": [
+      1382.6444444444444,
+      162.9206349206349,
+      120.35555555555555,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:12",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      189.38095238095238,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:13",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      189.38095238095238,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:14",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      189.38095238095238,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:15",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      189.38095238095238,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:16",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      215.84126984126982,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:17",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      215.84126984126982,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:18",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      242.3015873015873,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:19",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      242.3015873015873,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:20",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      242.3015873015873,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:21",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      242.3015873015873,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:22",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      268.76190476190476,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:23",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      268.76190476190476,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:24",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      295.2222222222222,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:25",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      295.2222222222222,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:26",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      295.2222222222222,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:27",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      295.2222222222222,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:28",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      321.68253968253964,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:29",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      321.68253968253964,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:30",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      348.1428571428571,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:31",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      348.1428571428571,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:32",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      348.1428571428571,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:33",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      348.1428571428571,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:34",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      374.6031746031746,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:35",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      374.6031746031746,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:36",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      401.06349206349205,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:37",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      401.06349206349205,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:38",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      401.06349206349205,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:39",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      401.06349206349205,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:40",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      427.5238095238095,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:41",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      427.5238095238095,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:42",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      453.984126984127,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:43",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      453.984126984127,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:44",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      453.984126984127,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:45",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      453.984126984127,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:46",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      480.4444444444444,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:47",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      480.4444444444444,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:48",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      506.90476190476187,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:49",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      506.90476190476187,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:50",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      506.90476190476187,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:51",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      506.90476190476187,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:52",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      533.3650793650793,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:53",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      533.3650793650793,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:54",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      559.8253968253969,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:55",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      559.8253968253969,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:56",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      559.8253968253969,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:57",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      559.8253968253969,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:58",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      586.2857142857142,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:59",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      586.2857142857142,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:60",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      612.7460317460317,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:61",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      612.7460317460317,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:62",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      612.7460317460317,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:63",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      612.7460317460317,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:64",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      639.2063492063492,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:65",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      639.2063492063492,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:66",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      665.6666666666666,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:67",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      665.6666666666666,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:68",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      665.6666666666666,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:69",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      665.6666666666666,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:70",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      692.1269841269841,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:71",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      692.1269841269841,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:72",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      718.5873015873016,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:73",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      718.5873015873016,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:74",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      718.5873015873016,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:75",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      718.5873015873016,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:76",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      745.047619047619,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:77",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      745.047619047619,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:78",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      771.5079365079365,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:79",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      771.5079365079365,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:80",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      771.5079365079365,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:81",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      771.5079365079365,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:82",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      797.968253968254,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:83",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      797.968253968254,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:84",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      824.4285714285713,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:85",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      824.4285714285713,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:86",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      824.4285714285713,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:87",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      824.4285714285713,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:88",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      850.8888888888888,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:89",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      850.8888888888888,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:90",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      877.3492063492063,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:91",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      877.3492063492063,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:92",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      877.3492063492063,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:93",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      877.3492063492063,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:94",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      903.8095238095237,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:95",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      903.8095238095237,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:96",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      930.2698412698412,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:97",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      930.2698412698412,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:98",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      930.2698412698412,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:99",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      930.2698412698412,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:100",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      956.7301587301587,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:101",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      956.7301587301587,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:102",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      983.1904761904761,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:103",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      983.1904761904761,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:104",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      983.1904761904761,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:105",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      983.1904761904761,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:106",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1009.6507936507936,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:107",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1009.6507936507936,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:108",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1036.111111111111,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:109",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1036.111111111111,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:110",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1036.111111111111,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:111",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1036.111111111111,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:112",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1062.5714285714284,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:113",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1062.5714285714284,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:114",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1089.031746031746,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:115",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1089.031746031746,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:116",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1089.031746031746,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:117",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1089.031746031746,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:118",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1115.4920634920634,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:119",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1115.4920634920634,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:120",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1141.952380952381,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:121",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1141.952380952381,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:122",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1141.952380952381,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:123",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1141.952380952381,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:124",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1168.4126984126983,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:125",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1168.4126984126983,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:126",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1194.873015873016,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:127",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1194.873015873016,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:128",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1194.873015873016,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:129",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1194.873015873016,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:130",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1221.3333333333333,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:131",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1221.3333333333333,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:132",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1247.7936507936506,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:133",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1247.7936507936506,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:134",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1247.7936507936506,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:135",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1247.7936507936506,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:136",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1274.2539682539682,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:137",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1274.2539682539682,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:138",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1300.7142857142856,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:139",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1300.7142857142856,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:140",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1300.7142857142856,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:141",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1300.7142857142856,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:142",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1327.1746031746031,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:143",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1327.1746031746031,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:144",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1353.6349206349205,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:145",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1353.6349206349205,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:146",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1353.6349206349205,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:147",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1353.6349206349205,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:148",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1380.095238095238,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:149",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1380.095238095238,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:150",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1406.5555555555554,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:151",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1406.5555555555554,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:152",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1406.5555555555554,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:153",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1406.5555555555554,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:154",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1433.015873015873,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:155",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1433.015873015873,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:156",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1459.4761904761904,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:157",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1459.4761904761904,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:158",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1459.4761904761904,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:159",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1459.4761904761904,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:160",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1485.936507936508,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:161",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1485.936507936508,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:162",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1512.3968253968253,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:163",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1512.3968253968253,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:164",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1512.3968253968253,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:165",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1512.3968253968253,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:166",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1538.8571428571427,
+      479.5416666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:167",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      628.5416666666667,
+      1538.8571428571427,
+      874.4583333333334,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:168",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1565.3174603174602,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:169",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "FF"
+  },
+  {
+    "bounding_box": [
+      224.22222222222223,
+      1565.3174603174602,
+      75.22222222222223,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:170",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      299.44444444444446,
+      1565.3174603174602,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:171",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      525.1111111111111,
+      1565.3174603174602,
+      977.8888888888889,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:172",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "andreas_sandri@hotmail.com"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1591.7777777777776,
+      219.21904761904761,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:173",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOME/Razão Social"
+  },
+  {
+    "bounding_box": [
+      368.2190476190476,
+      1591.7777777777776,
+      1134.7809523809524,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:174",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI PIZZAS e CONSULTORIA de qualquer natureza, não contida em outros itens desta lista."
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1618.2380952380952,
+      441.19101123595505,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:175",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Value Total das Deduções (R$)"
+  },
+  {
+    "bounding_box": [
+      590.1910112359551,
+      1618.2380952380952,
+      304.2696629213483,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:176",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Base de Cálculo (R$)"
+  },
+  {
+    "bounding_box": [
+      894.4606741573034,
+      1618.2380952380952,
+      167.34831460674158,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:177",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Aliquta (%)"
+  },
+  {
+    "bounding_box": [
+      1061.808988764045,
+      1618.2380952380952,
+      258.6292134831461,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:178",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Valor do ISS (R$)"
+  },
+  {
+    "bounding_box": [
+      1320.438202247191,
+      1618.2380952380952,
+      182.56179775280899,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:179",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Credito (R$)"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1644.6984126984125,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:180",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "0,00"
+  },
+  {
+    "bounding_box": [
+      374.66666666666663,
+      1644.6984126984125,
+      338.5,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:181",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "750,00"
+  },
+  {
+    "bounding_box": [
+      713.1666666666666,
+      1644.6984126984125,
+      282.0833333333333,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:182",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "5,00%"
+  },
+  {
+    "bounding_box": [
+      995.25,
+      1644.6984126984125,
+      282.0833333333333,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:183",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "37,50"
+  },
+  {
+    "bounding_box": [
+      1277.3333333333333,
+      1644.6984126984125,
+      225.66666666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:184",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "0,00"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1671.1587301587301,
+      465.4375,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:185",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Municipio da Prestação do Serviço"
+  },
+  {
+    "bounding_box": [
+      614.4375,
+      1671.1587301587301,
+      352.6041666666667,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:186",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Número Inscriptão da Obra"
+  },
+  {
+    "bounding_box": [
+      967.0416666666667,
+      1671.1587301587301,
+      521.8541666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:187",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Valor Aproximado dos Tributos / Fonte"
+  },
+  {
+    "bounding_box": [
+      1488.8958333333335,
+      1671.1587301587301,
+      14.104166666666666,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:188",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1697.6190476190475,
+      338.5,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:189",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      487.5,
+      1697.6190476190475,
+      338.5,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:190",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      826.0,
+      1697.6190476190475,
+      338.5,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:191",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      1164.5,
+      1697.6190476190475,
+      338.5,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:192",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1724.079365079365,
+      1354.0,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:193",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "OUTRAS INFORMACÕES"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1750.5396825396824,
+      453.98823529411766,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:194",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "(1) Esta NFS-e foi emitida com respaldo na Lei n° 14.097/"
+  },
+  {
+    "bounding_box": [
+      602.9882352941177,
+      1750.5396825396824,
+      900.0117647058823,
+      26.46031746031746
+    ],
+    "confidence": 0.9640324115753174,
+    "element_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:195",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "2005; (2) Esta NFS-e substitui o RPS N° 13310 Serie CONV, emitido em 28/02/2022; (3) NFS-e quitada em 11/03/2022;"
+  }
+]

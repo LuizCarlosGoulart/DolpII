@@ -1,0 +1,471 @@
+[
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:deductions_amount:10:5:ba5e53c8a7d7",
+    "field_name": "deductions_amount",
+    "value": "0,00",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:43",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:44",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:45",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:46",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:47"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "deducoes",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 10,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1151.875,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:gross_amount:5:1:62d0ef4ab346",
+    "field_name": "gross_amount",
+    "value": "R$ 750,00",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:25"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 750,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 750,00",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        630.9375,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:iss_amount:10:5:edaa3fd4b29e",
+    "field_name": "iss_amount",
+    "value": "37,50",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:43",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:44",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:45",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:46",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:47"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor do iss",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 10,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1151.875,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:operation_nature:9:3:34b442b1bb58",
+    "field_name": "operation_nature",
+    "value": "Municipio da Prestação do Serviço Número Inscricão da Obra",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:48",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:49",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:50"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "natureza",
+      "context_text": "03115 - Assessoria ou consultoria de qualquer natureza, não contida em outros itens desta lista.",
+      "section_name": "service",
+      "raw_section_name": "service",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "service_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "03115 - Assessoria ou consultoria de qualquer natureza, não contida em outros itens desta lista.",
+      "line_index": 9,
+      "value_source": "nearby_line",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1047.6875,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "nearby_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:pis_withheld_amount:6:5:0ac5f335fad7",
+    "field_name": "pis_withheld_amount",
+    "value": "4,88",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:31",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:32",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:33",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:34",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:35"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "pis pasep",
+      "context_text": "INSS (R$) IRRF (R$) CSLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) IRRF (R$) CSLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "line_index": 6,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        735.125,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:provider_document:0:3:7fe9a9d5baa2",
+    "field_name": "provider_document",
+    "value": "02.876.218/0005-63",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:0",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:1",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9659021186828614,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFP/CNPJ 02.876.218/0005-63 INTERMEDIARIO DE SERVIÇOS",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0005-63 INTERMEDIARIO DE SERVIÇOS",
+      "line_index": 0,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        110.0,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:provider_email:2:1:4d602c67e3cd",
+    "field_name": "provider_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:16"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Erdereço AV SANTA CATARINA 01 - ESTADOS - CEP: 88339-005 Município São Paulo UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Erdereço AV SANTA CATARINA 01 - ESTADOS - CEP: 88339-005 Município São Paulo UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        318.375,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:provider_name:1:1:722964f31d79",
+    "field_name": "provider_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA.",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:6"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "CPF/CNPJ ---- Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA. Inscrição Municipal ----",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ ---- Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA. Inscrição Municipal ----",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        214.1875,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:provider_name:3:1:e73194c8584e",
+    "field_name": "provider_name",
+    "value": "DICRIMINAÇÃO DOS SERVIÇOS",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:21"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "COPA/CNPJ ---- Nome/Razão Social ---- DICRIMINAÇÃO DOS SERVIÇOS",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "COPA/CNPJ ---- Nome/Razão Social ---- DICRIMINAÇÃO DOS SERVIÇOS",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        422.5625,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:provider_uf:2:1:59aa962f7269",
+    "field_name": "provider_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:14"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Erdereço AV SANTA CATARINA 01 - ESTADOS - CEP: 88339-005 Município São Paulo UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Erdereço AV SANTA CATARINA 01 - ESTADOS - CEP: 88339-005 Município São Paulo UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        318.375,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "9d1d80e9-1609-517a-9796-fb6985c4f57c:config-driven-output-normalizer:taxable_amount:10:5:d6f140cfe687",
+    "field_name": "taxable_amount",
+    "value": "750,00",
+    "source_element_ids": [
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:43",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:44",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:45",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:46",
+      "9d1d80e9-1609-517a-9796-fb6985c4f57c:dolphin:47"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base_de_calculo",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 10,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1151.875,
+        1354.0,
+        104.1875
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

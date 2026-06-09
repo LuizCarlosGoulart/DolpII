@@ -1,0 +1,601 @@
+[
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:deductions_amount:18:5:ba5e53c8a7d7",
+    "field_name": "deductions_amount",
+    "value": "0,00",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:71",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:72",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:73",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:74",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:75"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "deducoes",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 18,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        1417.9565217391303,
+        1354.0,
+        72.60869565217399
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:gross_amount:13:1:8cc60bb8e986",
+    "field_name": "gross_amount",
+    "value": "R$ 529,91",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:53"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 529,91",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 529,91",
+      "line_index": 13,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        1054.9130434782608,
+        1354.0,
+        72.60869565217399
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:iss_amount:18:5:5e1dea8301cc",
+    "field_name": "iss_amount",
+    "value": "15,36",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:71",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:72",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:73",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:74",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:75"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor do iss",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 18,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        1417.9565217391303,
+        1354.0,
+        72.60869565217399
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:iss_rate:18:5:5630ac17288d",
+    "field_name": "iss_rate",
+    "value": "2,90%",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:71",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:72",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:73",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:74",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:75"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "aliquota",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 18,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        1417.9565217391303,
+        1354.0,
+        72.60869565217399
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:issue_date:1:3:62781c08210c",
+    "field_name": "issue_date",
+    "value": "08/07/2022",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:6",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:7",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:8"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "Secretaria Municipal da Fazenda Data e Hora de Emissão 00039710",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "Secretaria Municipal da Fazenda Data e Hora de Emissão 00039710",
+      "line_index": 1,
+      "value_source": "nearby_line",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        183.6086956521739,
+        1354.0,
+        72.6086956521739
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "nearby_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:net_amount:12:3:dbc372595b9c",
+    "field_name": "net_amount",
+    "value": "505,27",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:47",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:48",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:49"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor liquido",
+      "context_text": "2919 - SUPTE.TECNICO EM INFORMATICA E PROGR. MANUTENCAO MENSAL ALOHA Valor liquido 505,27 Vencimento 001-28.07.2022 NOME FANTASIA PH BALNEARIO CAMBORIU PERÍODO 07/2022",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor liquido"
+      ],
+      "page_number": 1,
+      "line_text": "2919 - SUPTE.TECNICO EM INFORMATICA E PROGR. MANUTENCAO MENSAL ALOHA Valor liquido 505,27 Vencimento 001-28.07.2022 NOME FANTASIA PH BALNEARIO CAMBORIU PERÍODO 07/2022",
+      "line_index": 12,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        982.3043478260869,
+        1353.9999999999998,
+        72.60869565217388
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:nfse_number:0:3:e6348a07a7b5",
+    "field_name": "nfse_number",
+    "value": "00039710",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:3",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:4",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:5"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "CFP/CNPJ 33.033.440/0001-02 Número da Nota",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "numero da nota",
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 33.033.440/0001-02 Número da Nota",
+      "line_index": 0,
+      "value_source": "next_line",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        111.0,
+        1354.0,
+        72.6086956521739
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:pis_withheld_amount:14:5:60c6dca091f1",
+    "field_name": "pis_withheld_amount",
+    "value": "3,44",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:59",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:60",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:61",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:62",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:63"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "pis pasep",
+      "context_text": "INSS (R$) IRRF (R$) CSLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS (R$) IRRF (R$) CSLL (R$) COFINS (R$) PIS/PASEP (R$)",
+      "line_index": 14,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        1127.5217391304348,
+        1354.0,
+        72.60869565217399
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:provider_document:5:3:78056bf2ce47",
+    "field_name": "provider_document",
+    "value": "33.033.440/0001-02",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:16",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:17",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:18"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 33.033.440/0001-02 Name/Ração Social NCR BRASIL LTDA",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 33.033.440/0001-02 Name/Ração Social NCR BRASIL LTDA",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        474.0434782608695,
+        1354.0,
+        72.60869565217388
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:provider_municipal_registration:4:1:46e69034f283",
+    "field_name": "provider_municipal_registration",
+    "value": "1.038.953-9",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:14"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "PRESTADOR DE SERVIÇOS Inscrição Municipal 1.038.953-9",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "prestador",
+        "prestador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "PRESTADOR DE SERVIÇOS Inscrição Municipal 1.038.953-9",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        401.4347826086956,
+        1354.0,
+        72.60869565217388
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:provider_uf:6:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:24"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Enderço AV JORNALISTA ROBERTO MARINHO 85, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Enderço AV JORNALISTA ROBERTO MARINHO 85, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010 Município São Paulo UF SP",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        546.6521739130435,
+        1353.9999999999998,
+        72.60869565217388
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:recipient_document:8:1:5008afd7d177",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:31"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "Name/Ração Social HAGI - PIZZAS E SUPERMERCADO LTDA CPF/CNPJ 02.876.218/0001-30",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Ração Social HAGI - PIZZAS E SUPERMERCADO LTDA CPF/CNPJ 02.876.218/0001-30",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        691.8695652173913,
+        1354.0,
+        72.60869565217388
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:recipient_uf:9:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:37"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Enderço Rua AV BRASIL 561 - CENTRO - CEP: 88330-043 Município Balneário Camboriú UF SC E-mail -----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Enderço Rua AV BRASIL 561 - CENTRO - CEP: 88330-043 Município Balneário Camboriú UF SC E-mail -----",
+      "line_index": 9,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        764.4782608695651,
+        1354.0,
+        72.60869565217388
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "583775e2-4fc9-5660-a089-dd6461db4dd4:config-driven-output-normalizer:taxable_amount:18:5:792f8d0b9686",
+    "field_name": "taxable_amount",
+    "value": "529,91",
+    "source_element_ids": [
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:71",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:72",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:73",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:74",
+      "583775e2-4fc9-5660-a089-dd6461db4dd4:dolphin:75"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base de calculo",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 18,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        1417.9565217391303,
+        1354.0,
+        72.60869565217399
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

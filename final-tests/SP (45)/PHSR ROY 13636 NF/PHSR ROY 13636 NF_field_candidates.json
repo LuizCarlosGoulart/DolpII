@@ -1,0 +1,533 @@
+[
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:gross_amount:13:1:f63cbd2fb25e",
+    "field_name": "gross_amount",
+    "value": "R$ 7.014,38",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:40"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 7.014,38",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 7.014,38",
+      "line_index": 13,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1250.578947368421,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:iss_rate:16:1:ba5e53c8a7d7",
+    "field_name": "iss_rate",
+    "value": "0,00",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:54"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "aliquota",
+      "context_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 7.014,38 Aliquota (%) 2,00% Crédito (R$) 0,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 7.014,38 Aliquota (%) 2,00% Crédito (R$) 0,00",
+      "line_index": 16,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1513.7894736842106,
+        1352.0000000000002,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "rate_without_percent",
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:issue_date:0:1:44f2ee2efd22",
+    "field_name": "issue_date",
+    "value": "08/04/2022",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:3"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "CFP/CNPJ 02.876.218/0001-30 Data e Hora de Emissão 08/04/2022 11:24:58",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "emissao",
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0001-30 Data e Hora de Emissão 08/04/2022 11:24:58",
+      "line_index": 0,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        110.0,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:provider_document:0:4:5008afd7d177",
+    "field_name": "provider_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:0",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:1",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:2",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:3"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.965532033443451,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFP/CNPJ 02.876.218/0001-30 Data e Hora de Emissão 08/04/2022 11:24:58",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "emissao",
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0001-30 Data e Hora de Emissão 08/04/2022 11:24:58",
+      "line_index": 0,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        110.0,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:provider_municipal_registration:2:1:6e138cbe3fc7",
+    "field_name": "provider_municipal_registration",
+    "value": "5.948.735-6",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:9"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "PRESTADOR DE SERVIÇOS Inscrição Municipal 5.948.735-6",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "prestador",
+        "prestador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "PRESTADOR DE SERVIÇOS Inscrição Municipal 5.948.735-6",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        285.47368421052636,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:provider_name:3:3:e8b3e2f79639",
+    "field_name": "provider_name",
+    "value": "PHSR MASTER FRANQUIA LTDA. Erdereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:11",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:12",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "Nome/Razão Social PHSR MASTER FRANQUIA LTDA. Erdereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social PHSR MASTER FRANQUIA LTDA. Erdereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        373.2105263157895,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:recipient_document:6:1:5008afd7d177",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:22"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 02.876.218/0001-30 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 02.876.218/0001-30 Inscrição Municipal ----",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        636.421052631579,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:recipient_email:8:4:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:27",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:28",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:29",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:30"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.965532033443451,
+    "metadata": {
+      "label_text": "email pattern",
+      "context_text": "Município Balneário Camboriú UF SC E-mail: andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Município Balneário Camboriú UF SC E-mail: andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        811.8947368421053,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:recipient_name:5:1:7f6e1d977ac7",
+    "field_name": "recipient_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:18"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA Inscrição Municipal ----",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        548.6842105263158,
+        1352.0000000000002,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:recipient_uf:8:0:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Município Balneário Camboriú UF SC E-mail: andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Município Balneário Camboriú UF SC E-mail: andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        811.8947368421053,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:service_description:11:2:202be645e79f",
+    "field_name": "service_description",
+    "value": "000010 ROYALTIES QTD 1,000 UN Preço",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:37",
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:38"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "discriminacao dos servicos",
+      "context_text": "DISCRIMINAÇÃO DOS SERVIÇOS",
+      "section_name": "service",
+      "raw_section_name": "service",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "discriminacao dos servicos"
+      ],
+      "page_number": 1,
+      "line_text": "DISCRIMINAÇÃO DOS SERVIÇOS",
+      "line_index": 11,
+      "value_source": "following_service_lines",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1075.1052631578948,
+        1352.0,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:taxable_amount:16:1:618c9fbe578f",
+    "field_name": "taxable_amount",
+    "value": "7.014,38",
+    "source_element_ids": [
+      "c3191302-d028-531a-9d1f-3f6947ffba2c:dolphin:52"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base_de_calculo",
+      "context_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 7.014,38 Aliquota (%) 2,00% Crédito (R$) 0,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 7.014,38 Aliquota (%) 2,00% Crédito (R$) 0,00",
+      "line_index": 16,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        1513.7894736842106,
+        1352.0000000000002,
+        87.73684210526312
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "c3191302-d028-531a-9d1f-3f6947ffba2c:config-driven-output-normalizer:verification_code:1:0:8e1f0772bef2",
+    "field_name": "verification_code",
+    "value": "VFYH-NQ6E",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "Nota FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 13730 Serie CONV, emitido em 31/03/2022 Código de Verificação VFYH-NQ6E",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "nota fiscal",
+        "nfs e"
+      ],
+      "page_number": 1,
+      "line_text": "Nota FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 13730 Serie CONV, emitido em 31/03/2022 Código de Verificação VFYH-NQ6E",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        151.0,
+        197.73684210526318,
+        1352.0,
+        87.73684210526318
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

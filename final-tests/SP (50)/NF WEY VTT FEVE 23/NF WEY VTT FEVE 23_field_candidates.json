@@ -1,0 +1,582 @@
+[
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:issue_date:1:6:625f313a250a",
+    "field_name": "issue_date",
+    "value": "03/02/2023",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:9",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:10",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:11",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:12",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:13",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:14"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "INSCRIÇÃO MUNICIPAL DA FAZENDA Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ Número da Nota 00119743 Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSCRIÇÃO MUNICIPAL DA FAZENDA Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ Número da Nota 00119743 Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ",
+      "line_index": 1,
+      "value_source": "nearby_line",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        132.92857142857144,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "nearby_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:nfse_number:1:1:39722094877d",
+    "field_name": "nfse_number",
+    "value": "00119743",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:8"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "INSCRIÇÃO MUNICIPAL DA FAZENDA Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ Número da Nota 00119743 Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSCRIÇÃO MUNICIPAL DA FAZENDA Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ Número da Nota 00119743 Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        132.92857142857144,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:provider_address:4:1:0df9b4234b77",
+    "field_name": "provider_address",
+    "value": "AV DR CHUCRI ZAIDAN 1550, CONJ 2603 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:25"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço AV DR CHUCRI ZAIDAN 1550, CONJ 2603 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo TOMADOR DE SERVIÇOS Inscrição Municipal ---- FOM São Paulo",
+      "section_name": "provider",
+      "raw_section_name": "recipient",
+      "section_override_applied": true,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DR CHUCRI ZAIDAN 1550, CONJ 2603 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo TOMADOR DE SERVIÇOS Inscrição Municipal ---- FOM São Paulo",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        450.7142857142857,
+        1198.0000000000005,
+        105.92857142857139
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:provider_document:3:1:479514ef7125",
+    "field_name": "provider_document",
+    "value": "01.115.787/0001-08",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:16"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA Estate Municipio São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA Estate Municipio São Paulo UF SP",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        344.7857142857143,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:provider_municipal_registration:2:1:7ab9cdaa2a05",
+    "field_name": "provider_municipal_registration",
+    "value": "3.671.409-7",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "PREFEITURA DO MUNICIPIO DE SÃO PAULO SECRETARIA MUNICIPAL DA FAZENDA NOTA FISCAL ELETROÑICA DE SERVIÇOS - NFS-e RPS N° 8322 Serie NFSE, emitido em 03/02/2023 TRESTADOR DE SERVIÇOS Inscrição Municipal 3.671.409-7 Código de Verificação 17PM-T3FZ",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "municipio de",
+        "nota fiscal",
+        "nfs e",
+        "nfse",
+        "prefeitura",
+        "secretaria",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "PREFEITURA DO MUNICIPIO DE SÃO PAULO SECRETARIA MUNICIPAL DA FAZENDA NOTA FISCAL ELETROÑICA DE SERVIÇOS - NFS-e RPS N° 8322 Serie NFSE, emitido em 03/02/2023 TRESTADOR DE SERVIÇOS Inscrição Municipal 3.671.409-7 Código de Verificação 17PM-T3FZ",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        238.85714285714286,
+        1198.0,
+        105.92857142857142
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:provider_name:3:2:5f6d66e34708",
+    "field_name": "provider_name",
+    "value": "WAY &amp; COM TECNOLOGIA LTDA Estate",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:18",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:19"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA Estate Municipio São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA Estate Municipio São Paulo UF SP",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        344.7857142857143,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:provider_uf:3:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:23"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA Estate Municipio São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 01.115.787/0001-08 Name/Razão Social WAY &amp; COM TECNOLOGIA LTDA Estate Municipio São Paulo UF SP",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        344.7857142857143,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:recipient_address:6:1:7fe11f7291cb",
+    "field_name": "recipient_address",
+    "value": "Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:40"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com FOM São Paulo",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com FOM São Paulo",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        662.5714285714286,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:recipient_document:5:8:7fe9a9d5baa2",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0005-63",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:31",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:32",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:33",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:34",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:35",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:36",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:37",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:38"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9128832507133484,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "Nome/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA CPF/CNPJ: 02.876.218/0005-63 Nome/Razão Social ---- Inscrição Municipal ---- FOM São Paulo",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA CPF/CNPJ: 02.876.218/0005-63 Nome/Razão Social ---- Inscrição Municipal ---- FOM São Paulo",
+      "line_index": 5,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        556.6428571428571,
+        1197.9999999999998,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:recipient_email:6:3:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:44",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:45",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:46"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com FOM São Paulo",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com FOM São Paulo",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        662.5714285714286,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:recipient_municipal_registration:4:2:12241fce249a",
+    "field_name": "recipient_municipal_registration",
+    "value": "FOM",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:29",
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:30"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "Endereço AV DR CHUCRI ZAIDAN 1550, CONJ 2603 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo TOMADOR DE SERVIÇOS Inscrição Municipal ---- FOM São Paulo",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "tomador",
+        "tomador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DR CHUCRI ZAIDAN 1550, CONJ 2603 2504 2505 - VILA SAO FRANCISCO (ZO - CEP: 04711-130 Municipio: São Paulo TOMADOR DE SERVIÇOS Inscrição Municipal ---- FOM São Paulo",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        450.7142857142857,
+        1198.0000000000005,
+        105.92857142857139
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:recipient_name:5:0:7f6e1d977ac7",
+    "field_name": "recipient_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "Nome/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA CPF/CNPJ: 02.876.218/0005-63 Nome/Razão Social ---- Inscrição Municipal ---- FOM São Paulo",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Nome/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA CPF/CNPJ: 02.876.218/0005-63 Nome/Razão Social ---- Inscrição Municipal ---- FOM São Paulo",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        556.6428571428571,
+        1197.9999999999998,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:recipient_uf:6:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "29f79661-585d-51fb-81f1-a8ab46b53ff3:dolphin:42"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9628832507133483,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com FOM São Paulo",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço Avenida Santa Catarina 01, Sala F03 - Estados - CEP: 88339-005 Municipio: Balneário Camboriú UF SC E-mail andreas_sandri@hotmail.com FOM São Paulo",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        662.5714285714286,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "29f79661-585d-51fb-81f1-a8ab46b53ff3:config-driven-output-normalizer:verification_code:1:0:a8042038ff48",
+    "field_name": "verification_code",
+    "value": "17PM-T3FZ",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "INSCRIÇÃO MUNICIPAL DA FAZENDA Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ Número da Nota 00119743 Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSCRIÇÃO MUNICIPAL DA FAZENDA Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ Número da Nota 00119743 Data e Hora de Emissão 03/02/2023 18:55:41 Código de Verificação 17PM-T3FZ",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        228.0,
+        132.92857142857144,
+        1198.0,
+        105.92857142857144
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

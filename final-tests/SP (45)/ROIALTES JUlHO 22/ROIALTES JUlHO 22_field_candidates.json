@@ -1,0 +1,644 @@
+[
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:gross_amount:14:1:4cd0af9824f1",
+    "field_name": "gross_amount",
+    "value": "R$ 9.330,71",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:46"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 9.330,71",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 9.330,71",
+      "line_index": 14,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1090.3636363636363,
+        1352.0,
+        75.4545454545455
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:issue_date:1:1:630b49093863",
+    "field_name": "issue_date",
+    "value": "06/07/2022",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:7"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00014465 Data e Hora de Emissão 06/07/2022 06:09:53 Código de Verificação TFAN-JH6S",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00014465 Data e Hora de Emissão 06/07/2022 06:09:53 Código de Verificação TFAN-JH6S",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        109.45454545454545,
+        1352.0,
+        75.45454545454545
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:nfse_number:1:1:095d710cb956",
+    "field_name": "nfse_number",
+    "value": "00014465",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:5"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00014465 Data e Hora de Emissão 06/07/2022 06:09:53 Código de Verificação TFAN-JH6S",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00014465 Data e Hora de Emissão 06/07/2022 06:09:53 Código de Verificação TFAN-JH6S",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        109.45454545454545,
+        1352.0,
+        75.45454545454545
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:provider_address:4:1:f01eb1d0585c",
+    "field_name": "provider_address",
+    "value": "AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:17"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        335.8181818181818,
+        1352.0,
+        75.45454545454544
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:provider_document:0:3:56aacc415ca8",
+    "field_name": "provider_document",
+    "value": "02.876.218/0006-44",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:0",
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:1",
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9655106949806214,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFP/CNPJ 02.876.218/0006-44 PREFEITURA DO MUNICIPIO DE SÃO PAULO",
+      "section_name": "provider",
+      "raw_section_name": "header",
+      "section_override_applied": true,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "municipio de",
+        "prefeitura"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0006-44 PREFEITURA DO MUNICIPIO DE SÃO PAULO",
+      "line_index": 0,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        34.0,
+        1352.0,
+        75.45454545454545
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "section_inferred_from_field"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:provider_municipal_registration:2:1:6e138cbe3fc7",
+    "field_name": "provider_municipal_registration",
+    "value": "5.948.735-6",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:13"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 14567 Serie CONV, emitido em 30/06/2022 PRESTADOR DE SERVIÇOS Inscrição Municipal 5.948.735-6",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "prestador",
+        "prestador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 14567 Serie CONV, emitido em 30/06/2022 PRESTADOR DE SERVIÇOS Inscrição Municipal 5.948.735-6",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        184.9090909090909,
+        1352.0,
+        75.45454545454547
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:provider_name:3:1:8f64427555de",
+    "field_name": "provider_name",
+    "value": "PHSR MASTER FRANQUIA LTDA.",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:15"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social PHSR MASTER FRANQUIA LTDA.",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social PHSR MASTER FRANQUIA LTDA.",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        260.3636363636364,
+        1352.0,
+        75.45454545454544
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:provider_uf:4:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:21"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV DOUTORA RUTH CARDOSO 4777 4777, ANDAR 12 - JARDIM UNIVERSIDADE PI - CEP: 05477-902 Município São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        335.8181818181818,
+        1352.0,
+        75.45454545454544
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:recipient_address:8:1:2e9e8123467e",
+    "field_name": "recipient_address",
+    "value": "R SETEDE SESTEMBRO 1213 - CENTRO - CEP: 89010-203",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:30"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço R SETEDE SESTEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço R SETEDE SESTEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        637.6363636363636,
+        1351.9999999999998,
+        75.4545454545455
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:recipient_document:7:1:56aacc415ca8",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0006-44",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:26"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 02.876.218/0006-44 Inscrição Municipal ----",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        562.1818181818181,
+        1352.0,
+        75.4545454545455
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:recipient_email:8:1:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:36"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Endereço R SETEDE SESTEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço R SETEDE SESTEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        637.6363636363636,
+        1351.9999999999998,
+        75.4545454545455
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:recipient_name:6:1:ec81d176a614",
+    "field_name": "recipient_name",
+    "value": "PH EXPRESS NEUMARKT SHOPPING",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:24"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social PH EXPRESS NEUMARKT SHOPPING",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social PH EXPRESS NEUMARKT SHOPPING",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        486.72727272727275,
+        1352.0,
+        75.4545454545455
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:recipient_uf:8:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:34"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Endereço R SETEDE SESTEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço R SETEDE SESTEMBRO 1213 - CENTRO - CEP: 89010-203 Município Blumenau UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 8,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        637.6363636363636,
+        1351.9999999999998,
+        75.4545454545455
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:service_description:12:2:202be645e79f",
+    "field_name": "service_description",
+    "value": "000010 ROYALTIES QTD 1,000 UN Preço",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:43",
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:44"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "discriminacao dos servicos",
+      "context_text": "DISCRIMINAÇÃO DOS SERVIÇOS",
+      "section_name": "service",
+      "raw_section_name": "service",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "discriminacao dos servicos"
+      ],
+      "page_number": 1,
+      "line_text": "DISCRIMINAÇÃO DOS SERVIÇOS",
+      "line_index": 12,
+      "value_source": "following_service_lines",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        939.4545454545455,
+        1352.0,
+        75.4545454545455
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:taxable_amount:18:1:55a2db1dcc3f",
+    "field_name": "taxable_amount",
+    "value": "9.330,71",
+    "source_element_ids": [
+      "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:dolphin:60"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base_de_calculo",
+      "context_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 9.330,71 Aliquota (%) 2,00% Valor do ISS (R$) 186,61 Credito (R$) 0,00",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) 0,00 Base de Cálculo (R$) 9.330,71 Aliquota (%) 2,00% Valor do ISS (R$) 186,61 Credito (R$) 0,00",
+      "line_index": 18,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        1392.1818181818182,
+        1352.0,
+        75.4545454545455
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "75e2f9bb-bc1b-55e6-add2-a2644e02a8af:config-driven-output-normalizer:verification_code:1:0:a13f97d1a563",
+    "field_name": "verification_code",
+    "value": "TFAN-JH6S",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00014465 Data e Hora de Emissão 06/07/2022 06:09:53 Código de Verificação TFAN-JH6S",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "numero da nota",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Número da Nota 00014465 Data e Hora de Emissão 06/07/2022 06:09:53 Código de Verificação TFAN-JH6S",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        147.0,
+        109.45454545454545,
+        1352.0,
+        75.45454545454545
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

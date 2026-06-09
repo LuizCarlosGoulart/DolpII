@@ -1,0 +1,360 @@
+[
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:issue_date:1:1:aede6c691532",
+    "field_name": "issue_date",
+    "value": "26/10/2022",
+    "source_element_ids": [
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:5"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "emissao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 26/10/2022 09:00:21 Código de Verificação 9UWR-1TZY",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 26/10/2022 09:00:21 Código de Verificação 9UWR-1TZY",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        230.28571428571428,
+        1354.0,
+        119.28571428571428
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:net_amount:13:1:a53e256aad92",
+    "field_name": "net_amount",
+    "value": "1.008,88",
+    "source_element_ids": [
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:46"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor liquido",
+      "context_text": "1.06 - Assessoria e Consultoria em Informática SERVICOS PROFISSIONAIS HSR Valor liquido 1.008,88 Vencimento: 003 - 25.12.2022 PROPOSTA HSR 0424/2022 PIZZA HUTABALNEARIO CAMBORIU 5 IMPLANTACAO- CONFIGURACAO NFC-E SANTA CATARINA",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor liquido"
+      ],
+      "page_number": 1,
+      "line_text": "1.06 - Assessoria e Consultoria em Informática SERVICOS PROFISSIONAIS HSR Valor liquido 1.008,88 Vencimento: 003 - 25.12.2022 PROPOSTA HSR 0424/2022 PIZZA HUTABALNEARIO CAMBORIU 5 IMPLANTACAO- CONFIGURACAO NFC-E SANTA CATARINA",
+      "line_index": 13,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        1661.7142857142858,
+        1354.0,
+        119.28571428571422
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:nfse_number:0:1:446c59e0020c",
+    "field_name": "nfse_number",
+    "value": "00041598",
+    "source_element_ids": [
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "numero da nota",
+      "context_text": "PFREITURA DO MUNICIPIO DE SÃO PAULO Número da Nota 00041598",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "municipio de",
+        "numero da nota",
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "PFREITURA DO MUNICIPIO DE SÃO PAULO Número da Nota 00041598",
+      "line_index": 0,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        111.0,
+        1354.0,
+        119.28571428571428
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:provider_document:3:3:78056bf2ce47",
+    "field_name": "provider_document",
+    "value": "33.033.440/0001-02",
+    "source_element_ids": [
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:13",
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:14",
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:15"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 33.033.440/0001-02 Name/Ração Social NCR BRASIL LTDA Inscrição Municipal ----",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 33.033.440/0001-02 Name/Ração Social NCR BRASIL LTDA Inscrição Municipal ----",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        468.8571428571429,
+        1354.0,
+        119.28571428571433
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:provider_municipal_registration:2:1:46e69034f283",
+    "field_name": "provider_municipal_registration",
+    "value": "1.038.953-9",
+    "source_element_ids": [
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:11"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "inscricao municipal",
+      "context_text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 25682 Serie 100, emitido em 26/10/2022 Prestador DE SERVIÇOS Inscrição Municipal 1.038.953-9",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "prestador",
+        "prestador de servicos"
+      ],
+      "page_number": 1,
+      "line_text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N° 25682 Serie 100, emitido em 26/10/2022 Prestador DE SERVIÇOS Inscrição Municipal 1.038.953-9",
+      "line_index": 2,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        349.57142857142856,
+        1353.9999999999998,
+        119.28571428571428
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.7
+    }
+  },
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:provider_uf:4:1:7707f6812879",
+    "field_name": "provider_uf",
+    "value": "SP",
+    "source_element_ids": [
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:23"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Enderço AV JORNALISTA ROBERTO MARINHO 85, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010 Município São Paulo UF SP",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Enderço AV JORNALISTA ROBERTO MARINHO 85, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010 Município São Paulo UF SP",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        588.1428571428571,
+        1353.9999999999998,
+        119.28571428571433
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:recipient_document:7:1:5008afd7d177",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:28"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 02.876.218/0001-30 Inscrição Municipal ----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 02.876.218/0001-30 Inscrição Municipal ----",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        946.0,
+        1354.0,
+        119.28571428571422
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:recipient_uf:9:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "b9feec6b-0f9b-51b5-a848-4a497f8325f4:dolphin:36"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Município Balneário Camboriú UF SC E-mail -----",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Município Balneário Camboriú UF SC E-mail -----",
+      "line_index": 9,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        1184.5714285714287,
+        1353.9999999999998,
+        119.28571428571422
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "b9feec6b-0f9b-51b5-a848-4a497f8325f4:config-driven-output-normalizer:verification_code:1:0:d1eaea7b262b",
+    "field_name": "verification_code",
+    "value": "9UWR-1TZY",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 26/10/2022 09:00:21 Código de Verificação 9UWR-1TZY",
+      "section_name": "header",
+      "raw_section_name": "header",
+      "section_override_applied": false,
+      "section_confidence": 0.85,
+      "section_reasons": [
+        "emissao",
+        "secretaria"
+      ],
+      "page_number": 1,
+      "line_text": "SECRETARIA MUNICIPAL DA FAZENDA Data e Hora de Emissão 26/10/2022 09:00:21 Código de Verificação 9UWR-1TZY",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        176.0,
+        230.28571428571428,
+        1354.0,
+        119.28571428571428
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

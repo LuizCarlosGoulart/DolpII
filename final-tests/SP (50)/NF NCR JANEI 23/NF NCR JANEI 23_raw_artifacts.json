@@ -1,0 +1,1946 @@
+[
+  {
+    "bounding_box": [
+      70.0,
+      36.0,
+      175.0,
+      31.0
+    ],
+    "confidence": 0.9999220371246338,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:0",
+    "element_type": "header",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "header",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "1/18/23, 1:30 PM"
+  },
+  {
+    "bounding_box": [
+      527.0,
+      36.0,
+      847.0,
+      31.0
+    ],
+    "confidence": 0.997721791267395,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:1",
+    "element_type": "header",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "header",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Usuário: 33.033.440/0001-02 - NF-e - Nota Fiscal Eletrônica de Serviços - São Paulo"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      110.0,
+      22.949152542372882,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:2",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "C"
+  },
+  {
+    "bounding_box": [
+      171.94915254237287,
+      110.0,
+      826.1694915254237,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:3",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "PREFEITURA DO MUNICIPIO DE SÃO PAULO"
+  },
+  {
+    "bounding_box": [
+      998.1186440677966,
+      110.0,
+      321.2881355932203,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:4",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Número da Nota"
+  },
+  {
+    "bounding_box": [
+      1319.406779661017,
+      110.0,
+      183.59322033898306,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:5",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "00043164"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      176.68,
+      407.5145631067961,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:6",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SECRETARIA MUNICIPAL DA FAZENDA"
+  },
+  {
+    "bounding_box": [
+      556.5145631067961,
+      176.68,
+      289.20388349514565,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:7",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Data e Hora de Emissão"
+  },
+  {
+    "bounding_box": [
+      845.7184466019418,
+      176.68,
+      249.76699029126215,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:8",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "12/01/2023 09:30:50"
+  },
+  {
+    "bounding_box": [
+      1095.485436893204,
+      176.68,
+      407.5145631067961,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:9",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Código de Verificação IE6W-WVTT"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      243.36,
+      487.0503597122302,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:10",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NOTA FISCAL ELECTRÔNICA DE SERVIÇOS - NFS-e RPS N°"
+  },
+  {
+    "bounding_box": [
+      636.0503597122301,
+      243.36,
+      370.158273381295,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:11",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "27252 Serie 100, emitido em 12/01/2023"
+  },
+  {
+    "bounding_box": [
+      1006.2086330935251,
+      243.36,
+      204.5611510791367,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:12",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "PRESTADOR DE SERVIÇOS"
+  },
+  {
+    "bounding_box": [
+      1210.7697841726617,
+      243.36,
+      185.0791366906475,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:13",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Inscrição Municipal"
+  },
+  {
+    "bounding_box": [
+      1395.848920863309,
+      243.36,
+      107.15107913669065,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:14",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "1.038.953-9"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      310.04,
+      133.7283950617284,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:15",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "CPF/CNPJ"
+  },
+  {
+    "bounding_box": [
+      282.7283950617284,
+      310.04,
+      300.8888888888889,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:16",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "33.033.440/0001-02"
+  },
+  {
+    "bounding_box": [
+      583.6172839506173,
+      310.04,
+      284.17283950617286,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:17",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Name/Razão Social"
+  },
+  {
+    "bounding_box": [
+      867.7901234567902,
+      310.04,
+      250.74074074074073,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:18",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "NCR BRASIL LTDA"
+  },
+  {
+    "bounding_box": [
+      1118.530864197531,
+      310.04,
+      317.60493827160496,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:19",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Inscrição Municipal"
+  },
+  {
+    "bounding_box": [
+      1436.1358024691358,
+      310.04,
+      66.8641975308642,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:20",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      376.72,
+      103.16190476190476,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:21",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Erdereço"
+  },
+  {
+    "bounding_box": [
+      252.16190476190476,
+      376.72,
+      967.1428571428571,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:22",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "AV JONRALISTA ROBERTO MARINHO 85, ANDAR 4 - CIDADE MONCOES - CEP: 04576-010"
+  },
+  {
+    "bounding_box": [
+      1219.3047619047618,
+      376.72,
+      116.05714285714286,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:23",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Município"
+  },
+  {
+    "bounding_box": [
+      1335.3619047619047,
+      376.72,
+      116.05714285714286,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:24",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "São Paulo"
+  },
+  {
+    "bounding_box": [
+      1451.4190476190477,
+      376.72,
+      25.79047619047619,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:25",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "UF"
+  },
+  {
+    "bounding_box": [
+      1477.209523809524,
+      376.72,
+      25.79047619047619,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:26",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SP"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      443.40000000000003,
+      1354.0,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:27",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "TOMADOR DE SERVIÇOS"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      510.08000000000004,
+      460.36,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:28",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Name/Razão Social"
+  },
+  {
+    "bounding_box": [
+      609.36,
+      510.08000000000004,
+      893.64,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:29",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "HAGI - PIZZAS E SUPERMERCADO LTDA"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      576.76,
+      221.0612244897959,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:30",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "CPF/CNPJ"
+  },
+  {
+    "bounding_box": [
+      370.0612244897959,
+      576.76,
+      497.38775510204084,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:31",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "02.876.218/0001-30"
+  },
+  {
+    "bounding_box": [
+      867.4489795918367,
+      576.76,
+      525.0204081632653,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:32",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Inscrição Municipal"
+  },
+  {
+    "bounding_box": [
+      1392.4693877551022,
+      576.76,
+      110.53061224489795,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:33",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      643.44,
+      230.46808510638297,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:34",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Erdereço"
+  },
+  {
+    "bounding_box": [
+      379.468085106383,
+      643.44,
+      1123.531914893617,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:35",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "AV BRASIL 561 - CENTRO - CEP: 88330-043"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      710.1200000000001,
+      297.219512195122,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:36",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Município"
+  },
+  {
+    "bounding_box": [
+      446.219512195122,
+      710.1200000000001,
+      594.439024390244,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:37",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Balneário Camboriú"
+  },
+  {
+    "bounding_box": [
+      1040.658536585366,
+      710.1200000000001,
+      66.04878048780488,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:38",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "UF"
+  },
+  {
+    "bounding_box": [
+      1106.7073170731708,
+      710.1200000000001,
+      66.04878048780488,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:39",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "SC"
+  },
+  {
+    "bounding_box": [
+      1172.7560975609756,
+      710.1200000000001,
+      198.14634146341464,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:40",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "E-mail"
+  },
+  {
+    "bounding_box": [
+      1370.9024390243903,
+      710.1200000000001,
+      132.09756097560975,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:41",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      776.8000000000001,
+      1354.0,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:42",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "INTERMEDIÁRIO DE SERVIÇOS"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      843.48,
+      328.24242424242425,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:43",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "CPF/CNPJ"
+  },
+  {
+    "bounding_box": [
+      477.24242424242425,
+      843.48,
+      164.12121212121212,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:44",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      641.3636363636364,
+      843.48,
+      697.5151515151515,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:45",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Name/Razão Social"
+  },
+  {
+    "bounding_box": [
+      1338.878787878788,
+      843.48,
+      164.12121212121212,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:46",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "----"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      910.1600000000001,
+      1354.0,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:47",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "DISCRIMINAÇÃO DOS SERVIÇOS"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      976.8400000000001,
+      1261.6818181818182,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:48",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "2919 - SUPTE.TECNICO EM INFORMATICA E PROGR. MANUTENCAO MENSAL ALOHA Valor liquido"
+  },
+  {
+    "bounding_box": [
+      1410.6818181818182,
+      976.8400000000001,
+      92.31818181818181,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:49",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "532,81"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1043.52,
+      175.84415584415584,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:50",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Vencimento"
+  },
+  {
+    "bounding_box": [
+      324.8441558441558,
+      1043.52,
+      1178.155844155844,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:51",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "001-30.01.2023 NOME FANTASIA: PH BALNEARIO CAMBORIU PERÍODO 01/2023"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1110.2,
+      984.7272727272727,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:52",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "VALOR TOTAL DO SERVIÇO ="
+  },
+  {
+    "bounding_box": [
+      1133.7272727272727,
+      1110.2,
+      369.27272727272725,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:53",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "R$ 558,79"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1176.88,
+      234.34615384615384,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:54",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "INSS (R$)"
+  },
+  {
+    "bounding_box": [
+      383.3461538461538,
+      1176.88,
+      234.34615384615384,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:55",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "IRRF (R$)"
+  },
+  {
+    "bounding_box": [
+      617.6923076923076,
+      1176.88,
+      234.34615384615384,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:56",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "CSLL (R$)"
+  },
+  {
+    "bounding_box": [
+      852.0384615384614,
+      1176.88,
+      286.4230769230769,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:57",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "COFINS (R$)"
+  },
+  {
+    "bounding_box": [
+      1138.4615384615383,
+      1176.88,
+      364.53846153846155,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:58",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "PIS/PASEP (R$)"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1243.5600000000002,
+      90.26666666666667,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:59",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      239.26666666666665,
+      1243.5600000000002,
+      90.26666666666667,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:60",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      329.5333333333333,
+      1243.5600000000002,
+      361.06666666666666,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:61",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "5,59"
+  },
+  {
+    "bounding_box": [
+      690.5999999999999,
+      1243.5600000000002,
+      451.3333333333333,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:62",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "16,76"
+  },
+  {
+    "bounding_box": [
+      1141.9333333333332,
+      1243.5600000000002,
+      361.06666666666666,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:63",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "3,63"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1310.2400000000002,
+      1354.0,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:64",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Código do Serviço"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1376.92,
+      1354.0,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:65",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "02919 - Supporte técnico, instalação, configuração e manutenção de programas e bancos de dados."
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1443.6000000000001,
+      386.85714285714283,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:66",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Valor Total das Deduções (R$) 0,00"
+  },
+  {
+    "bounding_box": [
+      535.8571428571429,
+      1443.6000000000001,
+      307.21008403361344,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:67",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Base de Cálculo (R$) 558,79"
+  },
+  {
+    "bounding_box": [
+      843.0672268907563,
+      1443.6000000000001,
+      204.80672268907563,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:68",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Aliquota (%) 2,90%"
+  },
+  {
+    "bounding_box": [
+      1047.8739495798318,
+      1443.6000000000001,
+      261.69747899159665,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:69",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Valor do ISS (R$) 16,20"
+  },
+  {
+    "bounding_box": [
+      1309.5714285714284,
+      1443.6000000000001,
+      193.42857142857142,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:70",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Credito (R$) 0,00"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1510.2800000000002,
+      455.9387755102041,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:71",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Municipio da Prestação do Serviço"
+  },
+  {
+    "bounding_box": [
+      604.9387755102041,
+      1510.2800000000002,
+      359.2244897959184,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:72",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Número Inscricão da Obra -"
+  },
+  {
+    "bounding_box": [
+      964.1632653061224,
+      1510.2800000000002,
+      538.8367346938776,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:73",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "Valor Aproximado dos Tributos / Fonte -"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1576.96,
+      451.3333333333333,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:74",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      600.3333333333333,
+      1576.96,
+      451.3333333333333,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:75",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      1051.6666666666665,
+      1576.96,
+      451.3333333333333,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:76",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "-"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1643.64,
+      1354.0,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:77",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "OUTRAS INFORMAÇÕES"
+  },
+  {
+    "bounding_box": [
+      149.0,
+      1710.3200000000002,
+      1275.1957671957673,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:78",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "(1) Esta NFS-e foi emitida com respaldo na Lei nº 14.097/2005; (2) Esta NFS-e substitui o RPS N° 27252 Serie 100, emitido em 12/01/2023; (3) Data de vencimento do ISS desta NFS-e"
+  },
+  {
+    "bounding_box": [
+      1424.1957671957673,
+      1710.3200000000002,
+      78.80423280423281,
+      66.68
+    ],
+    "confidence": 0.9528703093528748,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:79",
+    "element_type": "para",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "para",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "10/02/2023;"
+  },
+  {
+    "bounding_box": [
+      66.0,
+      2269.0,
+      1511.0,
+      30.0
+    ],
+    "confidence": 0.9624528884887695,
+    "element_id": "057b8fe9-d74b-53d0-b353-776427614617:dolphin:80",
+    "element_type": "foot",
+    "metadata": {
+      "device": null,
+      "model_path": null,
+      "preprocessing_metadata": {
+        "media_type": "application/pdf",
+        "normalization_steps": [],
+        "source_kind": "pdf"
+      },
+      "raw_label": "foot",
+      "source_engine": "dolphin"
+    },
+    "page_number": 1,
+    "text": "https://nfe.prefeitura.sp.gov.br/contribuinte/notaprint.aspx?instrcicao=10389539&nf=43164&returnUrl=consultas.aspx%3finstrcicao%3d10389539\n1/1"
+  }
+]

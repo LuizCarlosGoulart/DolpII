@@ -1,0 +1,589 @@
+[
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:deductions_amount:22:5:ba5e53c8a7d7",
+    "field_name": "deductions_amount",
+    "value": "0,00",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:56",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:57",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:58",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:59",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:60"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "deducoes",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 22,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        1663.5555555555554,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:gross_amount:18:1:b69e6462e7fb",
+    "field_name": "gross_amount",
+    "value": "R$ 479,90",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:44"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor total do servico",
+      "context_text": "VALOR TOTAL DO SERVIÇO = R$ 479,90",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "VALOR TOTAL DO SERVIÇO = R$ 479,90",
+      "line_index": 18,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        1388.0,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:ir_withheld_amount:19:1:a49f4ad7216d",
+    "field_name": "ir_withheld_amount",
+    "value": "4,80",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:46"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "irrf",
+      "context_text": "INSS(R$) - IRRF(R$) - CSLL(R$) 4,80 COFINS(R$) 14,40 PIS/PASEP(R$) 3,12",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "value_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "INSS(R$) - IRRF(R$) - CSLL(R$) 4,80 COFINS(R$) 14,40 PIS/PASEP(R$) 3,12",
+      "line_index": 19,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        1456.888888888889,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:iss_amount:22:5:9861dd659e0e",
+    "field_name": "iss_amount",
+    "value": "13,91",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:56",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:57",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:58",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:59",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:60"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor do iss",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 22,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        1663.5555555555554,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:iss_rate:22:5:5630ac17288d",
+    "field_name": "iss_rate",
+    "value": "2,90%",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:56",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:57",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:58",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:59",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:60"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "aliquota",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 22,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        1663.5555555555554,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:provider_address:1:1:66a523d590b6",
+    "field_name": "provider_address",
+    "value": "AV. JOURNALISTA ROBERTO MARINHO, 85 4 ANDAR CJ 41 CIDADE MONCOES CEP.: 40030-41",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:4"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço AV. JOURNALISTA ROBERTO MARINHO, 85 4 ANDAR CJ 41 CIDADE MONCOES CEP.: 40030-41 Código de Verificação GMPW-41WJ",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV. JOURNALISTA ROBERTO MARINHO, 85 4 ANDAR CJ 41 CIDADE MONCOES CEP.: 40030-41 Código de Verificação GMPW-41WJ",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        216.88888888888889,
+        1379.0,
+        68.88888888888889
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:provider_document:0:3:5008afd7d177",
+    "field_name": "provider_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:0",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:1",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9780034112930298,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFP/CNPJ 02.876.218/0001-30 INscrição Municipal:",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0001-30 INscrição Municipal:",
+      "line_index": 0,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        148.0,
+        1379.0,
+        68.88888888888889
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:recipient_address:6:2:8df4d7f08c75",
+    "field_name": "recipient_address",
+    "value": "AV. BRASIL, 561 CENTRO CEP.: 88330-043 Inscrção Municipal",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:20",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:21"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "endereco",
+      "context_text": "Endereço AV. BRASIL, 561 CENTRO CEP.: 88330-043 Inscrção Municipal:",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV. BRASIL, 561 CENTRO CEP.: 88330-043 Inscrção Municipal:",
+      "line_index": 6,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        561.3333333333333,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:recipient_document:5:1:5008afd7d177",
+    "field_name": "recipient_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:18"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "cpf cnpj",
+      "context_text": "CPF/CNPJ 02.876.218/0001-30",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "CPF/CNPJ 02.876.218/0001-30",
+      "line_index": 5,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        492.44444444444446,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:recipient_email:7:1:4d602c67e3cd",
+    "field_name": "recipient_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:27"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "Municipio BALNEARIO CAMBORIU UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Municipio BALNEARIO CAMBORIU UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        630.2222222222222,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:recipient_name:4:3:2fc86cd0b7ce",
+    "field_name": "recipient_name",
+    "value": "HAGI SUPERMERCADOS LTDA Inscrção Municipal",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:14",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:15",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:16"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "razao social",
+      "context_text": "Name/Razão Social HAGI SUPERMERCADOS LTDA Inscrção Municipal: 10389539",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Name/Razão Social HAGI SUPERMERCADOS LTDA Inscrção Municipal: 10389539",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        423.55555555555554,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:recipient_uf:7:1:59aa962f7269",
+    "field_name": "recipient_uf",
+    "value": "SC",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:25"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "uf",
+      "context_text": "Municipio BALNEARIO CAMBORIU UF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "recipient",
+      "raw_section_name": "recipient",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "recipient_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Municipio BALNEARIO CAMBORIU UF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 7,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        630.2222222222222,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:taxable_amount:22:5:1d090a710fbe",
+    "field_name": "taxable_amount",
+    "value": "479,90",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:56",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:57",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:58",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:59",
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:60"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base_de_calculo",
+      "context_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "aliquota",
+        "base de calculo",
+        "deducoes",
+        "valor total"
+      ],
+      "page_number": 1,
+      "line_text": "Valor Total das Deduções (R$) Base de Cálculo (R$) Aliquota (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 22,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        1663.5555555555554,
+        1379.0,
+        68.88888888888891
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "0516528d-aeed-545e-a8c0-534479c3e84b:config-driven-output-normalizer:verification_code:1:1:639e5f9ef0f7",
+    "field_name": "verification_code",
+    "value": "GMPW-41WJ",
+    "source_element_ids": [
+      "0516528d-aeed-545e-a8c0-534479c3e84b:dolphin:6"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "codigo de verificacao",
+      "context_text": "Endereço AV. JOURNALISTA ROBERTO MARINHO, 85 4 ANDAR CJ 41 CIDADE MONCOES CEP.: 40030-41 Código de Verificação GMPW-41WJ",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "Endereço AV. JOURNALISTA ROBERTO MARINHO, 85 4 ANDAR CJ 41 CIDADE MONCOES CEP.: 40030-41 Código de Verificação GMPW-41WJ",
+      "line_index": 1,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        156.0,
+        216.88888888888889,
+        1379.0,
+        68.88888888888889
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]

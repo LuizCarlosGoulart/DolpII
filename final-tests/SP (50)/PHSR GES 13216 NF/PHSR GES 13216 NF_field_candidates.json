@@ -1,0 +1,303 @@
+[
+  {
+    "candidate_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:config-driven-output-normalizer:deductions_amount:57:5:ba5e53c8a7d7",
+    "field_name": "deductions_amount",
+    "value": "0,00",
+    "source_element_ids": [
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:180",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:181",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:182",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:183",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:184"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "deducoes",
+      "context_text": "Value Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "base de calculo",
+        "deducoes"
+      ],
+      "page_number": 1,
+      "line_text": "Value Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 57,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1618.2380952380952,
+        1354.0,
+        26.460317460317356
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:config-driven-output-normalizer:iss_amount:57:5:edaa3fd4b29e",
+    "field_name": "iss_amount",
+    "value": "37,50",
+    "source_element_ids": [
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:180",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:181",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:182",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:183",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:184"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "valor do iss",
+      "context_text": "Value Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "base de calculo",
+        "deducoes"
+      ],
+      "page_number": 1,
+      "line_text": "Value Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 57,
+      "value_source": "financial_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1618.2380952380952,
+        1354.0,
+        26.460317460317356
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "merged_financial_context"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  },
+  {
+    "candidate_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:config-driven-output-normalizer:provider_document:0:3:5008afd7d177",
+    "field_name": "provider_document",
+    "value": "02.876.218/0001-30",
+    "source_element_ids": [
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:0",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:1",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:2"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.9940324115753174,
+    "metadata": {
+      "label_text": "document pattern",
+      "context_text": "CFP/CNPJ 02.876.218/0001-30 INTERMEDIARIO DE SERVIÇOS",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.72,
+      "section_reasons": [
+        "implicit_provider_before_recipient"
+      ],
+      "page_number": 1,
+      "line_text": "CFP/CNPJ 02.876.218/0001-30 INTERMEDIARIO DE SERVIÇOS",
+      "line_index": 0,
+      "value_source": "regex",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        110.0,
+        1354.0,
+        26.46031746031747
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.88
+    }
+  },
+  {
+    "candidate_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:config-driven-output-normalizer:provider_email:3:1:4d602c67e3cd",
+    "field_name": "provider_email",
+    "value": "andreas_sandri@hotmail.com",
+    "source_element_ids": [
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:16"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "e mail",
+      "context_text": "FF SC E-mail andreas_sandri@hotmail.com",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "FF SC E-mail andreas_sandri@hotmail.com",
+      "line_index": 3,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        189.38095238095238,
+        1354.0,
+        26.46031746031747
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "accepted",
+      "review_reasons": [],
+      "manual_review_required": false,
+      "review_confidence_threshold": 0.75
+    }
+  },
+  {
+    "candidate_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:config-driven-output-normalizer:provider_name:4:1:7f6e1d977ac7",
+    "field_name": "provider_name",
+    "value": "HAGI PIZZAS E SUPERMERCADO LTDA",
+    "source_element_ids": [
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:18"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "NOME/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "NOME/Razão Social HAGI PIZZAS E SUPERMERCADO LTDA",
+      "line_index": 4,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        215.84126984126982,
+        1354.0,
+        26.46031746031747
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:config-driven-output-normalizer:provider_name:56:0:afdd1e3323f0",
+    "field_name": "provider_name",
+    "value": "HAGI PIZZAS e CONSULTORIA de qualquer natureza, não contida em outros itens desta lista.",
+    "source_element_ids": [],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 0.58,
+    "metadata": {
+      "label_text": "nome razao social",
+      "context_text": "NOME/Razão Social HAGI PIZZAS e CONSULTORIA de qualquer natureza, não contida em outros itens desta lista.",
+      "section_name": "provider",
+      "raw_section_name": "provider",
+      "section_override_applied": false,
+      "section_confidence": 0.78,
+      "section_reasons": [
+        "provider_detail_continuation"
+      ],
+      "page_number": 1,
+      "line_text": "NOME/Razão Social HAGI PIZZAS e CONSULTORIA de qualquer natureza, não contida em outros itens desta lista.",
+      "line_index": 56,
+      "value_source": "same_line",
+      "same_block_as_label": true,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1591.7777777777776,
+        1354.0,
+        26.460317460317356
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "low_confidence",
+        "multiple_candidates"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.75,
+      "candidate_conflict_count": 2
+    }
+  },
+  {
+    "candidate_id": "48278eee-102a-53b5-a1bd-a4d26e760c96:config-driven-output-normalizer:taxable_amount:57:5:d6f140cfe687",
+    "field_name": "taxable_amount",
+    "value": "750,00",
+    "source_element_ids": [
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:180",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:181",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:182",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:183",
+      "48278eee-102a-53b5-a1bd-a4d26e760c96:dolphin:184"
+    ],
+    "source_name": "config-driven-output-normalizer",
+    "confidence": 1.0,
+    "metadata": {
+      "label_text": "base de calculo",
+      "context_text": "Value Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "section_name": "values",
+      "raw_section_name": "values",
+      "section_override_applied": false,
+      "section_confidence": 0.92,
+      "section_reasons": [
+        "base de calculo",
+        "deducoes"
+      ],
+      "page_number": 1,
+      "line_text": "Value Total das Deduções (R$) Base de Cálculo (R$) Aliquta (%) Valor do ISS (R$) Credito (R$)",
+      "line_index": 57,
+      "value_source": "next_line_table",
+      "same_block_as_label": false,
+      "block_num": null,
+      "label_block_num": null,
+      "bounding_box": [
+        149.0,
+        1618.2380952380952,
+        1354.0,
+        26.460317460317356
+      ],
+      "ocr_correction_applied": false,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "table_value"
+      ],
+      "manual_review_required": true,
+      "review_confidence_threshold": 0.85
+    }
+  }
+]
